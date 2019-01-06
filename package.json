@@ -7,9 +7,11 @@
   "copyright": "Copyright 2018 creativeLabs Łukasz Holeczek",
   "license": "MIT",
   "private": true,
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:coreui/coreui-free-react-admin-template.git"
+  "scripts": {
+    "start": "node scripts/start.js",
+    "build": "node scripts/build.js",
+    "test": "node scripts/test.js",
+    "lint": "eslint -f unix ."
   },
   "dependencies": {
     "@babel/core": "7.1.6",
@@ -19,9 +21,9 @@
     "@coreui/react": "^2.1.1",
     "@svgr/webpack": "2.4.1",
     "babel-core": "7.0.0-bridge.0",
-    "babel-eslint": "9.0.0",
+    "babel-eslint": "^10.0.1",
     "babel-jest": "23.6.0",
-    "babel-loader": "8.0.4",
+    "babel-loader": "^8.0.5",
     "babel-plugin-named-asset-import": "^0.3.0",
     "babel-preset-react-app": "^7.0.0",
     "bfj": "6.1.1",
@@ -37,12 +39,14 @@
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
     "eslint": "5.6.0",
+    "eslint": "^5.12.0",
+    "eslint-config-airbnb": "^17.1.0",
     "eslint-config-react-app": "^3.0.6",
-    "eslint-loader": "2.1.1",
+    "eslint-loader": "^2.1.1",
     "eslint-plugin-flowtype": "2.50.1",
-    "eslint-plugin-import": "2.14.0",
-    "eslint-plugin-jsx-a11y": "6.1.2",
-    "eslint-plugin-react": "7.11.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.12.3",
     "file-loader": "2.0.0",
     "flag-icon-css": "^3.2.1",
     "font-awesome": "^4.7.0",
@@ -90,9 +94,6 @@
     "test": "node scripts/test.js",
     "test:cov": "node scripts/test.js --coverage",
     "test:debug": "react-scripts --inspect-brk test --runInBand"
-  },
-  "bugs": {
-    "url": "https://github.com/coreui/coreui-free-react-admin-template/issues"
   },
   "eslintConfig": {
     "extends": "react-app"
