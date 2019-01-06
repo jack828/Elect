@@ -9,9 +9,9 @@
     "semi": [ "error", "never" ],
     "consistent-return": "off",
     "arrow-body-style": "off",
-    "no-console": "off",
     "react/jsx-filename-extension": "off",
     "no-param-reassign": "off"
+    "no-console": "off"
   },
 
   "env": {
