@@ -97,7 +97,7 @@ checkBrowsers(paths.appPath, isInteractive)
       openBrowser(urls.localUrlForBrowser)
     })
 
-    [ 'SIGINT', 'SIGTERM' ].forEach((sig) => {
+    ;[ 'SIGINT', 'SIGTERM' ].forEach((sig) => {
       process.on(sig, () => {
           devServer.close()
           process.exit()
