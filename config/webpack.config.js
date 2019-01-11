@@ -334,7 +334,10 @@ module.exports = (webpackEnv) => {
                   'babel-preset-react-app/webpack-overrides'
                 ),
 
+                presets: [ require.resolve('babel-preset-react-app') ],
+
                 plugins: [
+                  require.resolve('@babel/plugin-syntax-dynamic-import'),
                   [
                     require.resolve('babel-plugin-named-asset-import'),
                     {

@@ -1,5 +1,5 @@
 {
-  "extends": "airbnb",
+  "extends": [ "react-app", "airbnb" ],
 
   "rules": {
     "jsx-quotes": [ 2, "prefer-double" ],
@@ -11,7 +11,9 @@
     "arrow-body-style": "off",
     "no-console": "off",
     "react/jsx-filename-extension": "off",
-    "no-param-reassign": "off"
+    "no-param-reassign": "off",
+    "import/no-named-as-default": "off",
+    "import/no-named-as-default-member": "off"
   },
 
   "env": {
