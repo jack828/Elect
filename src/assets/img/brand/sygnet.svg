@@ -1,17 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Warstwa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="173.2px" height="200px" viewBox="0 0 173.2 200" enable-background="new 0 0 173.2 200" xml:space="preserve">
-<polygon fill="#61DAFB" points="0,150 0,50 86.6,0 173.2,50 173.2,150 86.6,200 "/>
-<polygon fill="#FFFFFF" points="86.6,133.3 57.7,116.7 57.7,83.3 86.6,66.7 115.5,83.3 144.3,66.7 86.6,33.3 28.9,66.7 28.9,133.3 
-	86.6,166.7 144.3,133.3 115.5,116.7 "/>
-<polygon opacity="0.04" stroke="#FFFFFF" stroke-miterlimit="10" enable-background="new    " points="0,50 86.6,100 86.6,0 "/>
-<polygon opacity="0.04" stroke="#FFFFFF" stroke-miterlimit="10" enable-background="new    " points="0,150 86.6,200 86.6,100 "/>
-<polygon opacity="0.08" stroke="#FFFFFF" stroke-miterlimit="10" enable-background="new    " points="86.6,100 173.2,150 173.2,50 
-	"/>
-<polygon fill-opacity="0" points="86.6,100 0,50 0,150 "/>
-<polygon opacity="0.08" stroke="#FFFFFF" stroke-miterlimit="10" enable-background="new    " points="173.2,150 86.6,100 86.6,200 
-	"/>
-<polygon opacity="0.08" stroke="#FFFFFF" stroke-miterlimit="10" enable-background="new    " points="173.2,50 86.6,0 86.6,100 "/>
+<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g>
+  <title>background</title>
+  <rect fill="#fff" id="canvas_background" height="102" width="102" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g stroke="null" id="svg_7">
+   <path stroke="null" id="svg_4" d="m85.309975,35.712938l-10.276094,0l2.890152,-1.685922c0.80282,-0.40141 1.043666,-1.445076 0.561974,-2.167614l-11.159196,-19.428241c-0.240846,-0.40141 -0.561974,-0.642256 -0.963384,-0.722538c-0.40141,-0.080282 -0.883102,-0.080282 -1.20423,0.160564l-33.477589,19.107113c-0.40141,0.240846 -0.642256,0.561974 -0.722538,0.963384c-0.080282,0.40141 -0.080282,0.883102 0.160564,1.20423l1.445076,2.569024l-16.297244,0c-0.883102,0 -1.60564,0.722538 -1.60564,1.60564l0,44.957913c0,0.883102 0.722538,1.60564 1.60564,1.60564l69.04251,0c0.883102,0 1.60564,-0.722538 1.60564,-1.60564l0,-44.957913c0,-0.883102 -0.722538,-1.60564 -1.60564,-1.60564zm-19.990215,-20.311343l9.553557,16.698653l-21.676137,12.443708l-11.881734,0l-6.583123,-11.560606l30.587437,-17.581755zm18.384575,65.269256l-65.83123,0l0,-24.084596l65.83123,0l0,24.084596zm0,-27.295876l-65.83123,0l0,-14.450758l16.53809,0l3.21128,5.619739l-10.11553,0c-0.883102,0 -1.60564,0.722538 -1.60564,1.60564c0,0.883102 0.722538,1.60564 1.60564,1.60564l46.563553,0c0.883102,0 1.60564,-0.722538 1.60564,-1.60564c0,-0.883102 -0.722538,-1.60564 -1.60564,-1.60564l-14.450758,0l9.794403,-5.619739l14.290194,0l0,14.450758zm-35.083229,-17.902883c0.240846,-0.883102 1.123948,-1.364794 2.00705,-1.123948l3.130998,0.80282l2.488742,-9.312711c0.240846,-0.883102 1.123948,-1.364794 2.00705,-1.123948s1.364794,1.123948 1.123948,2.00705l-2.970434,10.838068c-0.160564,0.722538 -0.80282,1.20423 -1.525358,1.20423c-0.160564,0 -0.321128,0 -0.40141,-0.080282l-4.656355,-1.284512c-0.963384,-0.240846 -1.445076,-1.123948 -1.20423,-1.926768z"/>
+   <text stroke="null" transform="matrix(1.837246460754397,0,0,1.145973610326324,-359.22160047784513,18.026038343267032) " id="svg_5" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif" font-weight="bold" font-size="5px" fill="#000000" y="104.405203" x="201.457249">Created by Mark Aventura</text>
+   <text stroke="null" transform="matrix(1.837246460754397,0,0,1.145973610326324,-359.22160047784513,18.026038343267032) " id="svg_6" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif" font-weight="bold" font-size="5px" fill="#000000" y="109.405203" x="201.457249">from the Noun Project</text>
+  </g>
+ </g>
 </svg>
