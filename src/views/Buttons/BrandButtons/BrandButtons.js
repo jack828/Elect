@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import { Button, Card, CardBody, CardHeader, Col, Row } from 'reactstrap';
+/* eslint-disable */
+import React, { Component } from 'react'
+import { Button, Card, CardBody, CardHeader, Col, Row } from 'reactstrap'
 
 class BrandButtons extends Component {
   render() {
@@ -317,8 +318,8 @@ class BrandButtons extends Component {
         </Row>
       </div>
 
-    );
+    )
   }
 }
 
-export default BrandButtons;
+export default BrandButtons

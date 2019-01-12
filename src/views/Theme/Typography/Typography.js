@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+/* eslint-disable */
+import React, { Component } from 'react'
 
 class Typography extends Component {
   render() {
@@ -163,8 +164,8 @@ class Typography extends Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Typography;
+export default Typography

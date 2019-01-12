@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
-import { CardGroup, Col, Row } from 'reactstrap';
-import Widget01 from './Widget01';
-import Widget02 from './Widget02';
-import Widget03 from './Widget03';
-import Widget04 from './Widget04';
-import { Line } from 'react-chartjs-2';
+/* eslint-disable */
+import React, { Component } from 'react'
+import { CardGroup, Col, Row } from 'reactstrap'
+import Widget01 from './Widget01'
+import Widget02 from './Widget02'
+import Widget03 from './Widget03'
+import Widget04 from './Widget04'
+import { Line } from 'react-chartjs-2'
 
 
 // Brand Card Chart
@@ -13,10 +14,10 @@ const makeSocialBoxData = (dataSetNo) => {
     { data: [65, 59, 84, 84, 51, 55, 40], label: 'facebook' },
     { data: [1, 13, 9, 17, 34, 41, 38], label: 'twitter' },
     { data: [78, 81, 80, 45, 34, 12, 40], label: 'linkedin' },
-    { data: [35, 23, 56, 22, 97, 23, 64], label: 'google' },
-  ];
+    { data: [35, 23, 56, 22, 97, 23, 64], label: 'google' }
+  ]
 
-  const dataset = socialBoxData[dataSetNo];
+  const dataset = socialBoxData[dataSetNo]
   const data = {
     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
     datasets: [
@@ -26,12 +27,12 @@ const makeSocialBoxData = (dataSetNo) => {
         pointHoverBackgroundColor: '#fff',
         borderWidth: 2,
         data: dataset.data,
-        label: dataset.label,
-      },
-    ],
-  };
-  return () => data;
-};
+        label: dataset.label
+      }
+    ]
+  }
+  return () => data
+}
 
 const socialChartOpts = {
   responsive: true,
@@ -47,17 +48,17 @@ const socialChartOpts = {
     yAxes: [
       {
         display: false,
-      }],
+      }]
   },
   elements: {
     point: {
       radius: 0,
       hitRadius: 10,
       hoverRadius: 4,
-      hoverBorderWidth: 3,
-    },
-  },
-};
+      hoverBorderWidth: 3
+    }
+  }
+}
 
 class Widgets extends Component {
   render() {
@@ -225,8 +226,8 @@ class Widgets extends Component {
           </Col>
         </Row>
       </div>
-    );
+    )
   }
 }
 
-export default Widgets;
+export default Widgets

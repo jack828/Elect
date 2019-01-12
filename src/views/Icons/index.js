@@ -1,3 +1,4 @@
+/* eslint-disable */
 import CoreUIIcons from './CoreUIIcons';
 import Flags from './Flags';
 import FontAwesome from './FontAwesome';

@@ -1,22 +1,23 @@
-import React, { Component } from 'react';
-import { Badge, Card, CardBody, CardHeader, Col, ListGroup, ListGroupItem, ListGroupItemHeading, ListGroupItemText, Row, TabContent, TabPane } from 'reactstrap';
+/* eslint-disable */
+import React, { Component } from 'react'
+import { Badge, Card, CardBody, CardHeader, Col, ListGroup, ListGroupItem, ListGroupItemHeading, ListGroupItemText, Row, TabContent, TabPane } from 'reactstrap'
 
 class ListGroups extends Component {
 
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.toggle = this.toggle.bind(this);
+    this.toggle = this.toggle.bind(this)
     this.state = {
       activeTab: 1
-    };
+    }
   }
 
   toggle(tab) {
     if (this.state.activeTab !== tab) {
       this.setState({
         activeTab: tab
-      });
+      })
     }
   }
 
@@ -222,8 +223,8 @@ class ListGroups extends Component {
           </Col>
         </Row>
       </div>
-    );
+    )
   }
 }
 
-export default ListGroups;
+export default ListGroups

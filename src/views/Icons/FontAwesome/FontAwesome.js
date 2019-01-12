@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import { Alert, Card, CardBody, CardHeader, Col, Row } from 'reactstrap';
+/* eslint-disable */
+import React, { Component } from 'react'
+import { Alert, Card, CardBody, CardHeader, Col, Row } from 'reactstrap'
 
 class FontAwesome extends Component {
   render() {
@@ -3695,8 +3696,8 @@ class FontAwesome extends Component {
         </Card>
       </div>
 
-    );
+    )
   }
 }
 
-export default FontAwesome;
+export default FontAwesome

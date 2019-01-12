@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
   Card,
   CardBody,
@@ -13,32 +13,31 @@ import {
   NavbarToggler,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-} from 'reactstrap';
+  UncontrolledDropdown
+} from 'reactstrap'
 
 class Navbars extends Component {
-
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.toggle = this.toggle.bind(this);
-    this.toggleNavbar = this.toggleNavbar.bind(this);
+    this.toggle = this.toggle.bind(this)
+    this.toggleNavbar = this.toggleNavbar.bind(this)
     this.state = {
       isOpen: false,
-      collapsed: true,
-    };
+      collapsed: true
+    }
   }
 
   toggle() {
-    this.setState({
-      isOpen: !this.state.isOpen,
-    });
+    this.setState(({ isOpen }) => ({
+      isOpen: !isOpen
+    }))
   }
 
   toggleNavbar() {
-    this.setState({
-      collapsed: !this.state.collapsed,
-    });
+    this.setState(({ collapsed }) => ({
+      collapsed: !collapsed
+    }))
   }
 
   render() {
@@ -46,7 +45,8 @@ class Navbars extends Component {
       <div className="animated fadeIn">
         <Card>
           <CardHeader>
-            <i className="fa fa-align-justify"></i><strong>Navbar</strong>
+            <i className="fa fa-align-justify" />
+            <strong>Navbar</strong>
             <div className="card-header-actions">
               <a href="https://reactstrap.github.io/components/navbar/" rel="noreferrer noopener" target="_blank" className="card-header-action">
                 <small className="text-muted">docs</small>
@@ -66,8 +66,8 @@ class Navbars extends Component {
                     <NavLink href="https://github.com/reactstrap/reactstrap" target="_blank">Github</NavLink>
                   </NavItem>
                   <UncontrolledDropdown nav inNavbar>
-                    {/*Warning: React does not recognize the `inNavbar` prop on a DOM element.*/}
-                    {/*waiting for reactstrap@5.0.0-alpha.5*/}
+                    {/* Warning: React does not recognize the `inNavbar` prop on a DOM element. */}
+                    {/* waiting for reactstrap@5.0.0-alpha.5 */}
                     <DropdownToggle nav caret>
                       Options
                     </DropdownToggle>
@@ -91,7 +91,8 @@ class Navbars extends Component {
         </Card>
         <Card>
           <CardHeader>
-            <i className="fa fa-align-justify"></i><strong>Navbar Toggler</strong>
+            <i className="fa fa-align-justify" />
+            <strong>Navbar Toggler</strong>
           </CardHeader>
           <CardBody>
             <Navbar color="success" light>
@@ -111,8 +112,8 @@ class Navbars extends Component {
           </CardBody>
         </Card>
       </div>
-    );
+    )
   }
 }
 
-export default Navbars;
+export default Navbars

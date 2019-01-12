@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { Component, lazy, Suspense } from 'react';
 import { Bar, Line } from 'react-chartjs-2';
 import {

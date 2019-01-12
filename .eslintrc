@@ -13,7 +13,10 @@
     "react/jsx-filename-extension": "off",
     "no-param-reassign": "off",
     "import/no-named-as-default": "off",
-    "import/no-named-as-default-member": "off"
+    "import/no-named-as-default-member": "off",
+    "react/class-methods-use-this": "off",
+    "react/destructuring-assignment": "off",
+    "object-curly-newline": "off"
   },
 
   "env": {

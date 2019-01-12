@@ -1,38 +1,39 @@
-import React, { Component } from 'react';
-import { Nav, NavItem, NavLink, Progress, TabContent, TabPane, ListGroup, ListGroupItem } from 'reactstrap';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+/* eslint-disable */
+import React, { Component } from 'react'
+import { Nav, NavItem, NavLink, Progress, TabContent, TabPane, ListGroup, ListGroupItem } from 'reactstrap'
+import PropTypes from 'prop-types'
+import classNames from 'classnames'
 import { AppSwitch } from '@coreui/react'
 
 const propTypes = {
   children: PropTypes.node,
-};
+}
 
-const defaultProps = {};
+const defaultProps = {}
 
 class DefaultAside extends Component {
 
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.toggle = this.toggle.bind(this);
+    this.toggle = this.toggle.bind(this)
     this.state = {
-      activeTab: '1',
-    };
+      activeTab: '1'
+    }
   }
 
   toggle(tab) {
     if (this.state.activeTab !== tab) {
       this.setState({
-        activeTab: tab,
-      });
+        activeTab: tab
+      })
     }
   }
 
   render() {
 
     // eslint-disable-next-line
-    const { children, ...attributes } = this.props;
+    const { children, ...attributes } = this.props
 
     return (
       <React.Fragment>
@@ -40,7 +41,7 @@ class DefaultAside extends Component {
           <NavItem>
             <NavLink className={classNames({ active: this.state.activeTab === '1' })}
                      onClick={() => {
-                       this.toggle('1');
+                       this.toggle('1')
                      }}>
               <i className="icon-list"></i>
             </NavLink>
@@ -48,7 +49,7 @@ class DefaultAside extends Component {
           <NavItem>
             <NavLink className={classNames({ active: this.state.activeTab === '2' })}
                      onClick={() => {
-                       this.toggle('2');
+                       this.toggle('2')
                      }}>
               <i className="icon-speech"></i>
             </NavLink>
@@ -56,7 +57,7 @@ class DefaultAside extends Component {
           <NavItem>
             <NavLink className={classNames({ active: this.state.activeTab === '3' })}
                      onClick={() => {
-                       this.toggle('3');
+                       this.toggle('3')
                      }}>
               <i className="icon-settings"></i>
             </NavLink>
@@ -307,11 +308,11 @@ class DefaultAside extends Component {
           </TabPane>
         </TabContent>
       </React.Fragment>
-    );
+    )
   }
 }
 
-DefaultAside.propTypes = propTypes;
-DefaultAside.defaultProps = defaultProps;
+DefaultAside.propTypes = propTypes
+DefaultAside.defaultProps = defaultProps
 
-export default DefaultAside;
+export default DefaultAside

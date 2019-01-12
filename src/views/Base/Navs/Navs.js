@@ -1,24 +1,25 @@
-import React, { Component } from 'react';
-import { Card, CardBody, CardHeader, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Nav, NavItem, NavLink } from 'reactstrap';
+/* eslint-disable */
+import React, { Component } from 'react'
+import { Card, CardBody, CardHeader, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Nav, NavItem, NavLink } from 'reactstrap'
 
 class Navs extends Component {
 
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.toggle = this.toggle.bind(this);
+    this.toggle = this.toggle.bind(this)
     this.state = {
-      dropdownOpen: [false, false],
-    };
+      dropdownOpen: [false, false]
+    }
   }
 
   toggle(i) {
     const newArray = this.state.dropdownOpen.map((element, index) => {
-      return (index === i ? !element : false);
-    });
+      return (index === i ? !element : false)
+    })
     this.setState({
-      dropdownOpen: newArray,
-    });
+      dropdownOpen: newArray
+    })
   }
 
   render() {
@@ -66,7 +67,7 @@ class Navs extends Component {
               <NavItem>
                 <NavLink href="#" active>Link</NavLink>
               </NavItem>
-              <Dropdown nav isOpen={this.state.dropdownOpen[0]} toggle={() => {this.toggle(0);}}>
+              <Dropdown nav isOpen={this.state.dropdownOpen[0]} toggle={() => {this.toggle(0)}}>
                 <DropdownToggle nav caret>
                   Dropdown
                 </DropdownToggle>
@@ -99,7 +100,7 @@ class Navs extends Component {
               <NavItem>
                 <NavLink href="#" active>Link</NavLink>
               </NavItem>
-              <Dropdown nav isOpen={this.state.dropdownOpen[1]} toggle={() => {this.toggle(1);}}>
+              <Dropdown nav isOpen={this.state.dropdownOpen[1]} toggle={() => {this.toggle(1)}}>
                 <DropdownToggle nav caret>
                   Dropdown
                 </DropdownToggle>
@@ -152,8 +153,8 @@ class Navs extends Component {
           </CardBody>
         </Card>
       </div>
-    );
+    )
   }
 }
 
-export default Navs;
+export default Navs
