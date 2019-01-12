@@ -9,6 +9,7 @@
   "private": true,
   "scripts": {
     "start": "node scripts/start.js",
+    "start:server": "nodemon --exec babel-node server/app",
     "build": "node scripts/build.js",
     "pretest": "eslint -f unix .",
     "test": "node scripts/test.js",
@@ -16,14 +17,15 @@
     "test:debug": "react-scripts --inspect-brk test --runInBand"
   },
   "dependencies": {
-    "@babel/core": "7.1.6",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/plugin-transform-react-jsx-self": "^7.2.0",
     "@coreui/coreui": "^2.1.1",
     "@coreui/coreui-plugin-chartjs-custom-tooltips": "^1.2.0",
     "@coreui/icons": "0.3.0",
     "@coreui/react": "^2.1.1",
     "@svgr/webpack": "2.4.1",
-    "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "23.6.0",
     "babel-loader": "^8.0.5",
@@ -49,6 +51,7 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.12.3",
+    "express": "^4.16.4",
     "file-loader": "2.0.0",
     "flag-icon-css": "^3.2.1",
     "font-awesome": "^4.7.0",
