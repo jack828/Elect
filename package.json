@@ -152,5 +152,6 @@
       "jsx",
       "node"
     ]
-  }
+  },
+  "proxy": "http://localhost:3003"
 }
