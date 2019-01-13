@@ -1,0 +1,6 @@
+{
+  "name": "New Administrator",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./New.js"
+}

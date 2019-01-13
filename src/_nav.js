@@ -69,17 +69,17 @@ export default {
     },
     {
       name: 'Administrators',
-      icon: 'icon-question',
+      icon: 'icon-user',
       children: [
         {
           name: 'New Administrator',
           url: '/administrators/new',
-          icon: 'icon-question'
+          icon: 'icon-note'
         },
         {
           name: 'View Administrators',
           url: '/administrators/view',
-          icon: 'icon-question'
+          icon: 'icon-list'
         }
       ]
     },
