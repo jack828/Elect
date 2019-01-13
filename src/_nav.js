@@ -20,6 +20,94 @@ export default {
       class: '' // optional class names space delimited list for title item ex: "text-center"
     },
     {
+      name: 'Elections',
+      icon: 'icon-question',
+      children: [
+        {
+          name: 'New Election',
+          url: '/elections/new',
+          icon: 'icon-question'
+        },
+        {
+          name: 'View Elections',
+          url: '/elections/view',
+          icon: 'icon-question'
+        }
+      ]
+    },
+    {
+      name: 'Parties',
+      icon: 'icon-question',
+      children: [
+        {
+          name: 'New Party',
+          url: '/parties/new',
+          icon: 'icon-question'
+        },
+        {
+          name: 'View Parties',
+          url: '/parties/view',
+          icon: 'icon-question'
+        }
+      ]
+    },
+    {
+      name: 'Voters',
+      icon: 'icon-question',
+      children: [
+        {
+          name: 'New Voter',
+          url: '/voters/new',
+          icon: 'icon-question'
+        },
+        {
+          name: 'View Voters',
+          url: '/voters/view',
+          icon: 'icon-question'
+        }
+      ]
+    },
+    {
+      name: 'Administrators',
+      icon: 'icon-question',
+      children: [
+        {
+          name: 'New Administrator',
+          url: '/administrators/new',
+          icon: 'icon-question'
+        },
+        {
+          name: 'View Administrators',
+          url: '/administrators/view',
+          icon: 'icon-question'
+        }
+      ]
+    },
+    {
+      name: 'Roles',
+      icon: 'icon-question',
+      children: [
+        {
+          name: 'New Role',
+          url: '/roles/new',
+          icon: 'icon-question'
+        },
+        {
+          name: 'View Roles',
+          url: '/roles/view',
+          icon: 'icon-question'
+        }
+      ]
+    },
+    {
+      title: true,
+      name: 'CoreUI Stuff',
+      wrapper: {
+        element: '',
+        attributes: {}
+      }
+    },
+    {
       name: 'Colors',
       url: '/theme/colors',
       icon: 'icon-drop'
