@@ -14,7 +14,8 @@ module.exports = (serviceLocator, cb) => {
     .register('router', server)
 
   const componentGlobs = [
-    join(__dirname, '/services/**/init.js')
+    join(__dirname, '/services/**/init.js'),
+    join(__dirname, '/services/**/api.js')
   ]
   // eslint-disable-next-line
   const componentPaths = [].concat.apply([], componentGlobs.map(path => glob.sync(path)))

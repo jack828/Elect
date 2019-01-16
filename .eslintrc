@@ -16,7 +16,8 @@
     "import/no-named-as-default-member": "off",
     "react/class-methods-use-this": "off",
     "react/destructuring-assignment": "off",
-    "object-curly-newline": "off"
+    "object-curly-newline": "off",
+    "no-underscore-dangle": [ "error", { "allow": [ "_id" ] } ]
   },
 
   "env": {

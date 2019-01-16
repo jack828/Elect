@@ -1,5 +1,7 @@
 const baseProperties = {
-
+  passwordResetPolicy: {
+    numDaysBetweenResets: 90
+  }
 }
 
 const envProperties = {
