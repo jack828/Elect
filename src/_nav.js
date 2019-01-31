@@ -30,7 +30,7 @@ export default {
         },
         {
           name: 'View Elections',
-          url: '/elections/view',
+          url: '/elections/list',
           icon: 'icon-question'
         }
       ]
@@ -46,7 +46,7 @@ export default {
         },
         {
           name: 'View Parties',
-          url: '/parties/view',
+          url: '/parties/list',
           icon: 'icon-question'
         }
       ]
@@ -62,7 +62,7 @@ export default {
         },
         {
           name: 'View Voters',
-          url: '/voters/view',
+          url: '/voters/list',
           icon: 'icon-question'
         }
       ]
@@ -78,7 +78,7 @@ export default {
         },
         {
           name: 'View Administrators',
-          url: '/administrators/view',
+          url: '/administrators/list',
           icon: 'icon-list'
         }
       ]
@@ -94,7 +94,7 @@ export default {
         },
         {
           name: 'View Roles',
-          url: '/roles/view',
+          url: '/roles/list',
           icon: 'icon-question'
         }
       ]

@@ -3,8 +3,9 @@ const required = require('validity-required')
 const isEmail = require('validity-email')
 const crypto = require('crypto')
 const moment = require('moment')
+const config = require('../../config')(process.env.NODE_ENV || 'development')
 
-module.exports = (save, config) => {
+module.exports = (save) => {
   const generateSalt = () => {
     const saltInt = `${process.pid}${Math.random()}`
     const shaSum = crypto.createHash('sha1').update(saltInt)

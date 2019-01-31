@@ -14,10 +14,11 @@
     "no-param-reassign": "off",
     "import/no-named-as-default": "off",
     "import/no-named-as-default-member": "off",
-    "react/class-methods-use-this": "off",
+    "class-methods-use-this": "off",
     "react/destructuring-assignment": "off",
     "react/no-unused-state": "off",
     "object-curly-newline": "off",
+    "no-plusplus": "off",
     "no-underscore-dangle": [ "error", { "allow": [ "_id" ] } ]
   },
 
