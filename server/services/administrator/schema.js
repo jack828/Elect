@@ -72,13 +72,12 @@ module.exports = (save) => {
       keyExpiry: {
         type: Date
       },
-      roles: {
-        type: Array,
-        tag: [ 'update' ]
-      },
-      account: {
+      role: {
         type: String,
         tag: [ 'update' ]
+      },
+      enabled: {
+        type: Boolean
       },
       failedLoginAttempts: {
         type: Number,

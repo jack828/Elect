@@ -58,7 +58,7 @@ class BaseListView extends BaseComponentView {
     return (
       <Row>
         <Col sm="8">
-          <h1>list</h1>
+          <h1>{this.name}</h1>
           {this.state.models.map(model => (
             <this.ListItemView key={model.id} model={model} />
           ))}

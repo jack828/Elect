@@ -5,6 +5,10 @@ import ListItemView from './ListItemView'
 import Collection from './collection'
 
 class List extends BaseListView {
+  get name() {
+    return 'Administrators'
+  }
+
   get FilterView() {
     return FilterView
   }
