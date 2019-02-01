@@ -38,7 +38,10 @@ class ListItemView extends BaseComponentView {
         <CardHeader>
           {data.firstName} {data.lastName}
           <div className="card-header-actions">
-            <a className="card-header-action btn btn-setting">
+            <a
+              className="card-header-action"
+              onClick={() => this.props.handleEdit(data._id)}
+            >
               <i className="icon-note" />
             </a>
             <a

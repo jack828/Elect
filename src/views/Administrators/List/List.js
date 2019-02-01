@@ -9,6 +9,10 @@ class List extends BaseListView {
     return 'Administrators'
   }
 
+  get url() {
+    return '/administrators'
+  }
+
   get FilterView() {
     return FilterView
   }

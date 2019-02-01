@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import {
   Alert,
   Button,
@@ -11,7 +12,7 @@ import {
   Row
 } from 'reactstrap'
 
-class BaseNewView extends Component {
+class BaseFormView extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -21,9 +22,30 @@ class BaseNewView extends Component {
       success: null
     }
 
+    this.isNew = false
+
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleReset = this.handleReset.bind(this)
+  }
+
+  componentDidMount() {
+    // TODO this could be better
+    const { match } = this.props
+    const { params } = match
+    const { id } = params
+
+    if (id) {
+      this.isNew = false
+      fetch(`${this.apiUrl}/${id}`)
+        .then(res => res.json())
+        .then((data) => {
+          // TODO: Handle 404
+          this.setState({ data })
+        })
+    } else {
+      this.isNew = true
+    }
   }
 
   handleReset() {
@@ -56,9 +78,9 @@ class BaseNewView extends Component {
     this.validate(this.state.data, (valid, errors) => {
       if (!valid) return this.setState({ errors })
 
-      fetch(`/api/${this.names.plural}/new`,
+      fetch(`${this.apiUrl}/${this.isNew ? 'new' : this.state.data._id}`,
         {
-          method: 'POST',
+          method: this.isNew ? 'POST' : 'PUT',
           body: JSON.stringify(this.state.data),
           headers: {
             'Content-Type': 'application/json'
@@ -151,10 +173,15 @@ class BaseNewView extends Component {
   }
 }
 
-BaseNewView.propTypes = {
+BaseFormView.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string
+    })
+  }).isRequired
 }
 
-BaseNewView.defaultProps = {
+BaseFormView.defaultProps = {
 }
 
-export default BaseNewView
+export default BaseFormView

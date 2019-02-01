@@ -1,7 +1,8 @@
 import React from 'react'
 import DefaultLayout from './containers/DefaultLayout'
 
-const NewAdministrator = React.lazy(() => import('./views/Administrators/New'))
+const NewAdministrator = React.lazy(() => import('./views/Administrators/Form'))
+const EditAdministrators = React.lazy(() => import('./views/Administrators/Form'))
 const ListAdministrators = React.lazy(() => import('./views/Administrators/List'))
 
 const Breadcrumbs = React.lazy(() => import('./views/Base/Breadcrumbs'))
@@ -46,6 +47,7 @@ const routes = [
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
   { path: '/administrators/new', name: 'New Administrator', component: NewAdministrator },
   { path: '/administrators/list', name: 'List Administrators', component: ListAdministrators },
+  { path: '/administrators/:id', name: 'Edit Administrator', component: EditAdministrators },
 
   { path: '/theme', exact: true, name: 'Theme', component: Colors },
   { path: '/theme/colors', name: 'Colors', component: Colors },

@@ -16,6 +16,7 @@ class BaseListView extends BaseComponentView {
     this.removeListItem = this.removeListItem.bind(this)
     this.resetListItems = this.resetListItems.bind(this)
     this.handleFilter = this.handleFilter.bind(this)
+    this.handleEdit = this.handleEdit.bind(this)
 
     // eslint-disable-next-line
     this.collection = props.collection
@@ -54,13 +55,17 @@ class BaseListView extends BaseComponentView {
     this.collection.applyFilter(filter)
   }
 
+  handleEdit(_id) {
+    window.location.hash = `${this.url}/${_id}`
+  }
+
   render() {
     return (
       <Row>
         <Col sm="8">
           <h1>{this.name}</h1>
           {this.state.models.map(model => (
-            <this.ListItemView key={model.id} model={model} />
+            <this.ListItemView key={model.id} model={model} handleEdit={this.handleEdit} />
           ))}
         </Col>
         <Col sm="4">

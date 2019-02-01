@@ -6,10 +6,10 @@ import {
   Input,
   Label
 } from 'reactstrap'
-import BaseNewView from '../../lib/base-new-view'
+import BaseFormView from '../../lib/base-form-view'
 import createSchema from '../../../../server/services/administrator/schema'
 
-class New extends BaseNewView {
+class Form extends BaseFormView {
   schema = createSchema()
 
   names = {
@@ -17,6 +17,8 @@ class New extends BaseNewView {
     plural: 'administrators',
     displayName: 'Administrator'
   }
+
+  apiUrl = '/api/administrators'
 
   renderFields() {
     const { data, errors } = this.state
@@ -119,4 +121,4 @@ class New extends BaseNewView {
   }
 }
 
-export default New
+export default Form
