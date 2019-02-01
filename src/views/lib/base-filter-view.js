@@ -14,17 +14,28 @@ import BaseComponentView from './base-component-view'
 class BaseFilterView extends BaseComponentView {
   constructor(props) {
     super(props)
-    this.state = {
-      filter: {}
+    this.initialState = {
+      filter: {},
+      sort: [ 'createdDate', 'desc' ],
+      pagination: { pageSize: 50, page: 1 }
     }
+    this.state = { ...this.initialState }
 
     this.handleChange = this.handleChange.bind(this)
+    this.handleChangeKeywords = this.handleChangeKeywords.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleReset = this.handleReset.bind(this)
   }
 
   componentDidMount() {
     this.handleSubmit()
+  }
+
+  handleChangeKeywords(e) {
+    const { value } = e.target
+    this.setState({
+      keywords: value.split(' ')
+    })
   }
 
   handleChange(e) {
@@ -39,13 +50,11 @@ class BaseFilterView extends BaseComponentView {
   }
 
   handleReset() {
-    this.setState({
-      filter: {}
-    }, () => this.handleSubmit())
+    this.setState(this.initialState, () => this.handleSubmit())
   }
 
   handleSubmit() {
-    this.props.handleFilter(this.state.filter)
+    this.props.handleFilter({ ...this.state })
   }
 
   renderFields() {

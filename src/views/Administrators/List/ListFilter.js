@@ -10,50 +10,20 @@ import BaseFilterView from '../../lib/base-filter-view'
 
 class FilterView extends BaseFilterView {
   renderFields() {
-    const { filter } = this.state
+    const { filter, keywords } = this.state
     return (
       <>
         <FormGroup row>
           <Col xs="12">
-            <Label htmlFor="firstName">First Name</Label>
+            <Label htmlFor="keywords">Keywords</Label>
           </Col>
           <Col xs="12">
             <Input
               type="text"
-              id="firstName"
-              name="firstName"
-              onChange={this.handleChange}
-              defaultValue={filter.firstName ? filter.firstName : ''}
-            />
-          </Col>
-        </FormGroup>
-
-        <FormGroup row>
-          <Col xs="12">
-            <Label htmlFor="lastName">Last Name</Label>
-          </Col>
-          <Col xs="12">
-            <Input
-              type="text"
-              id="lastName"
-              name="lastName"
-              onChange={this.handleChange}
-              defaultValue={filter.lastName ? filter.lastName : ''}
-            />
-          </Col>
-        </FormGroup>
-
-        <FormGroup row>
-          <Col xs="12">
-            <Label htmlFor="email">Email Address</Label>
-          </Col>
-          <Col xs="12">
-            <Input
-              type="email"
-              id="emailAddress"
-              name="emailAddress"
-              onChange={this.handleChange}
-              defaultValue={filter.emailAddress ? filter.emailAddress : ''}
+              id="keywords"
+              name="keywords"
+              onChange={this.handleChangeKeywords}
+              defaultValue={keywords || ''}
             />
           </Col>
         </FormGroup>
@@ -70,7 +40,7 @@ class FilterView extends BaseFilterView {
               onChange={this.handleChange}
               defaultValue={filter.role}
             >
-              <option> -- Please select --</option>
+              <option value={null}> -- Please select --</option>
               <option value="root">Root</option>
               <option value="staff">Staff</option>
               <option value="auditor">Auditor</option>

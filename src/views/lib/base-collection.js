@@ -150,7 +150,6 @@ class BaseCollection extends Collection {
   }
 
   fetch({ data, remove, success }) {
-    console.log({ data, remove, success })
     fetch(`${this.apiUrl}?${stringify(data)}`, {
     })
       .then(res => res.json())

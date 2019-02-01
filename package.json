@@ -103,7 +103,7 @@
     "sass-loader": "7.1.0",
     "save": "^2.3.3",
     "save-mongodb": "^2.0.4",
-    "schemata": "^6.0.0",
+    "schemata": "^5",
     "secure": "^0.1.3",
     "service-locator": "^1.0.0",
     "simple-line-icons": "^2.4.1",
