@@ -122,7 +122,7 @@ module.exports = (serviceLocator) => {
             // Every time a user authenticate create a session key.
             // Rather a nasty hack to reuse salt generator.
             // Really schema should have the function tacked on.
-            administrator.key = schema.schema.passwordSalt.defaultValue()
+            administrator.key = schema.getProperties().passwordSalt.defaultValue()
 
             save.update({
               _id: administrator._id,

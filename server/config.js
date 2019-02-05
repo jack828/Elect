@@ -1,7 +1,11 @@
 const baseProperties = {
   passwordResetPolicy: {
     numDaysBetweenResets: 90
-  }
+  },
+  // TODO change when password resets are done
+  adminHashType: 'bcrypt',
+  adminMaxLoginAttempts: 10,
+  salt: 'Retribution trainload senate.'
 }
 
 const envProperties = {

@@ -15,9 +15,8 @@ module.exports = (serviceLocator) => {
 
   const incrementFailedAttemptCount = (admin, cb) => {
     const adminId = serviceLocator.administratorService.idType(admin._id)
-    serviceLocator.serviceDatabase.collection('administrator').findAndModify(
+    serviceLocator.serviceDatabase.collection('administrator').findOneAndUpdate(
       { _id: adminId },
-      [ [ '_id', 'desc' ] ],
       { $inc: { failedLoginAttempts: 1 } },
       { upsert: false, new: true },
       cb
