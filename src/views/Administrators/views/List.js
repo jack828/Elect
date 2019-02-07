@@ -27,4 +27,4 @@ class List extends BaseListView {
   }
 }
 
-export default () => <List collection={new Collection()} />
+export default props => <List collection={new Collection()} {...props} />

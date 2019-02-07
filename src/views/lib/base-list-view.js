@@ -60,7 +60,7 @@ class BaseListView extends BaseComponentView {
   }
 
   handleEdit(_id) {
-    window.location.hash = `${this.url}/${_id}`
+    this.props.history.push(`${this.url}/${_id}`)
   }
 
   render() {
