@@ -1,7 +1,11 @@
 import React from 'react'
 import {
+  Card,
+  CardHeader,
+  CardBody,
   Col,
-  Row
+  Row,
+  Table
 } from 'reactstrap'
 import BaseComponentView from './base-component-view'
 
@@ -61,19 +65,38 @@ class BaseListView extends BaseComponentView {
 
   render() {
     return (
-      <Row>
-        <Col sm="8">
-          <h1>{this.name}</h1>
-          {this.state.models.map(model => (
-            <this.ListItemView key={model.id} model={model} handleEdit={this.handleEdit} />
-          ))}
-        </Col>
-        <Col sm="4">
-          <this.FilterView
-            handleFilter={this.handleFilter}
-          />
-        </Col>
-      </Row>
+      <div className="animated fadeIn">
+        <Row>
+          <Col md={8}>
+            <Card>
+              <CardHeader>
+                {this.name}
+              </CardHeader>
+              <CardBody>
+                <Table responsive hover>
+                  <thead>
+                    <this.ListItemHeaderView />
+                  </thead>
+                  <tbody>
+                    {this.state.models.map(model => (
+                      <this.ListItemView
+                        key={model.id}
+                        model={model}
+                        handleEdit={this.handleEdit}
+                      />
+                    ))}
+                  </tbody>
+                </Table>
+              </CardBody>
+            </Card>
+          </Col>
+          <Col md={4}>
+            <this.FilterView
+              handleFilter={this.handleFilter}
+            />
+          </Col>
+        </Row>
+      </div>
     )
   }
 }
