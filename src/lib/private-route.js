@@ -6,6 +6,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
     render={({ history, ...other }) => {
+      // TODO: bad practice IMO, should be handled through redux state
       if (!window.localStorage.getItem('apiKey')) {
         history.push('/login')
       }

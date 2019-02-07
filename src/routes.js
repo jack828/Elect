@@ -1,9 +1,8 @@
 import React from 'react'
 import DefaultLayout from './containers/DefaultLayout'
 
-const NewAdministrator = React.lazy(() => import('./views/Administrators/Form'))
-const EditAdministrators = React.lazy(() => import('./views/Administrators/Form'))
-const ListAdministrators = React.lazy(() => import('./views/Administrators/List'))
+const AdministratorForm = React.lazy(() => import('./views/Administrators/views/Form'))
+const AdministratorList = React.lazy(() => import('./views/Administrators/views/List'))
 
 const Breadcrumbs = React.lazy(() => import('./views/Base/Breadcrumbs'))
 const Cards = React.lazy(() => import('./views/Base/Cards'))
@@ -43,11 +42,34 @@ const User = React.lazy(() => import('./views/Users/User'))
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
-  { path: '/', exact: true, name: 'Home', component: DefaultLayout },
-  { path: '/dashboard', name: 'Dashboard', component: Dashboard },
-  { path: '/administrators/new', name: 'New Administrator', component: NewAdministrator },
-  { path: '/administrators/list', name: 'List Administrators', component: ListAdministrators },
-  { path: '/administrators/:id', name: 'Edit Administrator', component: EditAdministrators },
+  {
+    path: '/',
+    exact: true,
+    name: 'Home',
+    component: DefaultLayout
+  },
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: Dashboard
+  },
+  {
+    path: '/administrators/new',
+    exact: true,
+    name: 'New Administrator',
+    component: AdministratorForm
+  },
+  {
+    path: '/administrators/list',
+    exact: true,
+    name: 'List Administrators',
+    component: AdministratorList
+  },
+  {
+    path: '/administrators/:id',
+    name: 'Edit Administrator',
+    component: AdministratorForm
+  },
 
   { path: '/theme', exact: true, name: 'Theme', component: Colors },
   { path: '/theme/colors', name: 'Colors', component: Colors },
