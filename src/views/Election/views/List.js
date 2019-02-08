@@ -7,11 +7,11 @@ import Collection from '../collection/election'
 
 class List extends BaseListView {
   get name() {
-    return 'Administrators'
+    return 'Elections'
   }
 
   get url() {
-    return '/administrators'
+    return '/elections'
   }
 
   get FilterView() {
