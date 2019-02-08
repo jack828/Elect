@@ -4,6 +4,9 @@ import DefaultLayout from './containers/DefaultLayout'
 const AdministratorForm = React.lazy(() => import('./views/Administrators/views/Form'))
 const AdministratorList = React.lazy(() => import('./views/Administrators/views/List'))
 
+const PartyForm = React.lazy(() => import('./views/Parties/views/Form'))
+const PartyList = React.lazy(() => import('./views/Parties/views/List'))
+
 const Breadcrumbs = React.lazy(() => import('./views/Base/Breadcrumbs'))
 const Cards = React.lazy(() => import('./views/Base/Cards'))
 const Carousels = React.lazy(() => import('./views/Base/Carousels'))
@@ -53,6 +56,7 @@ const routes = [
     name: 'Dashboard',
     component: Dashboard
   },
+
   {
     path: '/administrators/new',
     exact: true,
@@ -69,6 +73,24 @@ const routes = [
     path: '/administrators/:id',
     name: 'Edit Administrator',
     component: AdministratorForm
+  },
+
+  {
+    path: '/parties/new',
+    exact: true,
+    name: 'New Party',
+    component: PartyForm
+  },
+  {
+    path: '/parties/list',
+    exact: true,
+    name: 'List Parties',
+    component: PartyList
+  },
+  {
+    path: '/parties/:id',
+    name: 'Edit Party',
+    component: PartyForm
   },
 
   { path: '/theme', exact: true, name: 'Theme', component: Colors },

@@ -93,7 +93,7 @@ class BaseFormView extends Component {
               errors: data.errors
             })
           }
-          this.setState({ success: `${this.names.singular} saved successfully!` })
+          this.setState({ success: `${this.names.displayName} saved successfully!` })
         })
         .catch((error) => {
           console.error(error)

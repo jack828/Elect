@@ -9,7 +9,7 @@ const createBruteForcePreventer = require('./lib/brute-force-preventer')
 module.exports = (serviceLocator) => {
   const save = serviceLocator.persistence('administrator')
   const schema = createSchema(save, serviceLocator.config)
-  const service = crudService('Administrator', save, schema, {}, serviceLocator.trashService)
+  const service = crudService('Administrator', save, schema, {})
   const hasher = createHasher(serviceLocator)
   const bruteForcePreventer = createBruteForcePreventer(serviceLocator)
 

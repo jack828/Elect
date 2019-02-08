@@ -2,7 +2,7 @@ import bodyParser from 'body-parser'
 
 module.exports = (serviceLocator) => {
   serviceLocator.router.post('/api/login', bodyParser.json({ extended: false }), (req, res) => {
-    serviceLocator.administratorService.authenticate(req.body, (error, administrator) => {
+    serviceLocator.authenticationProvider.authenticate(req.body, (error, administrator) => {
       if (error) {
         switch (error.message) {
           case 'Wrong Email and password combination.':
