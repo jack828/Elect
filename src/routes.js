@@ -7,6 +7,9 @@ const AdministratorList = React.lazy(() => import('./views/Administrators/views/
 const PartyForm = React.lazy(() => import('./views/Parties/views/Form'))
 const PartyList = React.lazy(() => import('./views/Parties/views/List'))
 
+const ElectionForm = React.lazy(() => import('./views/Election/views/Form'))
+const ElectionList = React.lazy(() => import('./views/Election/views/List'))
+
 const Breadcrumbs = React.lazy(() => import('./views/Base/Breadcrumbs'))
 const Cards = React.lazy(() => import('./views/Base/Cards'))
 const Carousels = React.lazy(() => import('./views/Base/Carousels'))
@@ -91,6 +94,24 @@ const routes = [
     path: '/parties/:id',
     name: 'Edit Party',
     component: PartyForm
+  },
+
+  {
+    path: '/elections/new',
+    exact: true,
+    name: 'New Election',
+    component: ElectionForm
+  },
+  {
+    path: '/elections/list',
+    exact: true,
+    name: 'List Elections',
+    component: ElectionList
+  },
+  {
+    path: '/elections/:id',
+    name: 'Edit Election',
+    component: ElectionForm
   },
 
   { path: '/theme', exact: true, name: 'Theme', component: Colors },

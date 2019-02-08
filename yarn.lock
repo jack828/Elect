@@ -11082,6 +11082,11 @@ validity-email@^1.0.0:
     email-validator "^1.0.7"
     validity "^1.0.0"
 
+validity-length@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/validity-length/-/validity-length-2.0.0.tgz#98112513de2c4918bed93284612258d4afc4035a"
+  integrity sha1-mBElE94sSRi+2TKEYSJY1K/EA1o=
+
 validity-required@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/validity-required/-/validity-required-1.0.0.tgz#75b5718245c574278e118909a4b3e178a9ac62f5"
