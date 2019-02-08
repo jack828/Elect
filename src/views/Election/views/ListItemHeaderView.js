@@ -3,10 +3,11 @@ import React from 'react'
 export default () => (
   <tr>
     <th scope="col">Actions</th>
-    <th scope="col">First Name</th>
-    <th scope="col">Last Name</th>
-    <th scope="col">Email Address</th>
-    <th scope="col">Role</th>
-    <th scope="col">Status</th>
+    <th scope="col">Name</th>
+    <th scope="col">Parties</th>
+    <th scope="col">Visible From</th>
+    <th scope="col">Visible To</th>
+    <th scope="col">Vote Open From</th>
+    <th scope="col">Vote Open To</th>
   </tr>
 )

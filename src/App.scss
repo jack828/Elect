@@ -9,3 +9,15 @@
 @import '~simple-line-icons/css/simple-line-icons.css';
 // Import Main styles for this application
 @import './scss/style.scss';
+
+// Custom stuff
+// ================
+
+
+// Fixes react-datepicker input
+.react-datepicker__input-container {
+  width: inherit;
+}
+.react-datepicker-wrapper {
+  width: 100%;
+}

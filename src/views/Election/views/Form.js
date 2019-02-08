@@ -7,10 +7,12 @@ import {
   Input,
   Label
 } from 'reactstrap'
+import DatePicker from 'react-datepicker'
 import BaseFormView from '../../lib/base-form-view'
 import createSchema from '../../../../server/services/election/schema'
 
 class Form extends BaseFormView {
+  // TODO: fields should not be editible if the visible date has passed
   schema = createSchema()
 
   names = {
@@ -21,8 +23,18 @@ class Form extends BaseFormView {
 
   apiUrl = '/api/elections'
 
+  handleDateChange(field, date) {
+    this.setState(({ data }) => ({
+      data: {
+        ...data,
+        [field]: date
+      }
+    }))
+  }
+
   renderFields() {
     const { data, errors } = this.state
+    console.log(this.state.data)
     return (
       <>
         <FormGroup row>
@@ -49,8 +61,8 @@ class Form extends BaseFormView {
           <Col xs="12" md="9">
             <Input
               type="text"
-              id="name"
-              name="name"
+              id="parties"
+              name="parties"
               onChange={this.handleChange}
               value={data.parties ? data.parties : ''}
               invalid={!!(errors && errors.parties)}
@@ -64,13 +76,13 @@ class Form extends BaseFormView {
             <Label htmlFor="name">Visible From *</Label>
           </Col>
           <Col xs="12" md="9">
-            <Input
-              type="text"
-              id="visibleFrom"
+            <DatePicker
+              customInput={<Input />}
               name="visibleFrom"
-              onChange={this.handleChange}
-              value={data.visibleFrom ? data.visibleFrom : ''}
-              invalid={!!(errors && errors.visibleFrom)}
+              dateFormat="do MMMM YYYY HH:MM"
+              selected={data.visibleFrom ? data.visibleFrom : null}
+              onChange={date => this.handleDateChange('visibleFrom', date)}
+              showTimeSelect
             />
             {errors && errors.visibleFrom && <FormFeedback>{errors.visibleFrom}</FormFeedback>}
             <FormText className="help-block">
@@ -84,13 +96,13 @@ class Form extends BaseFormView {
             <Label htmlFor="name">Visible To *</Label>
           </Col>
           <Col xs="12" md="9">
-            <Input
-              type="text"
-              id="visibleTo"
+            <DatePicker
+              customInput={<Input />}
               name="visibleTo"
-              onChange={this.handleChange}
-              value={data.visibleTo ? data.visibleTo : ''}
-              invalid={!!(errors && errors.visibleTo)}
+              dateFormat="do MMMM YYYY HH:MM"
+              selected={data.visibleTo ? data.visibleTo : null}
+              onChange={date => this.handleDateChange('visibleTo', date)}
+              showTimeSelect
             />
             {errors && errors.visibleTo && <FormFeedback>{errors.visibleTo}</FormFeedback>}
             <FormText className="help-block">
@@ -106,13 +118,13 @@ class Form extends BaseFormView {
             <Label htmlFor="name">Vote Open From *</Label>
           </Col>
           <Col xs="12" md="9">
-            <Input
-              type="text"
-              id="voteOpenFrom"
+            <DatePicker
+              customInput={<Input />}
               name="voteOpenFrom"
-              onChange={this.handleChange}
-              value={data.voteOpenFrom ? data.voteOpenFrom : ''}
-              invalid={!!(errors && errors.voteOpenFrom)}
+              dateFormat="do MMMM YYYY HH:MM"
+              selected={data.voteOpenFrom ? data.voteOpenFrom : null}
+              onChange={date => this.handleDateChange('voteOpenFrom', date)}
+              showTimeSelect
             />
             {errors && errors.voteOpenFrom && <FormFeedback>{errors.voteOpenFrom}</FormFeedback>}
             <FormText className="help-block">
@@ -126,13 +138,13 @@ class Form extends BaseFormView {
             <Label htmlFor="name">Vote Open To *</Label>
           </Col>
           <Col xs="12" md="9">
-            <Input
-              type="text"
-              id="voteOpenTo"
+            <DatePicker
+              customInput={<Input />}
               name="voteOpenTo"
-              onChange={this.handleChange}
-              value={data.voteOpenTo ? data.voteOpenTo : ''}
-              invalid={!!(errors && errors.voteOpenTo)}
+              dateFormat="do MMMM YYYY HH:MM"
+              selected={data.voteOpenTo ? data.voteOpenTo : null}
+              onChange={date => this.handleDateChange('voteOpenTo', date)}
+              showTimeSelect
             />
             {errors && errors.voteOpenTo && <FormFeedback>{errors.voteOpenTo}</FormFeedback>}
             <FormText className="help-block">
