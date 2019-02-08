@@ -22,7 +22,6 @@ class BaseListView extends BaseComponentView {
     this.handleFilter = this.handleFilter.bind(this)
     this.handleEdit = this.handleEdit.bind(this)
 
-    // eslint-disable-next-line
     this.collection = props.collection
 
     this.collection.on('add', this.addListItem)
@@ -30,23 +29,15 @@ class BaseListView extends BaseComponentView {
     this.collection.on('reset', this.resetListItems)
   }
 
-  addListItem(model, index) {
-    // TODO might not be needed, but keeping for references
-    const listItem = new this.ListItemView(
-      this.serviceLocator,
-      model,
-      index,
-      this.collection.length
-    )
+  addListItem(model) {
     this.setState(({ models }) => ({
       models: [ ...models, model ]
     }))
-    return listItem
   }
 
   removeListItem(model) {
     this.setState(({ models }) => ({
-      models: [ ...models.filter(({ id }) => id === model.id) ]
+      models: [ ...models.filter(({ id }) => id !== model.id) ]
     }))
   }
 
