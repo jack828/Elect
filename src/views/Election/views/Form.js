@@ -8,6 +8,7 @@ import {
   Label
 } from 'reactstrap'
 import DatePicker from 'react-datepicker'
+import Multiselect from '../../lib/MultiSelect'
 import BaseFormView from '../../lib/base-form-view'
 import createSchema from '../../../../server/services/election/schema'
 
@@ -34,7 +35,6 @@ class Form extends BaseFormView {
 
   renderFields() {
     const { data, errors } = this.state
-    console.log(this.state.data)
     return (
       <>
         <FormGroup row>
@@ -56,16 +56,16 @@ class Form extends BaseFormView {
 
         <FormGroup row>
           <Col md="3">
-            <Label htmlFor="name">Parties *</Label>
+            <Label htmlFor="parties">Parties *</Label>
           </Col>
           <Col xs="12" md="9">
-            <Input
-              type="text"
+            <Multiselect
               id="parties"
               name="parties"
+              apiUrl="/api/parties"
               onChange={this.handleChange}
-              value={data.parties ? data.parties : ''}
-              invalid={!!(errors && errors.parties)}
+              value={data.parties ? data.parties : []}
+              invalid={!!(errors && errors.name)}
             />
             {errors && errors.parties && <FormFeedback>{errors.parties}</FormFeedback>}
           </Col>
@@ -73,11 +73,11 @@ class Form extends BaseFormView {
 
         <FormGroup row>
           <Col md="3">
-            <Label htmlFor="name">Visible From *</Label>
+            <Label htmlFor="visibleFrom">Visible From *</Label>
           </Col>
           <Col xs="12" md="9">
             <DatePicker
-              customInput={<Input />}
+              customInput={<Input invalid={!!(errors && errors.visibleFrom)} />}
               name="visibleFrom"
               dateFormat="do MMMM YYYY HH:MM"
               selected={data.visibleFrom ? data.visibleFrom : null}
@@ -93,11 +93,11 @@ class Form extends BaseFormView {
 
         <FormGroup row>
           <Col md="3">
-            <Label htmlFor="name">Visible To *</Label>
+            <Label htmlFor="visibleTo">Visible To *</Label>
           </Col>
           <Col xs="12" md="9">
             <DatePicker
-              customInput={<Input />}
+              customInput={<Input invalid={!!(errors && errors.visibleTo)} />}
               name="visibleTo"
               dateFormat="do MMMM YYYY HH:MM"
               selected={data.visibleTo ? data.visibleTo : null}
@@ -115,11 +115,11 @@ class Form extends BaseFormView {
 
         <FormGroup row>
           <Col md="3">
-            <Label htmlFor="name">Vote Open From *</Label>
+            <Label htmlFor="voteOpenFrom">Vote Open From *</Label>
           </Col>
           <Col xs="12" md="9">
             <DatePicker
-              customInput={<Input />}
+              customInput={<Input invalid={!!(errors && errors.voteOpenFrom)} />}
               name="voteOpenFrom"
               dateFormat="do MMMM YYYY HH:MM"
               selected={data.voteOpenFrom ? data.voteOpenFrom : null}
@@ -135,11 +135,11 @@ class Form extends BaseFormView {
 
         <FormGroup row>
           <Col md="3">
-            <Label htmlFor="name">Vote Open To *</Label>
+            <Label htmlFor="voteOpenTo">Vote Open To *</Label>
           </Col>
           <Col xs="12" md="9">
             <DatePicker
-              customInput={<Input />}
+              customInput={<Input invalid={!!(errors && errors.voteOpenTo)} />}
               name="voteOpenTo"
               dateFormat="do MMMM YYYY HH:MM"
               selected={data.voteOpenTo ? data.voteOpenTo : null}
