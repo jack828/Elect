@@ -23,7 +23,7 @@ class ListItemView extends BaseComponentView {
           </Button>
         </th>
         <td>{data.name}</td>
-        <td>{data.parties}</td>
+        <td>{data.parties.length}</td>
         <td>{format(new Date(data.visibleFrom), 'do MMMM yyyy HH:MM')}</td>
         <td>{format(new Date(data.visibleTo), 'do MMMM yyyy HH:MM')}</td>
         <td>{format(new Date(data.voteOpenFrom), 'do MMMM yyyy HH:MM')}</td>
