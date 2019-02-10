@@ -18,6 +18,7 @@ const envProperties = {
     databaseUrl: 'mongodb://localhost:27017/elect-staging'
   },
   production: {
+    url: 'localhost',
     databaseUrl: 'mongodb://localhost:27017/elect-production'
   }
 }

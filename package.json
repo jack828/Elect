@@ -1,12 +1,11 @@
 {
-  "name": "@coreui/coreui-free-react-admin-template",
-  "version": "2.1.2",
-  "description": "CoreUI React Open Source Bootstrap 4 Admin Template",
-  "author": "Łukasz Holeczek",
-  "homepage": "https://coreui.io",
-  "copyright": "Copyright 2018 creativeLabs Łukasz Holeczek",
-  "license": "MIT",
+  "name": "elect",
+  "version": "0.0.0",
+  "description": "Real time election scheduling and voting platform",
+  "author": "Jack Burgess",
+  "license": "private",
   "private": true,
+  "homepage": ".",
   "scripts": {
     "start": "node scripts/start.js",
     "start:server": "nodemon --exec babel-node server/app",
