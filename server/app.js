@@ -9,6 +9,8 @@ const inDevelopmentMode = env === 'development'
 // Only have debug logging on development
 const logLevel = process.env.LOG_LEVEL || (inDevelopmentMode ? 'debug' : 'info')
 
+const port = process.env.PORT || serviceLocator.config.port
+
 serviceLocator
   .register('env', env)
   .register('config', createConfig(env))
@@ -19,8 +21,6 @@ serviceLocator
       level: logLevel
     } ]
   }))
-
-const port = process.env.PORT || serviceLocator.config.port
 
 bootstrap(serviceLocator, (error) => {
   if (error) throw error

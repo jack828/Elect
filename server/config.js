@@ -18,8 +18,8 @@ const envProperties = {
     databaseUrl: 'mongodb://localhost:27017/elect-staging'
   },
   production: {
-    url: 'localhost',
-    databaseUrl: 'mongodb://localhost:27017/elect-production'
+    url: 'https://elect-project.herokuapp.com',
+    databaseUrl: 'mongodb://elect-production:qg4w*660B9Mg96!R@ds129625.mlab.com:29625/elect-production'
   }
 }
 
