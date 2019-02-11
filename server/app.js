@@ -37,6 +37,6 @@ bootstrap(serviceLocator, (error) => {
   })
 
   serviceLocator.server.listen(port, () => {
-    serviceLocator.logger.info(`Listening on http://${serviceLocator.config.url}:${serviceLocator.config.port}`)
+    serviceLocator.logger.info(`Listening on http://${serviceLocator.config.url}:${port}`)
   })
 })
