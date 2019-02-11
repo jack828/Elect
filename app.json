@@ -1,0 +1,10 @@
+{
+  "environments": {
+    "production": {
+      "scripts": {
+        "postinstall": "node scripts/build.js",
+        "start": "babel-node server/app.js"
+      }
+    }
+  }
+}
