@@ -6,6 +6,10 @@
   "license": "private",
   "private": true,
   "homepage": ".",
+  "engines": {
+    "node": "^10.15.0",
+    "yarn": "~1"
+  },
   "scripts": {
     "start": "node scripts/start.js",
     "start:server": "nodemon --exec babel-node server/app",
