@@ -1,6 +1,7 @@
 import React from 'react'
 import { HashRouter, Switch, Route } from 'react-router-dom'
 import Loadable from 'react-loadable'
+import PrivateRoute from './lib/private-route'
 
 import './App.scss'
 
@@ -33,7 +34,7 @@ const App = () => (
   <HashRouter>
     <Switch>
       <Route exact path="/admin/login" component={AdminLogin} />
-      <Route path="/admin" component={AdminLayout} />
+      <PrivateRoute path="/admin" component={AdminLayout} />
       <Route exact path="/login" component={SiteLogin} />
       <Route path="/" component={SiteLayout} />
     </Switch>
