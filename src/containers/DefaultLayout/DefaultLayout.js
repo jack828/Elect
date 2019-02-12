@@ -70,7 +70,7 @@ class DefaultLayout extends Component {
                       />
                     ) : (null)
                   })}
-                  <Redirect from="/admin" to="/admin/dashboard" />
+                  <Redirect exact from="/admin" to="/admin/dashboard" />
                   <Route component={Page404} />
                 </Switch>
               </Suspense>
