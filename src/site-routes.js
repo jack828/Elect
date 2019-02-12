@@ -1,7 +1,7 @@
-// import React from 'react'
-import SiteHome from './containers/Site'
+import React from 'react'
+import SiteLayout from './containers/Site'
 
-// const SiteHome = React.lazy(() => import('./views/Administrators/views/Form'))
+const SiteDashboard = React.lazy(() => import('./views/SiteDashboard'))
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
@@ -9,11 +9,12 @@ const routes = [
     path: '/',
     exact: true,
     name: 'Home',
-    component: SiteHome
+    component: SiteLayout
   },
   {
-    path: '/admin/dashboard',
-    name: 'Dashboard'
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: SiteDashboard
   }
 ]
 
