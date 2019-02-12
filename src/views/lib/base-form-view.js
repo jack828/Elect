@@ -5,11 +5,8 @@ import {
   Button,
   Card,
   CardBody,
-  CardFooter,
   CardHeader,
-  Col,
-  Form,
-  Row
+  Form
 } from 'reactstrap'
 
 class BaseFormView extends Component {
@@ -68,7 +65,7 @@ class BaseFormView extends Component {
     }))
   }
 
-  handleSubmit() {
+  handleSubmit({ close = false } = {}) {
     this.setState({
       errors: {},
       error: null,
@@ -94,8 +91,11 @@ class BaseFormView extends Component {
             })
           }
           this.setState({ success: `${this.names.displayName} saved successfully!` })
+
+          this.props.history.replace(`/admin/${this.names.plural}/${close ? 'list' : data._id}`)
         })
         .catch((error) => {
+          // TODO
           console.error(error)
           this.setState({ error: 'There was an error saving, please try again later.' })
         })
@@ -104,12 +104,12 @@ class BaseFormView extends Component {
 
   validate(data, callback) {
     this.schema.validate(data, (error, errors) => {
+      // TODO
       if (error) return console.error('Error validating', error)
       callback(!Object.keys(errors).length, errors)
     })
   }
 
-  // eslint-disable-next-line class-methods-use-this
   renderFields() {
     return <h1>Please override me</h1>
   }
@@ -133,40 +133,28 @@ class BaseFormView extends Component {
             {this.names.displayName}
             {' '}
             Details
+            <Button
+              className="float-right ml-2"
+              size="sm"
+              color="secondary"
+              onClick={() => this.handleSubmit({ close: true })}
+            >
+              Save &amp; close
+            </Button>
+            <Button
+              className="float-right"
+              size="sm"
+              color="primary"
+              onClick={() => this.handleSubmit()}
+            >
+              Save
+            </Button>
           </CardHeader>
           <CardBody>
             <Form className="form-horizontal">
               {this.renderFields()}
             </Form>
           </CardBody>
-          <CardFooter>
-            <Row>
-              <Col xs="2">
-                <Button
-                  type="submit"
-                  size="sm"
-                  color="primary"
-                  onClick={this.handleSubmit}
-                >
-                  <i className="fa fa-dot-circle-o" />
-                  {' '}
-                  Submit
-                </Button>
-              </Col>
-              <Col xs="2">
-                <Button
-                  type="reset"
-                  size="sm"
-                  color="danger"
-                  onClick={this.handleReset}
-                >
-                  <i className="fa fa-ban" />
-                  {' '}
-                  Reset
-                </Button>
-              </Col>
-            </Row>
-          </CardFooter>
         </Card>
       </div>
     )
@@ -178,7 +166,8 @@ BaseFormView.propTypes = {
     params: PropTypes.shape({
       id: PropTypes.string
     })
-  }).isRequired
+  }).isRequired,
+  history: PropTypes.object.isRequired
 }
 
 BaseFormView.defaultProps = {
