@@ -21,7 +21,7 @@ export default {
     },
     {
       name: 'Elections',
-      icon: 'icon-question',
+      icon: 'fa fa-line-chart',
       children: [
         {
           name: 'New Election',
@@ -37,7 +37,7 @@ export default {
     },
     {
       name: 'Parties',
-      icon: 'icon-question',
+      icon: 'fa fa-users',
       children: [
         {
           name: 'New Party',
@@ -53,7 +53,7 @@ export default {
     },
     {
       name: 'Voters',
-      icon: 'icon-question',
+      icon: 'fa fa-user',
       children: [
         {
           name: 'New Voter',
@@ -69,7 +69,7 @@ export default {
     },
     {
       name: 'Administrators',
-      icon: 'icon-user',
+      icon: 'fa fa-lg fa-lock',
       children: [
         {
           name: 'New Administrator',
@@ -85,7 +85,7 @@ export default {
     },
     {
       name: 'Roles',
-      icon: 'icon-question',
+      icon: 'fa fa-ban',
       children: [
         {
           name: 'New Role',
