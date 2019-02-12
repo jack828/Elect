@@ -6,7 +6,6 @@ import {
   NavLink
 } from 'reactstrap'
 import {
-  AppAsideToggler,
   AppNavbarBrand,
   AppSidebarToggler
 } from '@coreui/react'
@@ -34,7 +33,6 @@ const DefaultHeader = ({ onLogout }) => (
         </NavLink>
       </NavItem>
     </Nav>
-    <AppAsideToggler className="d-md-down-none" />
   </>
 )
 

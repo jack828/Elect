@@ -4,7 +4,6 @@ import { Redirect, Route, Switch } from 'react-router-dom'
 import { Container } from 'reactstrap'
 
 import {
-  AppAside,
   AppBreadcrumb,
   AppFooter,
   AppHeader,
@@ -21,7 +20,6 @@ import navigation from '../../_nav'
 import routes from '../../routes'
 import Page404 from '../../views/Pages/Page404'
 
-const DefaultAside = React.lazy(() => import('./DefaultAside'))
 const DefaultFooter = React.lazy(() => import('./DefaultFooter'))
 const DefaultHeader = React.lazy(() => import('./DefaultHeader'))
 
@@ -76,11 +74,6 @@ class DefaultLayout extends Component {
               </Suspense>
             </Container>
           </main>
-          <AppAside fixed>
-            <Suspense fallback={this.loading()}>
-              <DefaultAside />
-            </Suspense>
-          </AppAside>
         </div>
         <AppFooter>
           <Suspense fallback={this.loading()}>
