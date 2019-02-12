@@ -51,7 +51,7 @@ class BaseListView extends BaseComponentView {
   }
 
   handleEdit(_id) {
-    this.props.history.push(`${this.url}/${_id}`)
+    this.props.history.push(`/admin${this.url}/${_id}`)
   }
 
   render() {
