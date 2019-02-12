@@ -61,7 +61,7 @@ class Login extends Component {
           window.localStorage.setItem('apiId', data._id)
           window.localStorage.setItem('aclRoles', data.roles)
           window.localStorage.setItem('firstName', data.firstName)
-          this.props.history.push('/')
+          this.props.history.push('/admin')
           return
         }
         // anything else
