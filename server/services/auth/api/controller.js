@@ -1,7 +1,7 @@
 import bodyParser from 'body-parser'
 
 module.exports = (serviceLocator) => {
-  serviceLocator.router.post('/api/login', bodyParser.json({ extended: false }), (req, res) => {
+  serviceLocator.router.post('/api/site-login', bodyParser.json({ extended: false }), (req, res) => {
     serviceLocator.authenticationProvider.authenticate(req.body, (error, administrator) => {
       if (error) {
         switch (error.message) {

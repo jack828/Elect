@@ -31,7 +31,7 @@ class DefaultLayout extends Component {
   logout(e) {
     e.preventDefault()
     window.localStorage.clear()
-    this.props.history.push('/login')
+    this.props.history.push('/admin/login')
   }
 
   render() {
@@ -70,8 +70,8 @@ class DefaultLayout extends Component {
                       />
                     ) : (null)
                   })}
+                  <Redirect from="/admin" to="/admin/dashboard" />
                   <Route component={Page404} />
-                  <Redirect from="/" to="/dashboard" />
                 </Switch>
               </Suspense>
             </Container>

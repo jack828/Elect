@@ -2,7 +2,7 @@ export default {
   items: [
     {
       name: 'Dashboard',
-      url: '/dashboard',
+      url: '/admin/dashboard',
       icon: 'icon-speedometer',
       badge: {
         variant: 'info',
@@ -25,13 +25,13 @@ export default {
       children: [
         {
           name: 'New Election',
-          url: '/elections/new',
-          icon: 'icon-question'
+          url: '/admin/elections/new',
+          icon: 'icon-note'
         },
         {
           name: 'View Elections',
-          url: '/elections/list',
-          icon: 'icon-question'
+          url: '/admin/elections/list',
+          icon: 'icon-list'
         }
       ]
     },
@@ -41,13 +41,13 @@ export default {
       children: [
         {
           name: 'New Party',
-          url: '/parties/new',
-          icon: 'icon-question'
+          url: '/admin/parties/new',
+          icon: 'icon-note'
         },
         {
           name: 'View Parties',
-          url: '/parties/list',
-          icon: 'icon-question'
+          url: '/admin/parties/list',
+          icon: 'icon-list'
         }
       ]
     },
@@ -57,13 +57,13 @@ export default {
       children: [
         {
           name: 'New Voter',
-          url: '/voters/new',
-          icon: 'icon-question'
+          url: '/admin/voters/new',
+          icon: 'icon-note'
         },
         {
           name: 'View Voters',
-          url: '/voters/list',
-          icon: 'icon-question'
+          url: '/admin/voters/list',
+          icon: 'icon-list'
         }
       ]
     },
@@ -73,12 +73,12 @@ export default {
       children: [
         {
           name: 'New Administrator',
-          url: '/administrators/new',
+          url: '/admin/administrators/new',
           icon: 'icon-note'
         },
         {
           name: 'View Administrators',
-          url: '/administrators/list',
+          url: '/admin/administrators/list',
           icon: 'icon-list'
         }
       ]
@@ -89,13 +89,13 @@ export default {
       children: [
         {
           name: 'New Role',
-          url: '/roles/new',
-          icon: 'icon-question'
+          url: '/admin/roles/new',
+          icon: 'icon-note'
         },
         {
           name: 'View Roles',
-          url: '/roles/list',
-          icon: 'icon-question'
+          url: '/admin/roles/list',
+          icon: 'icon-list'
         }
       ]
     },

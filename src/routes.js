@@ -49,67 +49,67 @@ const User = React.lazy(() => import('./views/Users/User'))
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
   {
-    path: '/',
+    path: '/admin',
     exact: true,
     name: 'Home',
     component: DefaultLayout
   },
   {
-    path: '/dashboard',
+    path: '/admin/dashboard',
     name: 'Dashboard',
     component: Dashboard
   },
 
   {
-    path: '/administrators/new',
+    path: '/admin/administrators/new',
     exact: true,
     name: 'New Administrator',
     component: AdministratorForm
   },
   {
-    path: '/administrators/list',
+    path: '/admin/administrators/list',
     exact: true,
     name: 'List Administrators',
     component: AdministratorList
   },
   {
-    path: '/administrators/:id',
+    path: '/admin/administrators/:id',
     name: 'Edit Administrator',
     component: AdministratorForm
   },
 
   {
-    path: '/parties/new',
+    path: '/admin/parties/new',
     exact: true,
     name: 'New Party',
     component: PartyForm
   },
   {
-    path: '/parties/list',
+    path: '/admin/parties/list',
     exact: true,
     name: 'List Parties',
     component: PartyList
   },
   {
-    path: '/parties/:id',
+    path: '/admin/parties/:id',
     name: 'Edit Party',
     component: PartyForm
   },
 
   {
-    path: '/elections/new',
+    path: '/admin/elections/new',
     exact: true,
     name: 'New Election',
     component: ElectionForm
   },
   {
-    path: '/elections/list',
+    path: '/admin/elections/list',
     exact: true,
     name: 'List Elections',
     component: ElectionList
   },
   {
-    path: '/elections/:id',
+    path: '/admin/elections/:id',
     name: 'Edit Election',
     component: ElectionForm
   },

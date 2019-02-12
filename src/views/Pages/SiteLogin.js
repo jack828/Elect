@@ -16,7 +16,7 @@ import {
   Row
 } from 'reactstrap'
 
-class Login extends Component {
+class SiteLogin extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -80,7 +80,7 @@ class Login extends Component {
                 <Card className="p-4">
                   <CardBody>
                     <Form onSubmit={this.handleSubmit}>
-                      <h1>Elect Administrator Login</h1>
+                      <h1>Elect Site Login</h1>
                       {error && (
                         <Alert color="danger">
                           Incorrect email address or password combination. Please try again.
@@ -143,10 +143,10 @@ class Login extends Component {
   }
 }
 
-Login.propTypes = {
+SiteLogin.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
   }).isRequired
 }
 
-export default Login
+export default SiteLogin
