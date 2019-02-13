@@ -2,7 +2,7 @@ import React, { Component, Suspense } from 'react'
 import PropTypes from 'prop-types'
 import { Redirect, Route, Switch } from 'react-router-dom'
 import { Container } from 'reactstrap'
-
+import { connect } from 'react-redux'
 import {
   AppBreadcrumb,
   AppHeader
@@ -10,15 +10,15 @@ import {
 // routes config
 import routes from '../../site-routes'
 import Page404 from '../../views/Pages/Page404'
+import { onLogout } from './actions'
 
 const SiteHeader = React.lazy(() => import('./SiteHeader'))
 
 class SiteLayout extends Component {
   loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
 
-  logout(e) {
-    e.preventDefault()
-    window.localStorage.clear()
+  logout() {
+    this.props.onLogout()
     this.props.history.push('/login')
   }
 
@@ -27,7 +27,7 @@ class SiteLayout extends Component {
       <div className="app">
         <AppHeader fixed>
           <Suspense fallback={this.loading()}>
-            <SiteHeader onLogout={e => this.logout(e)} />
+            <SiteHeader onLogout={this.props.onLogout} />
           </Suspense>
         </AppHeader>
         <div className="app-body">
@@ -62,7 +62,14 @@ class SiteLayout extends Component {
 }
 
 SiteLayout.propTypes = {
+  onLogout: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired
 }
+const mapDispatchToProps = dispatch => ({
+  onLogout: () => dispatch(onLogout())
+})
 
-export default SiteLayout
+export default connect(
+  state => ({ state }),
+  mapDispatchToProps
+)(SiteLayout)
