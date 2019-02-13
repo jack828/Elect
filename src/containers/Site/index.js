@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 import createStore from '../../store'
+import Websocket from '../../lib/websocket'
 
 import SiteLayout from './SiteLayout'
 
@@ -21,9 +22,10 @@ class Site extends Component {
   render() {
     if (!this.state.store) return null
 
+    // TODO: WebsocketProvider
     return (
       <Provider store={this.state.store}>
-        <SiteLayout {...this.props} />
+        <SiteLayout {...this.props} websocket={new Websocket()} />
       </Provider>
     )
   }

@@ -63,7 +63,8 @@ class SiteLayout extends Component {
 
 SiteLayout.propTypes = {
   onLogout: PropTypes.func.isRequired,
-  history: PropTypes.object.isRequired
+  history: PropTypes.object.isRequired,
+  websocket: PropTypes.object.isRequired
 }
 const mapDispatchToProps = dispatch => ({
   onLogout: () => dispatch(onLogout())
