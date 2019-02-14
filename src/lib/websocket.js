@@ -13,22 +13,22 @@ class Websocket extends EventEmitter {
     this.ws.onopen = this.onOpen.bind(this)
   }
 
-  send(key, data, callback) {
-    // TODO promises
-    const id = callback && hat()
-    const stringifiedData = JSON.stringify({
-      id,
-      [key]: data
-    })
-    this.ws.send(stringifiedData)
-    this.once(id, (value) => {
-      callback(null, value)
+  send(key, data) {
+    return new Promise((resolve) => {
+      const id = hat()
+      const stringifiedData = JSON.stringify({
+        id,
+        [key]: data
+      })
+      this.ws.send(stringifiedData)
+      this.once(id, (value) => {
+        resolve(value)
+      })
     })
   }
 
   onMessage({ data: raw }) {
     const data = this.parse(raw)
-    console.log(data)
     Object.keys(data).map((key) => {
       const value = data[key]
       this.emit(key, value)
