@@ -27,16 +27,12 @@ bootstrap(serviceLocator, (error) => {
 
   serviceLocator.server.emit('preBoot')
 
-  serviceLocator.server.on('started', (httpServer) => {
-    serviceLocator.register('httpServer', httpServer)
-    serviceLocator.logger.info(`Server running: ${serviceLocator.config.url}`)
-  })
-
   serviceLocator.server.on('requestError', (err, req) => {
     serviceLocator.logger.error('Request Error', err.stack, req.url)
   })
 
-  serviceLocator.server.listen(port, () => {
+  serviceLocator.httpServer.listen(port, () => {
+    serviceLocator.server.emit('listening')
     serviceLocator.logger.info(`Listening on http://${serviceLocator.config.url}:${port}`)
   })
 })

@@ -1,8 +1,10 @@
 const express = require('express')
 const morgan = require('morgan')
+const { createServer } = require('http')
 const { join } = require('path')
 
 const app = express()
+const server = createServer(app)
 
 module.exports = (serviceLocator) => {
   const inDevelopmentMode = serviceLocator.env === 'development'
@@ -23,5 +25,7 @@ module.exports = (serviceLocator) => {
       res.sendFile(join(__dirname, '../build', 'index.html'))
     })
   }
+  serviceLocator.register('httpServer', server)
+
   return app
 }
