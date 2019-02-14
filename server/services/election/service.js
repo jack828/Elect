@@ -9,5 +9,16 @@ module.exports = (serviceLocator) => {
 
   service.search = createSearch(service)
 
+  service.findActive = () => new Promise((resolve, reject) => {
+    const now = new Date()
+    save.findOne({
+      visibleFrom: { $lte: now },
+      visibleTo: { $gte: now }
+    }, (err, election) => {
+      if (err) return reject(err)
+      resolve(election)
+    })
+  })
+
   return service
 }

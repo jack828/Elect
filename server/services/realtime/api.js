@@ -1,9 +1,7 @@
 const createRealtime = require('./realtime/controller')
 
 const init = (serviceLocator, done) => {
-  serviceLocator.server.on('listening', () => {
-    createRealtime(serviceLocator)
-  })
+  createRealtime(serviceLocator)
   done()
 }
 

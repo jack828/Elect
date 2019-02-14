@@ -15,11 +15,6 @@ import { onLogout } from './actions'
 const SiteHeader = React.lazy(() => import('./SiteHeader'))
 
 class SiteLayout extends Component {
-  async componentDidMount() {
-    const data = await this.props.websocket.send('dashboard:load')
-    console.log({ data })
-  }
-
   loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
 
   logout() {
@@ -49,7 +44,7 @@ class SiteLayout extends Component {
                         exact={route.exact}
                         name={route.name}
                         render={props => (
-                          <route.component {...props} />
+                          <route.component {...props} websocket={this.props.websocket} />
                         )}
                       />
                     ) : (null)
@@ -71,11 +66,12 @@ SiteLayout.propTypes = {
   history: PropTypes.object.isRequired,
   websocket: PropTypes.object.isRequired
 }
+
 const mapDispatchToProps = dispatch => ({
   onLogout: () => dispatch(onLogout())
 })
 
 export default connect(
-  state => ({ state }),
+  ({ site }) => site.toJS(),
   mapDispatchToProps
 )(SiteLayout)

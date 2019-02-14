@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
 import site from './containers/Site/reducer'
+import dashboard from './views/SiteDashboard/reducer'
 
 const reducer = combineReducers({
-  site
+  site,
+  dashboard
 })
 
 export default (state, action) => {

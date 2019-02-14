@@ -1,6 +1,8 @@
 import Immutable from 'immutable'
 
-import { LOGOUT } from './actions'
+import {
+  LOGOUT
+} from './actions'
 
 const initialState = Immutable.fromJS({
   apiKey: null,
