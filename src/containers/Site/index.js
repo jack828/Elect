@@ -9,8 +9,13 @@ class Site extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      store: null
+      store: null,
+      websocket: null
     }
+    const ws = new Websocket()
+    ws.once('websocket:open', () => {
+      this.setState({ websocket: ws })
+    })
   }
 
   async componentDidMount() {
@@ -25,7 +30,9 @@ class Site extends Component {
     // TODO: WebsocketProvider
     return (
       <Provider store={this.state.store}>
-        <SiteLayout {...this.props} websocket={new Websocket()} />
+        {this.state.websocket
+          && <SiteLayout {...this.props} websocket={this.state.websocket} />
+        }
       </Provider>
     )
   }

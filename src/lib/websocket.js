@@ -13,7 +13,7 @@ class Websocket extends EventEmitter {
     this.ws.onopen = this.onOpen.bind(this)
   }
 
-  send(key, data) {
+  send(key, data = '') {
     return new Promise((resolve) => {
       const id = hat()
       const stringifiedData = JSON.stringify({

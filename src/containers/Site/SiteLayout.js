@@ -15,6 +15,11 @@ import { onLogout } from './actions'
 const SiteHeader = React.lazy(() => import('./SiteHeader'))
 
 class SiteLayout extends Component {
+  async componentDidMount() {
+    const data = await this.props.websocket.send('dashboard:load')
+    console.log({ data })
+  }
+
   loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
 
   logout() {
