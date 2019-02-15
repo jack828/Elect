@@ -5,7 +5,8 @@ const baseProperties = {
   // TODO change when password resets are done
   adminHashType: 'bcrypt',
   adminMaxLoginAttempts: 10,
-  salt: 'Retribution trainload senate.'
+  salt: 'Retribution trainload senate.',
+  osApiKey: '7ipy7Fe0nRjsWjIfB9YQAfGcZ0uNFifv'
 }
 
 const envProperties = {

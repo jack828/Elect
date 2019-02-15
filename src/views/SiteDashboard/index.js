@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 import {
   Card,
   CardHeader,
@@ -34,7 +35,7 @@ class SiteDashboard extends Component {
                 </CardHeader>
                 <CardBody>
                   {Date.now() > election.voteOpenFrom && Date.now() < election.voteOpenTo
-                    ? 'VOTING OPEN'
+                    ? <Link to="/election">VOTING OPEN</Link>
                     : 'VOTING CLOSED'
                   }
                 </CardBody>

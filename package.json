@@ -80,6 +80,7 @@
     "jest": "23.6.0",
     "jest-pnp-resolver": "1.0.1",
     "jest-resolve": "23.6.0",
+    "leaflet": "^1.4.0",
     "lodash": "^4.17.11",
     "lodash.omit": "^4.5.0",
     "merstone": "^0.1.1",
