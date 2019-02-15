@@ -16,6 +16,7 @@ import {
   Row
 } from 'reactstrap'
 
+// TODO redux
 class SiteLogin extends Component {
   constructor(props) {
     super(props)
@@ -72,7 +73,7 @@ class SiteLogin extends Component {
   render() {
     const { data, error } = this.state
     return (
-      <div className="app flex-row align-items-center">
+      <div className="flex-row align-items-center">
         <Container>
           <Row className="justify-content-center">
             <Col md="8">

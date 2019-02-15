@@ -10,6 +10,7 @@ import {
 // routes config
 import routes from '../../site-routes'
 import Page404 from '../../views/Pages/Page404'
+import Login from '../../views/Pages/SiteLogin'
 import { onLogout } from './actions'
 
 const SiteHeader = React.lazy(() => import('./SiteHeader'))
@@ -36,19 +37,27 @@ class SiteLayout extends Component {
             <Container fluid>
               <Suspense fallback={this.loading()}>
                 <Switch>
-                  {routes.map((route) => {
-                    return route.component ? (
-                      <Route
-                        key={`Route-${route.path}`}
-                        path={route.path}
-                        exact={route.exact}
-                        name={route.name}
-                        render={props => (
-                          <route.component {...props} websocket={this.props.websocket} />
-                        )}
+                  {this.props.apiKey
+                    ? routes.map((route) => {
+                      return route.component ? (
+                        <Route
+                          key={`Route-${route.path}`}
+                          path={route.path}
+                          exact={route.exact}
+                          name={route.name}
+                          render={props => (
+                            <route.component {...props} websocket={this.props.websocket} />
+                          )}
+                        />
+                      ) : (null)
+                    })
+                    : (
+                      <Route render={props => (
+                        <Login {...props} websocket={this.props.websocket} />
+                      )}
                       />
-                    ) : (null)
-                  })}
+                    )
+                  }
                   <Redirect exact from="/" to="/dashboard" />
                   <Route component={Page404} />
                 </Switch>
@@ -61,10 +70,16 @@ class SiteLayout extends Component {
   }
 }
 
+SiteLayout.defaultProps = {
+  apiKey: null
+}
+
 SiteLayout.propTypes = {
   onLogout: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,
-  websocket: PropTypes.object.isRequired
+  websocket: PropTypes.object.isRequired,
+
+  apiKey: PropTypes.string
 }
 
 const mapDispatchToProps = dispatch => ({

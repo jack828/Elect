@@ -26,7 +26,7 @@ class Elections extends Component {
           {election
             && (
             <Col xs="12">
-              <ElectionMap />
+              <ElectionMap websocket={this.props.websocket} />
             </Col>
             )
           }
