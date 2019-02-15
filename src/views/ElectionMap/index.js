@@ -7,9 +7,9 @@ class ElectionMap extends Component {
   componentDidMount() {
     if (this.rendered) return false
 
-    const map = L.map('map').setView([ 37.8, -96 ], 4)
+    const map = L.map('map').setView([ 54, 0 ], 6)
 
-    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiamFjazgyOCIsImEiOiJjanM1enVzdWkwMGszNGFwaGMwN3JnMmVoIn0.r9CfYSdy4rdGFBHO-MJt7w', {
       maxZoom: 18,
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, '
         + '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, '
@@ -21,20 +21,20 @@ class ElectionMap extends Component {
     // control that shows state info on hover
     const info = L.control()
 
-    info.onAdd = function onAdd() {
-      this.div = L.DomUtil.create('div', 'info')
-      this.update()
-      return this.div
+    info.onAdd = () => {
+      info.div = L.DomUtil.create('div', 'info')
+      info.update()
+      return info.div
     }
 
-    info.update = function update(data) {
-      this.div.innerHTML = `<h4>US Population Density</h4>${(data ? `<b>${data.name}</b><br />${data.density} people / mi<sup>2</sup>` : 'Hover over a state')}`
+    info.update = (data) => {
+      info.div.innerHTML = `<h4>UK Constituency Map</h4>${(data ? `<b>${data.name}</b><br />${data.density} people / mi<sup>2</sup>` : 'Hover over a constituency')}`
     }
 
     info.addTo(map)
 
-    // get color depending on population density value
-    function getColor(d) {
+    // get color depending on value
+    const getColor = (d) => {
       if (d > 1000) return '#800026'
       if (d > 500) return '#BD0026'
       if (d > 200) return '#E31A1C'
@@ -45,18 +45,16 @@ class ElectionMap extends Component {
       return '#FFEDA0'
     }
 
-    function style(feature) {
-      return {
-        weight: 2,
-        opacity: 1,
-        color: 'white',
-        dashArray: '3',
-        fillOpacity: 0.7,
-        fillColor: getColor(feature.properties.density)
-      }
-    }
+    const style = feature => ({
+      weight: 2,
+      opacity: 1,
+      color: 'white',
+      dashArray: '3',
+      fillOpacity: 0.7,
+      fillColor: getColor(feature.properties.density)
+    })
 
-    function highlightFeature(e) {
+    const highlightFeature = (e) => {
       const layer = e.target
 
       layer.setStyle({
@@ -75,16 +73,16 @@ class ElectionMap extends Component {
 
     let geojson
 
-    function resetHighlight(e) {
+    const resetHighlight = (e) => {
       geojson.resetStyle(e.target)
       info.update()
     }
 
-    function zoomToFeature(e) {
+    const zoomToFeature = (e) => {
       map.fitBounds(e.target.getBounds())
     }
 
-    function onEachFeature(feature, layer) {
+    const onEachFeature = (feature, layer) => {
       layer.on({
         mouseover: highlightFeature,
         mouseout: resetHighlight,
@@ -97,11 +95,9 @@ class ElectionMap extends Component {
       onEachFeature
     }).addTo(map)
 
-    map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>')
-
     const legend = L.control({ position: 'bottomright' })
 
-    legend.onAdd = function onAdd() {
+    legend.onAdd = () => {
       const div = L.DomUtil.create('div', 'info legend')
       const grades = [ 0, 10, 20, 50, 100, 200, 500, 1000 ]
       const labels = []
@@ -112,7 +108,7 @@ class ElectionMap extends Component {
         from = grades[i]
         to = grades[i + 1]
 
-        labels.push(`<i style="background:${getColor(from + 1)}"></i> ${from} ${(to ? `&ndash;${to}` : '+')}`)
+        labels.push(`<i style="background:${getColor(from + 1)}"></i> ${from} ${(to ? `&ndash; ${to}` : '+')}`)
       }
 
       div.innerHTML = labels.join('<br>')

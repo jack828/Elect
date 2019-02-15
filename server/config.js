@@ -6,7 +6,8 @@ const baseProperties = {
   adminHashType: 'bcrypt',
   adminMaxLoginAttempts: 10,
   salt: 'Retribution trainload senate.',
-  osApiKey: '7ipy7Fe0nRjsWjIfB9YQAfGcZ0uNFifv'
+  osApiKey: '7ipy7Fe0nRjsWjIfB9YQAfGcZ0uNFifv',
+  mapboxApiKey: 'pk.eyJ1IjoiamFjazgyOCIsImEiOiJjanM1enVzdWkwMGszNGFwaGMwN3JnMmVoIn0.r9CfYSdy4rdGFBHO-MJt7w'
 }
 
 const envProperties = {
