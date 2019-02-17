@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux'
 import site from './containers/Site/reducer'
 import dashboard from './views/SiteDashboard/reducer'
+import auth from './views/Pages/auth/reducer'
 
 const reducer = combineReducers({
   site,
-  dashboard
+  dashboard,
+  auth
 })
 
 export default (state, action) => {
