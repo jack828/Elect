@@ -73,7 +73,7 @@ class SiteLogin extends Component {
   render() {
     const { data, error } = this.state
     return (
-      <div className="flex-row align-items-center">
+      <div className="app-body flex-row align-items-center">
         <Container>
           <Row className="justify-content-center">
             <Col md="8">

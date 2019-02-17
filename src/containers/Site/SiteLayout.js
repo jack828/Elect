@@ -8,7 +8,7 @@ import {
   AppHeader
 } from '@coreui/react'
 // routes config
-import routes from '../../site-routes'
+import siteRoutes from '../../site-routes'
 import Page404 from '../../views/Pages/Page404'
 import Login from '../../views/Pages/SiteLogin'
 import { onLogout } from './actions'
@@ -23,6 +23,40 @@ class SiteLayout extends Component {
     this.props.history.push('/login')
   }
 
+  renderRoutes() {
+    let routes = []
+    if (this.props.apiKey) {
+      routes = [
+        ...siteRoutes.map((route) => {
+          return route.component ? (
+            <Route
+              key={`Route-${route.path}`}
+              path={route.path}
+              exact={route.exact}
+              name={route.name}
+              render={props => (
+                <route.component {...props} websocket={this.props.websocket} />
+              )}
+            />
+          ) : (null)
+        }),
+        <Redirect key="Route-Redirect" exact from="/" to="/dashboard" />,
+        <Route key="Route-404" component={Page404} />
+      ]
+    } else {
+      routes = [
+        <Route
+          key="Route-Login"
+          render={props => (
+            <Login {...props} websocket={this.props.websocket} />
+          )}
+        />
+      ]
+    }
+
+    return routes
+  }
+
   render() {
     return (
       <div className="app">
@@ -33,33 +67,11 @@ class SiteLayout extends Component {
         </AppHeader>
         <div className="app-body">
           <main className="main">
-            <AppBreadcrumb appRoutes={routes} />
+            <AppBreadcrumb appRoutes={siteRoutes} />
             <Container fluid>
               <Suspense fallback={this.loading()}>
                 <Switch>
-                  {this.props.apiKey
-                    ? routes.map((route) => {
-                      return route.component ? (
-                        <Route
-                          key={`Route-${route.path}`}
-                          path={route.path}
-                          exact={route.exact}
-                          name={route.name}
-                          render={props => (
-                            <route.component {...props} websocket={this.props.websocket} />
-                          )}
-                        />
-                      ) : (null)
-                    })
-                    : (
-                      <Route render={props => (
-                        <Login {...props} websocket={this.props.websocket} />
-                      )}
-                      />
-                    )
-                  }
-                  <Redirect exact from="/" to="/dashboard" />
-                  <Route component={Page404} />
+                  {this.renderRoutes()}
                 </Switch>
               </Suspense>
             </Container>

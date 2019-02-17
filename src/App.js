@@ -24,18 +24,11 @@ const AdminLogin = Loadable({
   loading
 })
 
-const SiteLogin = Loadable({
-  loader: () => import('./views/Pages/SiteLogin'),
-  loading
-})
-
-
 const App = () => (
   <HashRouter>
     <Switch>
       <Route exact path="/admin/login" component={AdminLogin} />
       <PrivateRoute path="/admin" component={AdminLayout} />
-      <Route exact path="/login" component={SiteLogin} />
       <Route path="/" component={SiteLayout} />
     </Switch>
   </HashRouter>

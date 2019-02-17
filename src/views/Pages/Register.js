@@ -1,11 +1,24 @@
-/* eslint-disable */
-import React, { Component } from 'react';
-import { Button, Card, CardBody, CardFooter, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
+import React, { Component } from 'react'
+import {
+  Button,
+  Card,
+  CardBody,
+  CardFooter,
+  Col,
+  Container,
+  Form,
+  Input,
+  InputGroup,
+  InputGroupAddon,
+  InputGroupText,
+  Row
+} from 'reactstrap'
 
+// eslint-disable-next-line
 class Register extends Component {
   render() {
     return (
-      <div className="app flex-row align-items-center">
+      <div className="app-body flex-row align-items-center">
         <Container>
           <Row className="justify-content-center">
             <Col md="9" lg="7" xl="6">
@@ -17,7 +30,7 @@ class Register extends Component {
                     <InputGroup className="mb-3">
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText>
-                          <i className="icon-user"></i>
+                          <i className="icon-user" />
                         </InputGroupText>
                       </InputGroupAddon>
                       <Input type="text" placeholder="Username" autoComplete="username" />
@@ -31,7 +44,7 @@ class Register extends Component {
                     <InputGroup className="mb-3">
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText>
-                          <i className="icon-lock"></i>
+                          <i className="icon-lock" />
                         </InputGroupText>
                       </InputGroupAddon>
                       <Input type="password" placeholder="Password" autoComplete="new-password" />
@@ -39,7 +52,7 @@ class Register extends Component {
                     <InputGroup className="mb-4">
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText>
-                          <i className="icon-lock"></i>
+                          <i className="icon-lock" />
                         </InputGroupText>
                       </InputGroupAddon>
                       <Input type="password" placeholder="Repeat password" autoComplete="new-password" />
@@ -62,8 +75,8 @@ class Register extends Component {
           </Row>
         </Container>
       </div>
-    );
+    )
   }
 }
 
-export default Register;
+export default Register
