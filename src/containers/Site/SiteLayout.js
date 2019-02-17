@@ -11,6 +11,7 @@ import {
 import siteRoutes from '../../site-routes'
 import Page404 from '../../views/Pages/Page404'
 import Login from '../../views/Pages/SiteLogin'
+import Register from '../../views/Pages/Register'
 import { onLogout } from './actions'
 
 const SiteHeader = React.lazy(() => import('./SiteHeader'))
@@ -40,11 +41,27 @@ class SiteLayout extends Component {
             />
           ) : (null)
         }),
-        <Redirect key="Route-Redirect" exact from="/" to="/dashboard" />,
-        <Route key="Route-404" component={Page404} />
+        <Redirect
+          key="Route-Redirect"
+          exact
+          from="/"
+          to="/dashboard"
+        />,
+        <Route
+          key="Route-404"
+          component={Page404}
+        />
       ]
     } else {
       routes = [
+        <Route
+          key="Route-Register"
+          exact
+          path="/register"
+          render={props => (
+            <Register {...props} websocket={this.props.websocket} />
+          )}
+        />,
         <Route
           key="Route-Login"
           render={props => (
