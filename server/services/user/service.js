@@ -4,14 +4,12 @@ const createSearch = require('cf-text-search')
 const createSchema = require('./schema')
 const isPasswordResetRequired = require('../administrator/lib/is-password-reset-required')
 const createHasher = require('../administrator/lib/hasher')
-const createBruteForcePreventer = require('../administrator/lib/brute-force-preventer')
 
 module.exports = (serviceLocator) => {
   const save = serviceLocator.persistence('user')
   const schema = createSchema(save, serviceLocator.config)
   const service = crudService('User', save, schema, {})
   const hasher = createHasher(serviceLocator)
-  const bruteForcePreventer = createBruteForcePreventer(serviceLocator)
 
   const createHash = (user, callback) => {
     if (!user.password) {
@@ -62,37 +60,28 @@ module.exports = (serviceLocator) => {
         return callback(new Error('No password for user. Reset required.'), credentials)
       }
 
-      bruteForcePreventer.check(user, (error) => {
-        if (error) return callback(error)
-        hasher.compare(user, credentials.password, (compareErr, valid) => {
-          if (compareErr) {
-            return callback(compareErr, credentials)
-          }
-          if (!valid) {
-            return bruteForcePreventer.incrementFailedAttemptCount(user, (attErr) => {
-              if (attErr) return callback(attErr)
-              return callback(new Error('Wrong Email and password combination.'), credentials)
-            })
-          }
+      hasher.compare(user, credentials.password, (compareErr, valid) => {
+        if (compareErr) {
+          return callback(compareErr, credentials)
+        }
+        if (!valid) {
+          return callback(new Error('Wrong Email and password combination.'), credentials)
+        }
 
-          bruteForcePreventer.resetFailedAttemptCount(user, (cErr) => {
-            if (cErr) return callback(cErr)
-            // Every time a user authenticate create a session key.
-            // Rather a nasty hack to reuse salt generator.
-            // Really schema should have the function tacked on.
-            user.key = schema.getProperties().passwordSalt.defaultValue()
+        // Every time a user authenticate create a session key.
+        // Rather a nasty hack to reuse salt generator.
+        // Really schema should have the function tacked on.
+        user.key = schema.getProperties().passwordSalt.defaultValue()
 
-            save.update({
-              _id: user._id,
-              key: user.key
-            }, (updateErr) => {
-              if (updateErr) {
-                return callback(updateErr)
-              }
-              user.requirePasswordReset = isPasswordResetRequired(user)
-              return callback(null, user)
-            })
-          })
+        save.update({
+          _id: user._id,
+          key: user.key
+        }, (updateErr) => {
+          if (updateErr) {
+            return callback(updateErr)
+          }
+          user.requirePasswordReset = isPasswordResetRequired(user)
+          return callback(null, user)
         })
       })
     })

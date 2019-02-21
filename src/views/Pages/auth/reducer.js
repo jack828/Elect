@@ -4,18 +4,27 @@ import {
   REGISTER_FORM_SUBMIT,
   REGISTER_FORM_CHANGE,
   REGISTER_FORM_SUCCESS,
-  REGISTER_FORM_FAILURE
+  REGISTER_FORM_FAILURE,
+  LOGIN_FORM_SUBMIT,
+  LOGIN_FORM_CHANGE,
+  LOGIN_FORM_SUCCESS,
+  LOGIN_FORM_FAILURE
 } from './actions'
 
 const initialState = Immutable.fromJS({
-  data: {
+  register: {
     firstName: '',
     lastName: '',
     emailAddress: '',
     password: '',
     passwordConfirm: ''
   },
+  login: {
+    identity: '',
+    password: ''
+  },
   authenticated: false,
+  registered: false,
   loading: false,
   user: null,
   error: null,
@@ -30,9 +39,9 @@ export default (state = initialState, action) => {
         errors: {}
       })
     case REGISTER_FORM_CHANGE: {
-      const { data, errors } = state.toJS()
+      const { register, errors } = state.toJS()
       const newData = {
-        ...data,
+        ...register,
         ...action.data
       }
       const { password, passwordConfirm } = newData
@@ -47,7 +56,7 @@ export default (state = initialState, action) => {
 
       return state
         .merge({
-          data: newData,
+          register: newData,
           errors: {
             ...errors,
             ...passwordErrors
@@ -56,10 +65,33 @@ export default (state = initialState, action) => {
     }
     case REGISTER_FORM_SUCCESS:
       return state.merge({
-        authenticated: true,
+        registered: true,
         user: action.user
       })
     case REGISTER_FORM_FAILURE:
+      return state.merge({
+        errors: action.errors
+      })
+    case LOGIN_FORM_CHANGE: {
+      const { login } = state.toJS()
+      return state.merge({
+        login: {
+          ...login,
+          ...action.data
+        }
+      })
+    }
+    case LOGIN_FORM_SUBMIT:
+      return state.merge({
+        loading: true,
+        errors: {}
+      })
+    case LOGIN_FORM_SUCCESS:
+      return state.merge({
+        authenticated: true,
+        user: action.user
+      })
+    case LOGIN_FORM_FAILURE:
       return state.merge({
         errors: action.errors
       })

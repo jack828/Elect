@@ -7,6 +7,7 @@ module.exports = (serviceLocator) => {
         if (error.errors) {
           return wss.emit(id, { errors: error.errors })
         }
+        serviceLocator.logger.error('Register error', error)
         return wss.emit(id, { errors: 'Something unexpected occured, please try again later' })
       }
 
@@ -15,10 +16,18 @@ module.exports = (serviceLocator) => {
     })
   })
 
-  // TODO
-  wss.on('login', async (id) => {
-    if (id) {
-      wss.emit(id, { })
-    }
+  wss.on('login', async (id, data) => {
+    userService.authenticate(data, (error, user) => {
+      if (error) {
+        if (error.errors) {
+          return wss.emit(id, { errors: error.errors })
+        }
+        serviceLocator.logger.error('Login error', error)
+        return wss.emit(id, { errors: 'Something unexpected occured, please try again later' })
+      }
+
+      const { password, passwordSalt, ...cleanUser } = user
+      wss.emit(id, { user: cleanUser })
+    })
   })
 }
