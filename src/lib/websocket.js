@@ -14,6 +14,7 @@ class Websocket extends EventEmitter {
   }
 
   send(key, data = '') {
+    // Wrap in setTimeout
     return new Promise((resolve) => {
       const id = hat()
       const stringifiedData = JSON.stringify({
@@ -36,7 +37,7 @@ class Websocket extends EventEmitter {
   }
 
   onOpen() {
-    this.emit('websocket:open')
+    this.emit('open')
   }
 
   parse(raw) {

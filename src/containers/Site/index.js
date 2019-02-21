@@ -13,7 +13,7 @@ class Site extends Component {
       websocket: null
     }
     const ws = new Websocket()
-    ws.once('websocket:open', () => {
+    ws.once('open', () => {
       this.setState({ websocket: ws })
     })
   }
