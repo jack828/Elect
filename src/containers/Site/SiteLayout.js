@@ -20,13 +20,14 @@ class SiteLayout extends Component {
   loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
 
   logout() {
+    // TODO logout properly
     this.props.onLogout()
     this.props.history.push('/login')
   }
 
   renderRoutes() {
     let routes = []
-    if (this.props.apiKey) {
+    if (this.props.authenticated) {
       routes = [
         ...siteRoutes.map((route) => {
           return route.component ? (
@@ -100,7 +101,7 @@ class SiteLayout extends Component {
 }
 
 SiteLayout.defaultProps = {
-  apiKey: null
+  authenticated: false
 }
 
 SiteLayout.propTypes = {
@@ -108,7 +109,7 @@ SiteLayout.propTypes = {
   history: PropTypes.object.isRequired,
   websocket: PropTypes.object.isRequired,
 
-  apiKey: PropTypes.string
+  authenticated: PropTypes.bool
 }
 
 const mapDispatchToProps = dispatch => ({
@@ -116,6 +117,6 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(
-  ({ site }) => site.toJS(),
+  ({ auth }) => auth.toJS(),
   mapDispatchToProps
 )(SiteLayout)
