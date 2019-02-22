@@ -13,7 +13,9 @@ import { onLoad } from './actions'
 
 class SiteDashboard extends Component {
   componentDidMount() {
-    this.props.onLoad(this.props.websocket)
+    if (this.props.loading) {
+      this.props.onLoad(this.props.websocket)
+    }
   }
 
   render() {
