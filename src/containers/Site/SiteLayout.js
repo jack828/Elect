@@ -3,15 +3,13 @@ import PropTypes from 'prop-types'
 import { Redirect, Route, Switch } from 'react-router-dom'
 import { Container } from 'reactstrap'
 import { connect } from 'react-redux'
-import {
-  AppBreadcrumb,
-  AppHeader
-} from '@coreui/react'
-// routes config
-import siteRoutes from '../../site-routes'
+import { AppBreadcrumb, AppHeader } from '@coreui/react'
+
 import Page404 from '../../views/Pages/Page404'
 import Login from '../../views/Pages/SiteLogin'
 import Register from '../../views/Pages/Register'
+import siteRoutes from '../../site-routes'
+
 import { onLogout } from './actions'
 
 const SiteHeader = React.lazy(() => import('./SiteHeader'))
