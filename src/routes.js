@@ -1,5 +1,5 @@
 import React from 'react'
-import DefaultLayout from './containers/DefaultLayout'
+import AdminLayout from './containers/AdminLayout'
 
 const AdministratorForm = React.lazy(() => import('./views/Administrators/views/Form'))
 const AdministratorList = React.lazy(() => import('./views/Administrators/views/List'))
@@ -52,7 +52,7 @@ const routes = [
     path: '/admin',
     exact: true,
     name: 'Home',
-    component: DefaultLayout
+    component: AdminLayout
   },
   {
     path: '/admin/dashboard',

@@ -20,10 +20,10 @@ import navigation from '../../_nav'
 import routes from '../../routes'
 import Page404 from '../../views/Pages/Page404'
 
-const DefaultFooter = React.lazy(() => import('./DefaultFooter'))
-const DefaultHeader = React.lazy(() => import('./DefaultHeader'))
+const AdminFooter = React.lazy(() => import('./AdminFooter'))
+const AdminHeader = React.lazy(() => import('./AdminHeader'))
 
-class DefaultLayout extends Component {
+class AdminLayout extends Component {
   loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
 
   logout(e) {
@@ -37,7 +37,7 @@ class DefaultLayout extends Component {
       <div className="app">
         <AppHeader fixed>
           <Suspense fallback={this.loading()}>
-            <DefaultHeader onLogout={e => this.logout(e)} />
+            <AdminHeader onLogout={e => this.logout(e)} />
           </Suspense>
         </AppHeader>
         <div className="app-body">
@@ -77,7 +77,7 @@ class DefaultLayout extends Component {
         </div>
         <AppFooter>
           <Suspense fallback={this.loading()}>
-            <DefaultFooter />
+            <AdminFooter />
           </Suspense>
         </AppFooter>
       </div>
@@ -85,8 +85,8 @@ class DefaultLayout extends Component {
   }
 }
 
-DefaultLayout.propTypes = {
+AdminLayout.propTypes = {
   history: PropTypes.object.isRequired
 }
 
-export default DefaultLayout
+export default AdminLayout

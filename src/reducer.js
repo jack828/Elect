@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import site from './containers/Site/reducer'
+import site from './containers/SiteLayout/reducer'
 import dashboard from './views/SiteDashboard/reducer'
 import auth from './views/Pages/auth/reducer'
 

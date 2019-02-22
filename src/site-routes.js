@@ -1,5 +1,5 @@
 import React from 'react'
-import SiteLayout from './containers/Site'
+import SiteLayout from './containers/SiteLayout'
 
 const SiteDashboard = React.lazy(() => import('./views/SiteDashboard'))
 const Elections = React.lazy(() => import('./views/Elections'))

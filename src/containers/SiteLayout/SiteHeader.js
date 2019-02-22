@@ -6,24 +6,20 @@ import {
   NavLink
 } from 'reactstrap'
 import {
-  AppNavbarBrand,
-  AppSidebarToggler
+  AppNavbarBrand
 } from '@coreui/react'
 import logo from '../../assets/img/brand/logo.svg'
 import sygnet from '../../assets/img/brand/sygnet.svg'
 
-const DefaultHeader = ({ onLogout }) => (
+const SiteHeader = ({ onLogout }) => (
   <>
-    <AppSidebarToggler className="d-lg-none" display="md" mobile />
     <AppNavbarBrand
       full={{ src: logo, width: 89, height: 25, alt: 'Elect Logo' }}
       minimized={{ src: sygnet, width: 30, height: 30, alt: 'Elect Logo' }}
     />
-    <AppSidebarToggler className="d-md-down-none" display="lg" />
-
     <Nav className="d-md-down-none" navbar>
       <NavItem className="px-3">
-        <NavLink href="/admin">Dashboard</NavLink>
+        <NavLink href="/">Dashboard</NavLink>
       </NavItem>
     </Nav>
     <Nav className="ml-auto" navbar>
@@ -36,8 +32,8 @@ const DefaultHeader = ({ onLogout }) => (
   </>
 )
 
-DefaultHeader.propTypes = {
+SiteHeader.propTypes = {
   onLogout: PropTypes.func.isRequired
 }
 
-export default DefaultHeader
+export default SiteHeader
