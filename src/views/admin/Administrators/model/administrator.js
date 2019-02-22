@@ -1,7 +1,7 @@
 import schemata from 'schemata'
 import omit from 'lodash.omit'
-import BaseModel from '../../lib/base-model'
-import createSchema from '../../../../server/services/administrator/schema'
+import BaseModel from '../../../lib/base-model'
+import createSchema from '../../../../../server/services/administrator/schema'
 
 class AdministratorModel extends BaseModel {
   createSchema() {

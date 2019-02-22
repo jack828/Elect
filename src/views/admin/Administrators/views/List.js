@@ -1,5 +1,5 @@
 import React from 'react'
-import BaseListView from '../../lib/base-list-view'
+import BaseListView from '../../../lib/base-list-view'
 import FilterView from './ListFilter'
 import ListItemHeaderView from './ListItemHeaderView'
 import ListItemView from './ListItemView'

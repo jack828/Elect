@@ -1,4 +1,4 @@
-import BaseCollection from '../../lib/base-collection'
+import BaseCollection from '../../../lib/base-collection'
 import Model from '../model/election'
 
 class ElectionCollection extends BaseCollection {

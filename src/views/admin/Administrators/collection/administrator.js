@@ -1,4 +1,4 @@
-import BaseCollection from '../../lib/base-collection'
+import BaseCollection from '../../../lib/base-collection'
 import Model from '../model/administrator'
 
 class AdministratorCollection extends BaseCollection {

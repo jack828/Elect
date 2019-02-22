@@ -6,7 +6,7 @@ import {
   Label
 } from 'reactstrap'
 
-import BaseFilterView from '../../lib/base-filter-view'
+import BaseFilterView from '../../../lib/base-filter-view'
 
 class FilterView extends BaseFilterView {
   renderFields() {

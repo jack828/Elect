@@ -3,7 +3,7 @@ import {
   Badge,
   Button
 } from 'reactstrap'
-import BaseComponentView from '../../lib/base-component-view'
+import BaseComponentView from '../../../lib/base-component-view'
 
 class ListItemView extends BaseComponentView {
   render() {

@@ -1,14 +1,14 @@
 import React from 'react'
 import AdminLayout from './containers/AdminLayout'
 
-const AdministratorForm = React.lazy(() => import('./views/Administrators/views/Form'))
-const AdministratorList = React.lazy(() => import('./views/Administrators/views/List'))
+const AdministratorForm = React.lazy(() => import('./views/admin/Administrators/views/Form'))
+const AdministratorList = React.lazy(() => import('./views/admin/Administrators/views/List'))
 
-const PartyForm = React.lazy(() => import('./views/Parties/views/Form'))
-const PartyList = React.lazy(() => import('./views/Parties/views/List'))
+const PartyForm = React.lazy(() => import('./views/admin/Parties/views/Form'))
+const PartyList = React.lazy(() => import('./views/admin/Parties/views/List'))
 
-const ElectionForm = React.lazy(() => import('./views/Election/views/Form'))
-const ElectionList = React.lazy(() => import('./views/Election/views/List'))
+const ElectionForm = React.lazy(() => import('./views/admin/Election/views/Form'))
+const ElectionList = React.lazy(() => import('./views/admin/Election/views/List'))
 
 const Breadcrumbs = React.lazy(() => import('./views/Base/Breadcrumbs'))
 const Cards = React.lazy(() => import('./views/Base/Cards'))

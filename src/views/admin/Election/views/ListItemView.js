@@ -1,9 +1,11 @@
 import React from 'react'
 import {
-  Badge,
   Button
 } from 'reactstrap'
-import BaseComponentView from '../../lib/base-component-view'
+import {
+  format
+} from 'date-fns'
+import BaseComponentView from '../../../lib/base-component-view'
 
 class ListItemView extends BaseComponentView {
   render() {
@@ -20,15 +22,12 @@ class ListItemView extends BaseComponentView {
             <i className="fa fa-fw fa-edit" />
           </Button>
         </th>
-        <td>{data.firstName}</td>
-        <td>{data.lastName}</td>
-        <td>{data.emailAddress}</td>
-        <td>{data.role}</td>
-        <td>
-          <Badge color={data.enabled ? 'success' : 'data'}>
-            {data.enabled ? 'enabled' : 'disabled'}
-          </Badge>
-        </td>
+        <td>{data.name}</td>
+        <td>{data.parties.length}</td>
+        <td>{format(new Date(data.visibleFrom), 'do MMMM yyyy HH:MM')}</td>
+        <td>{format(new Date(data.visibleTo), 'do MMMM yyyy HH:MM')}</td>
+        <td>{format(new Date(data.voteOpenFrom), 'do MMMM yyyy HH:MM')}</td>
+        <td>{format(new Date(data.voteOpenTo), 'do MMMM yyyy HH:MM')}</td>
       </tr>
     )
   }
