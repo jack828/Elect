@@ -17,6 +17,7 @@ const path = require('path');
 const chalk = require('chalk');
 const fs = require('fs-extra');
 const webpack = require('webpack');
+const ProgressPlugin = require('webpack/lib/ProgressPlugin');
 const bfj = require('bfj');
 const checkRequiredFiles = require('react-dev-utils/checkRequiredFiles');
 const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
@@ -44,6 +45,7 @@ if (!checkRequiredFiles([ paths.appHtml, paths.appIndexJs ])) {
 // Process CLI arguments
 const argv = process.argv.slice(2);
 const writeStatsJson = argv.indexOf('--stats') !== -1;
+const showProgress = argv.indexOf('--progress') !== -1;
 
 // Generate configuration
 const config = configFactory('production');
@@ -126,6 +128,11 @@ function build(previousFileSizes) {
   console.log('Creating an optimized production build...');
 
   let compiler = webpack(config);
+  if (showProgress) {
+    compiler.apply(new ProgressPlugin((percentage, msg) => {
+      console.log((percentage * 100).toFixed(2) + '%', msg);
+    }));
+  }
   return new Promise((resolve, reject) => {
     compiler.run((err, stats) => {
       let messages;
