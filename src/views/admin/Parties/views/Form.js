@@ -7,7 +7,7 @@ import {
   Label
 } from 'reactstrap'
 import BaseFormView from '../../../lib/base-form-view'
-import createSchema from '../../../../../server/services/party/schema'
+import createSchema from '../../../../../server/service/party/schema'
 
 class Form extends BaseFormView {
   schema = createSchema()

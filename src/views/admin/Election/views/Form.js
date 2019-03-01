@@ -10,7 +10,7 @@ import {
 import DatePicker from 'react-datepicker'
 import Multiselect from '../../../lib/MultiSelect'
 import BaseFormView from '../../../lib/base-form-view'
-import createSchema from '../../../../../server/services/election/schema'
+import createSchema from '../../../../../server/service/election/schema'
 
 class Form extends BaseFormView {
   // TODO: fields should not be editible if the visible date has passed

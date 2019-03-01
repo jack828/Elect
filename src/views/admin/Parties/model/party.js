@@ -1,5 +1,5 @@
 import BaseModel from '../../../lib/base-model'
-import createSchema from '../../../../../server/services/party/schema'
+import createSchema from '../../../../../server/service/party/schema'
 
 class PartyModel extends BaseModel {
   createSchema() {
