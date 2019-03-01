@@ -1,4 +1,4 @@
-const createRealtime = require('./realtime/controller')
+const createRealtime = require('./controller')
 
 const init = (serviceLocator, done) => {
   createRealtime(serviceLocator)

@@ -1,4 +1,4 @@
-const createApi = require('./api/controller')
+const createApi = require('./controller')
 
 const init = (serviceLocator, done) => {
   createApi(serviceLocator)
