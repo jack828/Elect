@@ -166,7 +166,8 @@ module.exports = (webpackEnv) => {
           && (info => path.resolve(info.absoluteResourcePath).replace(/\\/g, '/'))
     },
     optimization: {
-      minimize: isEnvProduction,
+      // TODO: RE-enable once constituency data is nicer, and not in the whole bundle
+      minimize: false, //isEnvProduction,
       minimizer: [
         // This is only used in production mode
         new TerserPlugin({
