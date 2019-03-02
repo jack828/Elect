@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import L from 'leaflet'
 
 // TODO: improve loading by using https://docs.mapbox.com/studio-manual/reference/datasets/
-import constituencyData from './constituencies.json'
-
 class ElectionMap extends Component {
   componentDidMount() {
     if (!this.map) this.renderMap()
+    if (!this.constituencyData) this.loadConstituencyData()
   }
 
   getColour(val) {
@@ -18,6 +18,82 @@ class ElectionMap extends Component {
     if (val > 20) return '#FEB24C'
     if (val > 10) return '#FED976'
     return '#FFEDA0'
+  }
+
+  async loadConstituencyData() {
+    // Not in redux due to size
+    this.constituencyData = await this.props.websocket.send('constituencies:load')
+    this.addConstituencyData()
+  }
+
+  addConstituencyData() {
+    const highlightFeature = (e) => {
+      const layer = e.target
+
+      layer.setStyle({
+        weight: 5,
+        color: '#666',
+        dashArray: '',
+        fillOpacity: 0.7
+      })
+
+      if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+        layer.bringToFront()
+      }
+
+      this.info.update(layer.feature.properties)
+    }
+
+    const resetHighlight = (e) => {
+      this.constituencyGeoJson.resetStyle(e.target)
+      this.info.update()
+    }
+
+    const zoomToFeature = (e) => {
+      this.map.fitBounds(e.target.getBounds())
+    }
+
+    const onEachFeature = (feature, layer) => {
+      layer.on({
+        mouseover: highlightFeature,
+        mouseout: resetHighlight,
+        click: zoomToFeature
+      })
+    }
+
+    const style = feature => ({
+      weight: 2,
+      opacity: 1,
+      color: 'white',
+      dashArray: '3',
+      fillOpacity: 0.7,
+      fillColor: this.getColour(feature.properties.density)
+    })
+
+    this.constituencyGeoJson = L.geoJson(this.constituencyData, {
+      style,
+      onEachFeature
+    }).addTo(this.map)
+
+    const legend = L.control({ position: 'bottomright' })
+
+    legend.onAdd = () => {
+      const div = L.DomUtil.create('div', 'info legend')
+      const grades = [ 0, 10, 20, 50, 100, 200, 500, 1000 ]
+      const labels = []
+
+      for (let i = 0; i < grades.length; i++) {
+        const from = grades[i]
+        const to = grades[i + 1]
+
+        labels.push(`<i style="background:${this.getColour(from + 1)}"></i> ${from} ${(to ? `&ndash; ${to}` : '+')}`)
+      }
+
+      div.innerHTML = labels.join('<br>')
+      return div
+    }
+
+    legend.addTo(this.map)
   }
 
   renderMap() {
@@ -45,79 +121,15 @@ class ElectionMap extends Component {
     }
 
     this.info.addTo(this.map)
-
-    const highlightFeature = (e) => {
-      const layer = e.target
-
-      layer.setStyle({
-        weight: 5,
-        color: '#666',
-        dashArray: '',
-        fillOpacity: 0.7
-      })
-
-      if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-        layer.bringToFront()
-      }
-
-      this.info.update(layer.feature.properties)
-    }
-
-    const resetHighlight = (e) => {
-      this.geojson.resetStyle(e.target)
-      this.info.update()
-    }
-
-    const zoomToFeature = (e) => {
-      this.map.fitBounds(e.target.getBounds())
-    }
-
-    const onEachFeature = (feature, layer) => {
-      layer.on({
-        mouseover: highlightFeature,
-        mouseout: resetHighlight,
-        click: zoomToFeature
-      })
-    }
-
-    const style = feature => ({
-      weight: 2,
-      opacity: 1,
-      color: 'white',
-      dashArray: '3',
-      fillOpacity: 0.7,
-      fillColor: this.getColour(feature.properties.density)
-    })
-
-    this.geojson = L.geoJson(constituencyData, {
-      style,
-      onEachFeature
-    }).addTo(this.map)
-
-    const legend = L.control({ position: 'bottomright' })
-
-    legend.onAdd = () => {
-      const div = L.DomUtil.create('div', 'info legend')
-      const grades = [ 0, 10, 20, 50, 100, 200, 500, 1000 ]
-      const labels = []
-
-      for (let i = 0; i < grades.length; i++) {
-        const from = grades[i]
-        const to = grades[i + 1]
-
-        labels.push(`<i style="background:${this.getColour(from + 1)}"></i> ${from} ${(to ? `&ndash; ${to}` : '+')}`)
-      }
-
-      div.innerHTML = labels.join('<br>')
-      return div
-    }
-
-    legend.addTo(this.map)
   }
 
   render() {
     return <div id="map" />
   }
+}
+
+ElectionMap.propTypes = {
+  websocket: PropTypes.object.isRequired
 }
 
 export default ElectionMap
