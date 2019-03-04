@@ -17,6 +17,8 @@ import {
 } from 'reactstrap'
 import { connect } from 'react-redux'
 import { changeRegister, register } from './auth/actions'
+// TODO: rebuild this with nice text as well
+import constituencySlugs from '../../lib/constituency-slugs.json'
 
 const Register = ({
   errors,
@@ -140,6 +142,30 @@ const Register = ({
                     />
                     {errors.passwordConfirm && (
                       <FormFeedback>{errors.passwordConfirm}</FormFeedback>
+                    )}
+                  </InputGroup>
+
+                  <InputGroup className="mb-4">
+                    <InputGroupAddon addonType="prepend">
+                      <InputGroupText>
+                        <i className="icon-globe" />
+                      </InputGroupText>
+                    </InputGroupAddon>
+                    <Input
+                      type="select"
+                      placeholder="Select Constituency"
+                      name="constituency"
+                      onChange={onChange}
+                      defaultValue={registerData.constituency}
+                      invalid={!!errors.constituency}
+                    >
+                      <option> -- Please select a constituency --</option>
+                      {constituencySlugs.map(slug => (
+                        <option key={slug} value={slug}>{slug}</option>
+                      ))}
+                    </Input>
+                    {errors.constituency && (
+                      <FormFeedback>{errors.constituency}</FormFeedback>
                     )}
                   </InputGroup>
 

@@ -17,8 +17,10 @@ const initialState = Immutable.fromJS({
     lastName: '',
     emailAddress: '',
     password: '',
-    passwordConfirm: ''
+    passwordConfirm: '',
+    constituency: ''
   },
+  // TODO: this should not be persisted
   login: {
     identity: '',
     password: ''
