@@ -97,7 +97,7 @@ class ElectionMap extends Component {
   }
 
   renderMap() {
-    this.map = L.map('map').setView([ 54, -2 ], 6)
+    this.map = L.map('map').setView([ 54.5, -2 ], 6)
 
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiamFjazgyOCIsImEiOiJjanM1enVzdWkwMGszNGFwaGMwN3JnMmVoIn0.r9CfYSdy4rdGFBHO-MJt7w', {
       maxZoom: 18,
