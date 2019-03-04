@@ -10,7 +10,8 @@ const persistConfig = {
   key: 'primary',
   version: 1,
   storage,
-  transforms: [ immutableTransform() ]
+  transforms: [ immutableTransform() ],
+  blacklist: [ 'site' ]
 }
 
 const reducer = persistReducer(persistConfig, rootReducer)
