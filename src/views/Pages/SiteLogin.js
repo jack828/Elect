@@ -38,6 +38,19 @@ const SiteLogin = ({
       <Container>
         <Row className="justify-content-center">
           <Col md="8">
+            <Card className="p-4 text-center">
+              {/* TODO: This is styled TERRIBLY */}
+              <CardBody>
+                <Button
+                  color="secondary"
+                  onClick={() => history.push('/register')}
+                >
+                  <h3>Register Here</h3>
+                </Button>
+              </CardBody>
+            </Card>
+          </Col>
+          <Col md="8">
             <CardGroup>
               <Card className="p-4">
                 <CardBody>
