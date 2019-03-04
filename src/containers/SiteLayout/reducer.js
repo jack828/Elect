@@ -1,18 +1,40 @@
 import Immutable from 'immutable'
 
 import {
-  LOGOUT
+  LOGOUT,
+  WEBSOCKET_OPEN,
+  WEBSOCKET_CLOSE,
+  WEBSOCKET_ERROR
 } from './actions'
 
 const initialState = Immutable.fromJS({
-  apiKey: null,
-  user: null
+  websocketError: false,
+  websocketClose: false,
+  websocketOpen: false
 })
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case LOGOUT:
       return initialState
+    case WEBSOCKET_OPEN:
+      return state.merge({
+        websocketOpen: true,
+        websocketClose: false,
+        websocketError: false
+      })
+    case WEBSOCKET_CLOSE:
+      return state.merge({
+        websocketOpen: false,
+        websocketClose: true,
+        websocketError: false
+      })
+    case WEBSOCKET_ERROR:
+      return state.merge({
+        websocketOpen: false,
+        websocketClose: false,
+        websocketError: false
+      })
     default:
       return state
   }

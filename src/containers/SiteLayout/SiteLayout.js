@@ -1,7 +1,7 @@
 import React, { Component, Suspense } from 'react'
 import PropTypes from 'prop-types'
 import { Redirect, Route, Switch } from 'react-router-dom'
-import { Container } from 'reactstrap'
+import { Alert, Container } from 'reactstrap'
 import { connect } from 'react-redux'
 import { AppBreadcrumb, AppHeader } from '@coreui/react'
 
@@ -10,11 +10,22 @@ import Login from '../../views/Pages/SiteLogin'
 import Register from '../../views/Pages/Register'
 import siteRoutes from '../../site-routes'
 
-import { onLogout } from './actions'
+import {
+  onLogout,
+  onWebsocketOpen,
+  onWebsocketClose,
+  onWebsocketError
+} from './actions'
 
 const SiteHeader = React.lazy(() => import('./SiteHeader'))
 
 class SiteLayout extends Component {
+  componentDidMount() {
+    this.props.websocket.on('open', this.props.onWebsocketOpen)
+    this.props.websocket.on('close', this.props.onWebsocketClose)
+    this.props.websocket.on('error', this.props.onWebsocketError)
+  }
+
   loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
 
   logout() {
@@ -85,6 +96,11 @@ class SiteLayout extends Component {
           <main className="main">
             <AppBreadcrumb appRoutes={siteRoutes} />
             <Container fluid>
+              {this.props.websocketClose && (
+                <Alert className="text-center" color="danger">
+                  Connection to the server has been lost. Please reload the page!
+                </Alert>
+              )}
               <Suspense fallback={this.loading()}>
                 <Switch>
                   {this.renderRoutes()}
@@ -98,23 +114,29 @@ class SiteLayout extends Component {
   }
 }
 
-SiteLayout.defaultProps = {
-  authenticated: false
-}
-
 SiteLayout.propTypes = {
   onLogout: PropTypes.func.isRequired,
+  onWebsocketOpen: PropTypes.func.isRequired,
+  onWebsocketClose: PropTypes.func.isRequired,
+  onWebsocketError: PropTypes.func.isRequired,
+
   history: PropTypes.object.isRequired,
   websocket: PropTypes.object.isRequired,
 
-  authenticated: PropTypes.bool
+  authenticated: PropTypes.bool.isRequired,
+  websocketOpen: PropTypes.bool.isRequired,
+  websocketClose: PropTypes.bool.isRequired,
+  websocketError: PropTypes.bool.isRequired
 }
 
 const mapDispatchToProps = dispatch => ({
-  onLogout: () => dispatch(onLogout())
+  onLogout: () => dispatch(onLogout()),
+  onWebsocketOpen: () => dispatch(onWebsocketOpen()),
+  onWebsocketClose: () => dispatch(onWebsocketClose()),
+  onWebsocketError: () => dispatch(onWebsocketError())
 })
 
 export default connect(
-  ({ auth }) => auth.toJS(),
+  ({ auth, site }) => ({ ...auth.toJS(), ...site.toJS() }),
   mapDispatchToProps
 )(SiteLayout)

@@ -8,13 +8,14 @@ class Websocket extends EventEmitter {
     this.url = url
     this.ws = new WebSocket('ws://localhost:3003')
 
-    // TODO: disconnect, reconnect, etc - add a banner or something
     this.ws.onmessage = this.onMessage.bind(this)
     this.ws.onopen = this.onOpen.bind(this)
+    this.ws.onclose = this.onClose.bind(this)
+    this.ws.onError = this.onError.bind(this)
   }
 
   send(key, data = '') {
-    // Wrap in setTimeout
+    // TODO: Wrap in setTimeout
     return new Promise((resolve) => {
       const id = hat()
       const stringifiedData = JSON.stringify({
@@ -38,6 +39,14 @@ class Websocket extends EventEmitter {
 
   onOpen() {
     this.emit('open')
+  }
+
+  onClose() {
+    this.emit('close')
+  }
+
+  onError() {
+    this.emit('error')
   }
 
   parse(raw) {
