@@ -17,7 +17,6 @@ import {
 } from 'reactstrap'
 import { connect } from 'react-redux'
 import { changeRegister, register } from './auth/actions'
-// TODO: rebuild this with nice text as well
 import constituencySlugs from '../../lib/constituency-slugs.json'
 
 const Register = ({
@@ -160,8 +159,8 @@ const Register = ({
                       invalid={!!errors.constituency}
                     >
                       <option> -- Please select a constituency --</option>
-                      {constituencySlugs.map(slug => (
-                        <option key={slug} value={slug}>{slug}</option>
+                      {constituencySlugs.map(({ name, slug }) => (
+                        <option key={slug} value={slug}>{name}</option>
                       ))}
                     </Input>
                     {errors.constituency && (

@@ -1,634 +1,2530 @@
 [
-  "aldershot",
-  "aldridge-brownhills",
-  "altrincham-and-sale-west",
-  "amber-valley",
-  "arundel-and-south-downs",
-  "ashfield",
-  "ashford",
-  "ashton-under-lyne",
-  "aylesbury",
-  "banbury",
-  "barking",
-  "barnsley-central",
-  "barnsley-east",
-  "barrow-and-furness",
-  "basildon-and-billericay",
-  "basingstoke",
-  "bassetlaw",
-  "bath",
-  "batley-and-spen",
-  "battersea",
-  "beaconsfield",
-  "beckenham",
-  "bedford",
-  "bermondsey-and-old-southwark",
-  "berwick-upon-tweed",
-  "bethnal-green-and-bow",
-  "beverley-and-holderness",
-  "bexhill-and-battle",
-  "bexleyheath-and-crayford",
-  "birkenhead",
-  "birmingham-edgbaston",
-  "birmingham-erdington",
-  "birmingham-hall-green",
-  "birmingham-hodge-hill",
-  "birmingham-ladywood",
-  "birmingham-northfield",
-  "birmingham-perry-barr",
-  "birmingham-selly-oak",
-  "birmingham-yardley",
-  "bishop-auckland",
-  "blackburn",
-  "blackley-and-broughton",
-  "blackpool-north-and-cleveleys",
-  "blackpool-south",
-  "blaydon",
-  "blyth-valley",
-  "bognor-regis-and-littlehampton",
-  "bolsover",
-  "bolton-north-east",
-  "bolton-south-east",
-  "bolton-west",
-  "bootle",
-  "boston-and-skegness",
-  "bosworth",
-  "bournemouth-east",
-  "bournemouth-west",
-  "bracknell",
-  "bradford-east",
-  "bradford-south",
-  "bradford-west",
-  "braintree",
-  "brent-central",
-  "brent-north",
-  "brentford-and-isleworth",
-  "brentwood-and-ongar",
-  "bridgwater-and-west-somerset",
-  "brigg-and-goole",
-  "brighton-kemptown",
-  "brighton-pavilion",
-  "bristol-east",
-  "bristol-north-west",
-  "bristol-south",
-  "bristol-west",
-  "broadland",
-  "bromley-and-chislehurst",
-  "bromsgrove",
-  "broxbourne",
-  "broxtowe",
-  "buckingham",
-  "burnley",
-  "burton",
-  "bury-north",
-  "bury-south",
-  "bury-st-edmunds",
-  "calder-valley",
-  "camberwell-and-peckham",
-  "camborne-and-redruth",
-  "cambridge",
-  "cannock-chase",
-  "canterbury",
-  "carlisle",
-  "carshalton-and-wallington",
-  "castle-point",
-  "central-devon",
-  "central-suffolk-and-north-ipswich",
-  "charnwood",
-  "chatham-and-aylesford",
-  "cheadle",
-  "chelmsford",
-  "chelsea-and-fulham",
-  "cheltenham",
-  "chesham-and-amersham",
-  "chesterfield",
-  "chichester",
-  "chingford-and-woodford-green",
-  "chippenham",
-  "chipping-barnet",
-  "chorley",
-  "christchurch",
-  "cities-of-london-and-westminster",
-  "city-of-chester",
-  "city-of-durham",
-  "clacton",
-  "cleethorpes",
-  "colchester",
-  "colne-valley",
-  "congleton",
-  "copeland",
-  "corby",
-  "coventry-north-east",
-  "coventry-north-west",
-  "coventry-south",
-  "crawley",
-  "crewe-and-nantwich",
-  "croydon-central",
-  "croydon-north",
-  "croydon-south",
-  "dagenham-and-rainham",
-  "darlington",
-  "dartford",
-  "daventry",
-  "denton-and-reddish",
-  "derby-north",
-  "derby-south",
-  "derbyshire-dales",
-  "devizes",
-  "dewsbury",
-  "don-valley",
-  "doncaster-central",
-  "doncaster-north",
-  "dover",
-  "dudley-north",
-  "dudley-south",
-  "dulwich-and-west-norwood",
-  "ealing-central-and-acton",
-  "ealing-north",
-  "ealing-southall",
-  "easington",
-  "east-devon",
-  "east-ham",
-  "east-hampshire",
-  "east-surrey",
-  "east-worthing-and-shoreham",
-  "east-yorkshire",
-  "eastbourne",
-  "eastleigh",
-  "eddisbury",
-  "edmonton",
-  "ellesmere-port-and-neston",
-  "elmet-and-rothwell",
-  "eltham",
-  "enfield-north",
-  "enfield-southgate",
-  "epping-forest",
-  "epsom-and-ewell",
-  "erewash",
-  "erith-and-thamesmead",
-  "esher-and-walton",
-  "exeter",
-  "fareham",
-  "faversham-and-mid-kent",
-  "feltham-and-heston",
-  "filton-and-bradley-stoke",
-  "finchley-and-golders-green",
-  "folkestone-and-hythe",
-  "forest-of-dean",
-  "fylde",
-  "gainsborough",
-  "garston-and-halewood",
-  "gateshead",
-  "gedling",
-  "gillingham-and-rainham",
-  "gloucester",
-  "gosport",
-  "grantham-and-stamford",
-  "gravesham",
-  "great-grimsby",
-  "great-yarmouth",
-  "greenwich-and-woolwich",
-  "guildford",
-  "hackney-north-and-stoke-newington",
-  "hackney-south-and-shoreditch",
-  "halesowen-and-rowley-regis",
-  "halifax",
-  "haltemprice-and-howden",
-  "halton",
-  "hammersmith",
-  "hampstead-and-kilburn",
-  "harborough",
-  "harlow",
-  "harrogate-and-knaresborough",
-  "harrow-east",
-  "harrow-west",
-  "hartlepool",
-  "harwich-and-north-essex",
-  "hastings-and-rye",
-  "havant",
-  "hayes-and-harlington",
-  "hazel-grove",
-  "hemel-hempstead",
-  "hemsworth",
-  "hendon",
-  "henley",
-  "hereford-and-south-herefordshire",
-  "hertford-and-stortford",
-  "hertsmere",
-  "hexham",
-  "heywood-and-middleton",
-  "high-peak",
-  "hitchin-and-harpenden",
-  "holborn-and-st-pancras",
-  "hornchurch-and-upminster",
-  "hornsey-and-wood-green",
-  "horsham",
-  "houghton-and-sunderland-south",
-  "hove",
-  "huddersfield",
-  "huntingdon",
-  "hyndburn",
-  "ilford-north",
-  "ilford-south",
-  "ipswich",
-  "isle-of-wight",
-  "islington-north",
-  "islington-south-and-finsbury",
-  "jarrow",
-  "keighley",
-  "kenilworth-and-southam",
-  "kensington",
-  "kettering",
-  "kingston-and-surbiton",
-  "kingston-upon-hull-east",
-  "kingston-upon-hull-north",
-  "kingston-upon-hull-west-and-hessle",
-  "kingswood",
-  "knowsley",
-  "lancaster-and-fleetwood",
-  "leeds-central",
-  "leeds-east",
-  "leeds-north-east",
-  "leeds-north-west",
-  "leeds-west",
-  "leicester-east",
-  "leicester-south",
-  "leicester-west",
-  "leigh",
-  "lewes",
-  "lewisham-east",
-  "lewisham-west-and-penge",
-  "lewisham-deptford",
-  "leyton-and-wanstead",
-  "lichfield",
-  "lincoln",
-  "liverpool-riverside",
-  "liverpool-walton",
-  "liverpool-wavertree",
-  "liverpool-west-derby",
-  "loughborough",
-  "louth-and-horncastle",
-  "ludlow",
-  "luton-north",
-  "luton-south",
-  "macclesfield",
-  "maidenhead",
-  "maidstone-and-the-weald",
-  "makerfield",
-  "maldon",
-  "manchester-central",
-  "manchester-gorton",
-  "manchester-withington",
-  "mansfield",
-  "meon-valley",
-  "meriden",
-  "mid-bedfordshire",
-  "mid-derbyshire",
-  "mid-dorset-and-north-poole",
-  "mid-norfolk",
-  "mid-sussex",
-  "mid-worcestershire",
-  "middlesbrough",
-  "middlesbrough-south-and-east-cleveland",
-  "milton-keynes-north",
-  "milton-keynes-south",
-  "mitcham-and-morden",
-  "mole-valley",
-  "morecambe-and-lunesdale",
-  "morley-and-outwood",
-  "new-forest-east",
-  "new-forest-west",
-  "newark",
-  "newbury",
-  "newcastle-upon-tyne-central",
-  "newcastle-upon-tyne-east",
-  "newcastle-upon-tyne-north",
-  "newcastle-under-lyme",
-  "newton-abbot",
-  "normanton-pontefract-and-castleford",
-  "north-cornwall",
-  "north-devon",
-  "north-dorset",
-  "north-durham",
-  "north-east-bedfordshire",
-  "north-east-cambridgeshire",
-  "north-east-derbyshire",
-  "north-east-hampshire",
-  "north-east-hertfordshire",
-  "north-east-somerset",
-  "north-herefordshire",
-  "north-norfolk",
-  "north-shropshire",
-  "north-somerset",
-  "north-swindon",
-  "north-thanet",
-  "north-tyneside",
-  "north-warwickshire",
-  "north-west-cambridgeshire",
-  "north-west-durham",
-  "north-west-hampshire",
-  "north-west-leicestershire",
-  "north-west-norfolk",
-  "north-wiltshire",
-  "northampton-north",
-  "northampton-south",
-  "norwich-north",
-  "norwich-south",
-  "nottingham-east",
-  "nottingham-north",
-  "nottingham-south",
-  "nuneaton",
-  "old-bexley-and-sidcup",
-  "oldham-east-and-saddleworth",
-  "oldham-west-and-royton",
-  "orpington",
-  "oxford-east",
-  "oxford-west-and-abingdon",
-  "pendle",
-  "penistone-and-stocksbridge",
-  "penrith-and-the-border",
-  "peterborough",
-  "plymouth-moor-view",
-  "plymouth-sutton-and-devonport",
-  "poole",
-  "poplar-and-limehouse",
-  "portsmouth-north",
-  "portsmouth-south",
-  "preston",
-  "pudsey",
-  "putney",
-  "rayleigh-and-wickford",
-  "reading-east",
-  "reading-west",
-  "redcar",
-  "redditch",
-  "reigate",
-  "ribble-valley",
-  "richmond-yorks",
-  "richmond-park",
-  "rochdale",
-  "rochester-and-strood",
-  "rochford-and-southend-east",
-  "romford",
-  "romsey-and-southampton-north",
-  "rossendale-and-darwen",
-  "rother-valley",
-  "rotherham",
-  "rugby",
-  "ruislip-northwood-and-pinner",
-  "runnymede-and-weybridge",
-  "rushcliffe",
-  "rutland-and-melton",
-  "saffron-walden",
-  "salford-and-eccles",
-  "salisbury",
-  "scarborough-and-whitby",
-  "scunthorpe",
-  "sedgefield",
-  "sefton-central",
-  "selby-and-ainsty",
-  "sevenoaks",
-  "sheffield-central",
-  "sheffield-south-east",
-  "sheffield-brightside-and-hillsborough",
-  "sheffield-hallam",
-  "sheffield-heeley",
-  "sherwood",
-  "shipley",
-  "shrewsbury-and-atcham",
-  "sittingbourne-and-sheppey",
-  "skipton-and-ripon",
-  "sleaford-and-north-hykeham",
-  "slough",
-  "solihull",
-  "somerton-and-frome",
-  "south-basildon-and-east-thurrock",
-  "south-cambridgeshire",
-  "south-derbyshire",
-  "south-dorset",
-  "south-east-cambridgeshire",
-  "south-east-cornwall",
-  "south-holland-and-the-deepings",
-  "south-leicestershire",
-  "south-norfolk",
-  "south-northamptonshire",
-  "south-ribble",
-  "south-shields",
-  "south-staffordshire",
-  "south-suffolk",
-  "south-swindon",
-  "south-thanet",
-  "south-west-bedfordshire",
-  "south-west-devon",
-  "south-west-hertfordshire",
-  "south-west-norfolk",
-  "south-west-surrey",
-  "south-west-wiltshire",
-  "southampton-itchen",
-  "southampton-test",
-  "southend-west",
-  "southport",
-  "spelthorne",
-  "st-albans",
-  "st-austell-and-newquay",
-  "st-helens-north",
-  "st-helens-south-and-whiston",
-  "st-ives",
-  "stafford",
-  "staffordshire-moorlands",
-  "stalybridge-and-hyde",
-  "stevenage",
-  "stockport",
-  "stockton-north",
-  "stockton-south",
-  "stoke-on-trent-central",
-  "stoke-on-trent-north",
-  "stoke-on-trent-south",
-  "stone",
-  "stourbridge",
-  "stratford-on-avon",
-  "streatham",
-  "stretford-and-urmston",
-  "stroud",
-  "suffolk-coastal",
-  "sunderland-central",
-  "surrey-heath",
-  "sutton-and-cheam",
-  "sutton-coldfield",
-  "tamworth",
-  "tatton",
-  "taunton-deane",
-  "telford",
-  "tewkesbury",
-  "the-cotswolds",
-  "the-wrekin",
-  "thirsk-and-malton",
-  "thornbury-and-yate",
-  "thurrock",
-  "tiverton-and-honiton",
-  "tonbridge-and-malling",
-  "tooting",
-  "torbay",
-  "torridge-and-west-devon",
-  "totnes",
-  "tottenham",
-  "truro-and-falmouth",
-  "tunbridge-wells",
-  "twickenham",
-  "tynemouth",
-  "uxbridge-and-south-ruislip",
-  "vauxhall",
-  "wakefield",
-  "wallasey",
-  "walsall-north",
-  "walsall-south",
-  "walthamstow",
-  "wansbeck",
-  "wantage",
-  "warley",
-  "warrington-north",
-  "warrington-south",
-  "warwick-and-leamington",
-  "washington-and-sunderland-west",
-  "watford",
-  "waveney",
-  "wealden",
-  "weaver-vale",
-  "wellingborough",
-  "wells",
-  "welwyn-hatfield",
-  "wentworth-and-dearne",
-  "west-bromwich-east",
-  "west-bromwich-west",
-  "west-dorset",
-  "west-ham",
-  "west-lancashire",
-  "west-suffolk",
-  "west-worcestershire",
-  "westminster-north",
-  "westmorland-and-lonsdale",
-  "weston-super-mare",
-  "wigan",
-  "wimbledon",
-  "winchester",
-  "windsor",
-  "wirral-south",
-  "wirral-west",
-  "witham",
-  "witney",
-  "woking",
-  "wokingham",
-  "wolverhampton-north-east",
-  "wolverhampton-south-east",
-  "wolverhampton-south-west",
-  "worcester",
-  "workington",
-  "worsley-and-eccles-south",
-  "worthing-west",
-  "wycombe",
-  "wyre-and-preston-north",
-  "wyre-forest",
-  "wythenshawe-and-sale-east",
-  "yeovil",
-  "york-central",
-  "york-outer",
-  "aberdeen-north",
-  "aberdeen-south",
-  "airdrie-and-shotts",
-  "angus",
-  "argyll-and-bute",
-  "ayr-carrick-and-cumnock",
-  "banff-and-buchan",
-  "berwickshire-roxburgh-and-selkirk",
-  "caithness-sutherland-and-easter-ross",
-  "central-ayrshire",
-  "coatbridge-chryston-and-bellshill",
-  "cumbernauld-kilsyth-and-kirkintilloch-east",
-  "dumfries-and-galloway",
-  "dumfriesshire-clydesdale-and-tweeddale",
-  "dundee-east",
-  "dundee-west",
-  "dunfermline-and-west-fife",
-  "east-dunbartonshire",
-  "east-kilbride-strathaven-and-lesmahagow",
-  "east-lothian",
-  "east-renfrewshire",
-  "edinburgh-east",
-  "edinburgh-north-and-leith",
-  "edinburgh-south",
-  "edinburgh-south-west",
-  "edinburgh-west",
-  "na-h-eileanan-an-iar",
-  "falkirk",
-  "glasgow-central",
-  "glasgow-east",
-  "glasgow-north",
-  "glasgow-north-east",
-  "glasgow-north-west",
-  "glasgow-south",
-  "glasgow-south-west",
-  "glenrothes",
-  "gordon",
-  "inverclyde",
-  "inverness-nairn-badenoch-and-strathspey",
-  "kilmarnock-and-loudoun",
-  "kirkcaldy-and-cowdenbeath",
-  "lanark-and-hamilton-east",
-  "linlithgow-and-east-falkirk",
-  "livingston",
-  "midlothian",
-  "moray",
-  "motherwell-and-wishaw",
-  "north-ayrshire-and-arran",
-  "north-east-fife",
-  "ochil-and-south-perthshire",
-  "orkney-and-shetland",
-  "paisley-and-renfrewshire-north",
-  "paisley-and-renfrewshire-south",
-  "perth-and-north-perthshire",
-  "ross-skye-and-lochaber",
-  "rutherglen-and-hamilton-west",
-  "stirling",
-  "west-aberdeenshire-and-kincardine",
-  "west-dunbartonshire",
-  "ynys-mon",
-  "delyn",
-  "alyn-and-deeside",
-  "wrexham",
-  "llanelli",
-  "gower",
-  "swansea-west",
-  "swansea-east",
-  "aberavon",
-  "cardiff-central",
-  "cardiff-north",
-  "rhondda",
-  "torfaen",
-  "monmouth",
-  "newport-east",
-  "newport-west",
-  "arfon",
-  "aberconwy",
-  "clwyd-west",
-  "vale-of-clwyd",
-  "dwyfor-meirionnydd",
-  "clwyd-south",
-  "montgomeryshire",
-  "ceredigion",
-  "preseli-pembrokeshire",
-  "carmarthen-west-and-south-pembrokeshire",
-  "carmarthen-east-and-dinefwr",
-  "brecon-and-radnorshire",
-  "neath",
-  "cynon-valley",
-  "merthyr-tydfil-and-rhymney",
-  "blaenau-gwent",
-  "bridgend",
-  "ogmore",
-  "pontypridd",
-  "caerphilly",
-  "islwyn",
-  "vale-of-glamorgan",
-  "cardiff-west",
-  "cardiff-south-and-penarth"
+  {
+    "name": "Aldershot",
+    "slug": "aldershot"
+  },
+  {
+    "name": "Aldridge-Brownhills",
+    "slug": "aldridge-brownhills"
+  },
+  {
+    "name": "Altrincham and Sale West",
+    "slug": "altrincham-and-sale-west"
+  },
+  {
+    "name": "Amber Valley",
+    "slug": "amber-valley"
+  },
+  {
+    "name": "Arundel and South Downs",
+    "slug": "arundel-and-south-downs"
+  },
+  {
+    "name": "Ashfield",
+    "slug": "ashfield"
+  },
+  {
+    "name": "Ashford",
+    "slug": "ashford"
+  },
+  {
+    "name": "Ashton-under-Lyne",
+    "slug": "ashton-under-lyne"
+  },
+  {
+    "name": "Aylesbury",
+    "slug": "aylesbury"
+  },
+  {
+    "name": "Banbury",
+    "slug": "banbury"
+  },
+  {
+    "name": "Barking",
+    "slug": "barking"
+  },
+  {
+    "name": "Barnsley Central",
+    "slug": "barnsley-central"
+  },
+  {
+    "name": "Barnsley East",
+    "slug": "barnsley-east"
+  },
+  {
+    "name": "Barrow and Furness",
+    "slug": "barrow-and-furness"
+  },
+  {
+    "name": "Basildon and Billericay",
+    "slug": "basildon-and-billericay"
+  },
+  {
+    "name": "Basingstoke",
+    "slug": "basingstoke"
+  },
+  {
+    "name": "Bassetlaw",
+    "slug": "bassetlaw"
+  },
+  {
+    "name": "Bath",
+    "slug": "bath"
+  },
+  {
+    "name": "Batley and Spen",
+    "slug": "batley-and-spen"
+  },
+  {
+    "name": "Battersea",
+    "slug": "battersea"
+  },
+  {
+    "name": "Beaconsfield",
+    "slug": "beaconsfield"
+  },
+  {
+    "name": "Beckenham",
+    "slug": "beckenham"
+  },
+  {
+    "name": "Bedford",
+    "slug": "bedford"
+  },
+  {
+    "name": "Bermondsey and Old Southwark",
+    "slug": "bermondsey-and-old-southwark"
+  },
+  {
+    "name": "Berwick-upon-Tweed",
+    "slug": "berwick-upon-tweed"
+  },
+  {
+    "name": "Bethnal Green and Bow",
+    "slug": "bethnal-green-and-bow"
+  },
+  {
+    "name": "Beverley and Holderness",
+    "slug": "beverley-and-holderness"
+  },
+  {
+    "name": "Bexhill and Battle",
+    "slug": "bexhill-and-battle"
+  },
+  {
+    "name": "Bexleyheath and Crayford",
+    "slug": "bexleyheath-and-crayford"
+  },
+  {
+    "name": "Birkenhead",
+    "slug": "birkenhead"
+  },
+  {
+    "name": "Birmingham, Edgbaston",
+    "slug": "birmingham-edgbaston"
+  },
+  {
+    "name": "Birmingham, Erdington",
+    "slug": "birmingham-erdington"
+  },
+  {
+    "name": "Birmingham, Hall Green",
+    "slug": "birmingham-hall-green"
+  },
+  {
+    "name": "Birmingham, Hodge Hill",
+    "slug": "birmingham-hodge-hill"
+  },
+  {
+    "name": "Birmingham, Ladywood",
+    "slug": "birmingham-ladywood"
+  },
+  {
+    "name": "Birmingham, Northfield",
+    "slug": "birmingham-northfield"
+  },
+  {
+    "name": "Birmingham, Perry Barr",
+    "slug": "birmingham-perry-barr"
+  },
+  {
+    "name": "Birmingham, Selly Oak",
+    "slug": "birmingham-selly-oak"
+  },
+  {
+    "name": "Birmingham, Yardley",
+    "slug": "birmingham-yardley"
+  },
+  {
+    "name": "Bishop Auckland",
+    "slug": "bishop-auckland"
+  },
+  {
+    "name": "Blackburn",
+    "slug": "blackburn"
+  },
+  {
+    "name": "Blackley and Broughton",
+    "slug": "blackley-and-broughton"
+  },
+  {
+    "name": "Blackpool North and Cleveleys",
+    "slug": "blackpool-north-and-cleveleys"
+  },
+  {
+    "name": "Blackpool South",
+    "slug": "blackpool-south"
+  },
+  {
+    "name": "Blaydon",
+    "slug": "blaydon"
+  },
+  {
+    "name": "Blyth Valley",
+    "slug": "blyth-valley"
+  },
+  {
+    "name": "Bognor Regis and Littlehampton",
+    "slug": "bognor-regis-and-littlehampton"
+  },
+  {
+    "name": "Bolsover",
+    "slug": "bolsover"
+  },
+  {
+    "name": "Bolton North East",
+    "slug": "bolton-north-east"
+  },
+  {
+    "name": "Bolton South East",
+    "slug": "bolton-south-east"
+  },
+  {
+    "name": "Bolton West",
+    "slug": "bolton-west"
+  },
+  {
+    "name": "Bootle",
+    "slug": "bootle"
+  },
+  {
+    "name": "Boston and Skegness",
+    "slug": "boston-and-skegness"
+  },
+  {
+    "name": "Bosworth",
+    "slug": "bosworth"
+  },
+  {
+    "name": "Bournemouth East",
+    "slug": "bournemouth-east"
+  },
+  {
+    "name": "Bournemouth West",
+    "slug": "bournemouth-west"
+  },
+  {
+    "name": "Bracknell",
+    "slug": "bracknell"
+  },
+  {
+    "name": "Bradford East",
+    "slug": "bradford-east"
+  },
+  {
+    "name": "Bradford South",
+    "slug": "bradford-south"
+  },
+  {
+    "name": "Bradford West",
+    "slug": "bradford-west"
+  },
+  {
+    "name": "Braintree",
+    "slug": "braintree"
+  },
+  {
+    "name": "Brent Central",
+    "slug": "brent-central"
+  },
+  {
+    "name": "Brent North",
+    "slug": "brent-north"
+  },
+  {
+    "name": "Brentford and Isleworth",
+    "slug": "brentford-and-isleworth"
+  },
+  {
+    "name": "Brentwood and Ongar",
+    "slug": "brentwood-and-ongar"
+  },
+  {
+    "name": "Bridgwater and West Somerset",
+    "slug": "bridgwater-and-west-somerset"
+  },
+  {
+    "name": "Brigg and Goole",
+    "slug": "brigg-and-goole"
+  },
+  {
+    "name": "Brighton, Kemptown",
+    "slug": "brighton-kemptown"
+  },
+  {
+    "name": "Brighton, Pavilion",
+    "slug": "brighton-pavilion"
+  },
+  {
+    "name": "Bristol East",
+    "slug": "bristol-east"
+  },
+  {
+    "name": "Bristol North West",
+    "slug": "bristol-north-west"
+  },
+  {
+    "name": "Bristol South",
+    "slug": "bristol-south"
+  },
+  {
+    "name": "Bristol West",
+    "slug": "bristol-west"
+  },
+  {
+    "name": "Broadland",
+    "slug": "broadland"
+  },
+  {
+    "name": "Bromley and Chislehurst",
+    "slug": "bromley-and-chislehurst"
+  },
+  {
+    "name": "Bromsgrove",
+    "slug": "bromsgrove"
+  },
+  {
+    "name": "Broxbourne",
+    "slug": "broxbourne"
+  },
+  {
+    "name": "Broxtowe",
+    "slug": "broxtowe"
+  },
+  {
+    "name": "Buckingham",
+    "slug": "buckingham"
+  },
+  {
+    "name": "Burnley",
+    "slug": "burnley"
+  },
+  {
+    "name": "Burton",
+    "slug": "burton"
+  },
+  {
+    "name": "Bury North",
+    "slug": "bury-north"
+  },
+  {
+    "name": "Bury South",
+    "slug": "bury-south"
+  },
+  {
+    "name": "Bury St Edmunds",
+    "slug": "bury-st-edmunds"
+  },
+  {
+    "name": "Calder Valley",
+    "slug": "calder-valley"
+  },
+  {
+    "name": "Camberwell and Peckham",
+    "slug": "camberwell-and-peckham"
+  },
+  {
+    "name": "Camborne and Redruth",
+    "slug": "camborne-and-redruth"
+  },
+  {
+    "name": "Cambridge",
+    "slug": "cambridge"
+  },
+  {
+    "name": "Cannock Chase",
+    "slug": "cannock-chase"
+  },
+  {
+    "name": "Canterbury",
+    "slug": "canterbury"
+  },
+  {
+    "name": "Carlisle",
+    "slug": "carlisle"
+  },
+  {
+    "name": "Carshalton and Wallington",
+    "slug": "carshalton-and-wallington"
+  },
+  {
+    "name": "Castle Point",
+    "slug": "castle-point"
+  },
+  {
+    "name": "Central Devon",
+    "slug": "central-devon"
+  },
+  {
+    "name": "Central Suffolk and North Ipswich",
+    "slug": "central-suffolk-and-north-ipswich"
+  },
+  {
+    "name": "Charnwood",
+    "slug": "charnwood"
+  },
+  {
+    "name": "Chatham and Aylesford",
+    "slug": "chatham-and-aylesford"
+  },
+  {
+    "name": "Cheadle",
+    "slug": "cheadle"
+  },
+  {
+    "name": "Chelmsford",
+    "slug": "chelmsford"
+  },
+  {
+    "name": "Chelsea and Fulham",
+    "slug": "chelsea-and-fulham"
+  },
+  {
+    "name": "Cheltenham",
+    "slug": "cheltenham"
+  },
+  {
+    "name": "Chesham and Amersham",
+    "slug": "chesham-and-amersham"
+  },
+  {
+    "name": "Chesterfield",
+    "slug": "chesterfield"
+  },
+  {
+    "name": "Chichester",
+    "slug": "chichester"
+  },
+  {
+    "name": "Chingford and Woodford Green",
+    "slug": "chingford-and-woodford-green"
+  },
+  {
+    "name": "Chippenham",
+    "slug": "chippenham"
+  },
+  {
+    "name": "Chipping Barnet",
+    "slug": "chipping-barnet"
+  },
+  {
+    "name": "Chorley",
+    "slug": "chorley"
+  },
+  {
+    "name": "Christchurch",
+    "slug": "christchurch"
+  },
+  {
+    "name": "Cities of London and Westminster",
+    "slug": "cities-of-london-and-westminster"
+  },
+  {
+    "name": "City of Chester",
+    "slug": "city-of-chester"
+  },
+  {
+    "name": "City of Durham",
+    "slug": "city-of-durham"
+  },
+  {
+    "name": "Clacton",
+    "slug": "clacton"
+  },
+  {
+    "name": "Cleethorpes",
+    "slug": "cleethorpes"
+  },
+  {
+    "name": "Colchester",
+    "slug": "colchester"
+  },
+  {
+    "name": "Colne Valley",
+    "slug": "colne-valley"
+  },
+  {
+    "name": "Congleton",
+    "slug": "congleton"
+  },
+  {
+    "name": "Copeland",
+    "slug": "copeland"
+  },
+  {
+    "name": "Corby",
+    "slug": "corby"
+  },
+  {
+    "name": "Coventry North East",
+    "slug": "coventry-north-east"
+  },
+  {
+    "name": "Coventry North West",
+    "slug": "coventry-north-west"
+  },
+  {
+    "name": "Coventry South",
+    "slug": "coventry-south"
+  },
+  {
+    "name": "Crawley",
+    "slug": "crawley"
+  },
+  {
+    "name": "Crewe and Nantwich",
+    "slug": "crewe-and-nantwich"
+  },
+  {
+    "name": "Croydon Central",
+    "slug": "croydon-central"
+  },
+  {
+    "name": "Croydon North",
+    "slug": "croydon-north"
+  },
+  {
+    "name": "Croydon South",
+    "slug": "croydon-south"
+  },
+  {
+    "name": "Dagenham and Rainham",
+    "slug": "dagenham-and-rainham"
+  },
+  {
+    "name": "Darlington",
+    "slug": "darlington"
+  },
+  {
+    "name": "Dartford",
+    "slug": "dartford"
+  },
+  {
+    "name": "Daventry",
+    "slug": "daventry"
+  },
+  {
+    "name": "Denton and Reddish",
+    "slug": "denton-and-reddish"
+  },
+  {
+    "name": "Derby North",
+    "slug": "derby-north"
+  },
+  {
+    "name": "Derby South",
+    "slug": "derby-south"
+  },
+  {
+    "name": "Derbyshire Dales",
+    "slug": "derbyshire-dales"
+  },
+  {
+    "name": "Devizes",
+    "slug": "devizes"
+  },
+  {
+    "name": "Dewsbury",
+    "slug": "dewsbury"
+  },
+  {
+    "name": "Don Valley",
+    "slug": "don-valley"
+  },
+  {
+    "name": "Doncaster Central",
+    "slug": "doncaster-central"
+  },
+  {
+    "name": "Doncaster North",
+    "slug": "doncaster-north"
+  },
+  {
+    "name": "Dover",
+    "slug": "dover"
+  },
+  {
+    "name": "Dudley North",
+    "slug": "dudley-north"
+  },
+  {
+    "name": "Dudley South",
+    "slug": "dudley-south"
+  },
+  {
+    "name": "Dulwich and West Norwood",
+    "slug": "dulwich-and-west-norwood"
+  },
+  {
+    "name": "Ealing Central and Acton",
+    "slug": "ealing-central-and-acton"
+  },
+  {
+    "name": "Ealing North",
+    "slug": "ealing-north"
+  },
+  {
+    "name": "Ealing, Southall",
+    "slug": "ealing-southall"
+  },
+  {
+    "name": "Easington",
+    "slug": "easington"
+  },
+  {
+    "name": "East Devon",
+    "slug": "east-devon"
+  },
+  {
+    "name": "East Ham",
+    "slug": "east-ham"
+  },
+  {
+    "name": "East Hampshire",
+    "slug": "east-hampshire"
+  },
+  {
+    "name": "East Surrey",
+    "slug": "east-surrey"
+  },
+  {
+    "name": "East Worthing and Shoreham",
+    "slug": "east-worthing-and-shoreham"
+  },
+  {
+    "name": "East Yorkshire",
+    "slug": "east-yorkshire"
+  },
+  {
+    "name": "Eastbourne",
+    "slug": "eastbourne"
+  },
+  {
+    "name": "Eastleigh",
+    "slug": "eastleigh"
+  },
+  {
+    "name": "Eddisbury",
+    "slug": "eddisbury"
+  },
+  {
+    "name": "Edmonton",
+    "slug": "edmonton"
+  },
+  {
+    "name": "Ellesmere Port and Neston",
+    "slug": "ellesmere-port-and-neston"
+  },
+  {
+    "name": "Elmet and Rothwell",
+    "slug": "elmet-and-rothwell"
+  },
+  {
+    "name": "Eltham",
+    "slug": "eltham"
+  },
+  {
+    "name": "Enfield North",
+    "slug": "enfield-north"
+  },
+  {
+    "name": "Enfield, Southgate",
+    "slug": "enfield-southgate"
+  },
+  {
+    "name": "Epping Forest",
+    "slug": "epping-forest"
+  },
+  {
+    "name": "Epsom and Ewell",
+    "slug": "epsom-and-ewell"
+  },
+  {
+    "name": "Erewash",
+    "slug": "erewash"
+  },
+  {
+    "name": "Erith and Thamesmead",
+    "slug": "erith-and-thamesmead"
+  },
+  {
+    "name": "Esher and Walton",
+    "slug": "esher-and-walton"
+  },
+  {
+    "name": "Exeter",
+    "slug": "exeter"
+  },
+  {
+    "name": "Fareham",
+    "slug": "fareham"
+  },
+  {
+    "name": "Faversham and Mid Kent",
+    "slug": "faversham-and-mid-kent"
+  },
+  {
+    "name": "Feltham and Heston",
+    "slug": "feltham-and-heston"
+  },
+  {
+    "name": "Filton and Bradley Stoke",
+    "slug": "filton-and-bradley-stoke"
+  },
+  {
+    "name": "Finchley and Golders Green",
+    "slug": "finchley-and-golders-green"
+  },
+  {
+    "name": "Folkestone and Hythe",
+    "slug": "folkestone-and-hythe"
+  },
+  {
+    "name": "Forest of Dean",
+    "slug": "forest-of-dean"
+  },
+  {
+    "name": "Fylde",
+    "slug": "fylde"
+  },
+  {
+    "name": "Gainsborough",
+    "slug": "gainsborough"
+  },
+  {
+    "name": "Garston and Halewood",
+    "slug": "garston-and-halewood"
+  },
+  {
+    "name": "Gateshead",
+    "slug": "gateshead"
+  },
+  {
+    "name": "Gedling",
+    "slug": "gedling"
+  },
+  {
+    "name": "Gillingham and Rainham",
+    "slug": "gillingham-and-rainham"
+  },
+  {
+    "name": "Gloucester",
+    "slug": "gloucester"
+  },
+  {
+    "name": "Gosport",
+    "slug": "gosport"
+  },
+  {
+    "name": "Grantham and Stamford",
+    "slug": "grantham-and-stamford"
+  },
+  {
+    "name": "Gravesham",
+    "slug": "gravesham"
+  },
+  {
+    "name": "Great Grimsby",
+    "slug": "great-grimsby"
+  },
+  {
+    "name": "Great Yarmouth",
+    "slug": "great-yarmouth"
+  },
+  {
+    "name": "Greenwich and Woolwich",
+    "slug": "greenwich-and-woolwich"
+  },
+  {
+    "name": "Guildford",
+    "slug": "guildford"
+  },
+  {
+    "name": "Hackney North and Stoke Newington",
+    "slug": "hackney-north-and-stoke-newington"
+  },
+  {
+    "name": "Hackney South and Shoreditch",
+    "slug": "hackney-south-and-shoreditch"
+  },
+  {
+    "name": "Halesowen and Rowley Regis",
+    "slug": "halesowen-and-rowley-regis"
+  },
+  {
+    "name": "Halifax",
+    "slug": "halifax"
+  },
+  {
+    "name": "Haltemprice and Howden",
+    "slug": "haltemprice-and-howden"
+  },
+  {
+    "name": "Halton",
+    "slug": "halton"
+  },
+  {
+    "name": "Hammersmith",
+    "slug": "hammersmith"
+  },
+  {
+    "name": "Hampstead and Kilburn",
+    "slug": "hampstead-and-kilburn"
+  },
+  {
+    "name": "Harborough",
+    "slug": "harborough"
+  },
+  {
+    "name": "Harlow",
+    "slug": "harlow"
+  },
+  {
+    "name": "Harrogate and Knaresborough",
+    "slug": "harrogate-and-knaresborough"
+  },
+  {
+    "name": "Harrow East",
+    "slug": "harrow-east"
+  },
+  {
+    "name": "Harrow West",
+    "slug": "harrow-west"
+  },
+  {
+    "name": "Hartlepool",
+    "slug": "hartlepool"
+  },
+  {
+    "name": "Harwich and North Essex",
+    "slug": "harwich-and-north-essex"
+  },
+  {
+    "name": "Hastings and Rye",
+    "slug": "hastings-and-rye"
+  },
+  {
+    "name": "Havant",
+    "slug": "havant"
+  },
+  {
+    "name": "Hayes and Harlington",
+    "slug": "hayes-and-harlington"
+  },
+  {
+    "name": "Hazel Grove",
+    "slug": "hazel-grove"
+  },
+  {
+    "name": "Hemel Hempstead",
+    "slug": "hemel-hempstead"
+  },
+  {
+    "name": "Hemsworth",
+    "slug": "hemsworth"
+  },
+  {
+    "name": "Hendon",
+    "slug": "hendon"
+  },
+  {
+    "name": "Henley",
+    "slug": "henley"
+  },
+  {
+    "name": "Hereford and South Herefordshire",
+    "slug": "hereford-and-south-herefordshire"
+  },
+  {
+    "name": "Hertford and Stortford",
+    "slug": "hertford-and-stortford"
+  },
+  {
+    "name": "Hertsmere",
+    "slug": "hertsmere"
+  },
+  {
+    "name": "Hexham",
+    "slug": "hexham"
+  },
+  {
+    "name": "Heywood and Middleton",
+    "slug": "heywood-and-middleton"
+  },
+  {
+    "name": "High Peak",
+    "slug": "high-peak"
+  },
+  {
+    "name": "Hitchin and Harpenden",
+    "slug": "hitchin-and-harpenden"
+  },
+  {
+    "name": "Holborn and St Pancras",
+    "slug": "holborn-and-st-pancras"
+  },
+  {
+    "name": "Hornchurch and Upminster",
+    "slug": "hornchurch-and-upminster"
+  },
+  {
+    "name": "Hornsey and Wood Green",
+    "slug": "hornsey-and-wood-green"
+  },
+  {
+    "name": "Horsham",
+    "slug": "horsham"
+  },
+  {
+    "name": "Houghton and Sunderland South",
+    "slug": "houghton-and-sunderland-south"
+  },
+  {
+    "name": "Hove",
+    "slug": "hove"
+  },
+  {
+    "name": "Huddersfield",
+    "slug": "huddersfield"
+  },
+  {
+    "name": "Huntingdon",
+    "slug": "huntingdon"
+  },
+  {
+    "name": "Hyndburn",
+    "slug": "hyndburn"
+  },
+  {
+    "name": "Ilford North",
+    "slug": "ilford-north"
+  },
+  {
+    "name": "Ilford South",
+    "slug": "ilford-south"
+  },
+  {
+    "name": "Ipswich",
+    "slug": "ipswich"
+  },
+  {
+    "name": "Isle of Wight",
+    "slug": "isle-of-wight"
+  },
+  {
+    "name": "Islington North",
+    "slug": "islington-north"
+  },
+  {
+    "name": "Islington South and Finsbury",
+    "slug": "islington-south-and-finsbury"
+  },
+  {
+    "name": "Jarrow",
+    "slug": "jarrow"
+  },
+  {
+    "name": "Keighley",
+    "slug": "keighley"
+  },
+  {
+    "name": "Kenilworth and Southam",
+    "slug": "kenilworth-and-southam"
+  },
+  {
+    "name": "Kensington",
+    "slug": "kensington"
+  },
+  {
+    "name": "Kettering",
+    "slug": "kettering"
+  },
+  {
+    "name": "Kingston and Surbiton",
+    "slug": "kingston-and-surbiton"
+  },
+  {
+    "name": "Kingston upon Hull East",
+    "slug": "kingston-upon-hull-east"
+  },
+  {
+    "name": "Kingston upon Hull North",
+    "slug": "kingston-upon-hull-north"
+  },
+  {
+    "name": "Kingston upon Hull West and Hessle",
+    "slug": "kingston-upon-hull-west-and-hessle"
+  },
+  {
+    "name": "Kingswood",
+    "slug": "kingswood"
+  },
+  {
+    "name": "Knowsley",
+    "slug": "knowsley"
+  },
+  {
+    "name": "Lancaster and Fleetwood",
+    "slug": "lancaster-and-fleetwood"
+  },
+  {
+    "name": "Leeds Central",
+    "slug": "leeds-central"
+  },
+  {
+    "name": "Leeds East",
+    "slug": "leeds-east"
+  },
+  {
+    "name": "Leeds North East",
+    "slug": "leeds-north-east"
+  },
+  {
+    "name": "Leeds North West",
+    "slug": "leeds-north-west"
+  },
+  {
+    "name": "Leeds West",
+    "slug": "leeds-west"
+  },
+  {
+    "name": "Leicester East",
+    "slug": "leicester-east"
+  },
+  {
+    "name": "Leicester South",
+    "slug": "leicester-south"
+  },
+  {
+    "name": "Leicester West",
+    "slug": "leicester-west"
+  },
+  {
+    "name": "Leigh",
+    "slug": "leigh"
+  },
+  {
+    "name": "Lewes",
+    "slug": "lewes"
+  },
+  {
+    "name": "Lewisham East",
+    "slug": "lewisham-east"
+  },
+  {
+    "name": "Lewisham West and Penge",
+    "slug": "lewisham-west-and-penge"
+  },
+  {
+    "name": "Lewisham, Deptford",
+    "slug": "lewisham-deptford"
+  },
+  {
+    "name": "Leyton and Wanstead",
+    "slug": "leyton-and-wanstead"
+  },
+  {
+    "name": "Lichfield",
+    "slug": "lichfield"
+  },
+  {
+    "name": "Lincoln",
+    "slug": "lincoln"
+  },
+  {
+    "name": "Liverpool, Riverside",
+    "slug": "liverpool-riverside"
+  },
+  {
+    "name": "Liverpool, Walton",
+    "slug": "liverpool-walton"
+  },
+  {
+    "name": "Liverpool, Wavertree",
+    "slug": "liverpool-wavertree"
+  },
+  {
+    "name": "Liverpool, West Derby",
+    "slug": "liverpool-west-derby"
+  },
+  {
+    "name": "Loughborough",
+    "slug": "loughborough"
+  },
+  {
+    "name": "Louth and Horncastle",
+    "slug": "louth-and-horncastle"
+  },
+  {
+    "name": "Ludlow",
+    "slug": "ludlow"
+  },
+  {
+    "name": "Luton North",
+    "slug": "luton-north"
+  },
+  {
+    "name": "Luton South",
+    "slug": "luton-south"
+  },
+  {
+    "name": "Macclesfield",
+    "slug": "macclesfield"
+  },
+  {
+    "name": "Maidenhead",
+    "slug": "maidenhead"
+  },
+  {
+    "name": "Maidstone and The Weald",
+    "slug": "maidstone-and-the-weald"
+  },
+  {
+    "name": "Makerfield",
+    "slug": "makerfield"
+  },
+  {
+    "name": "Maldon",
+    "slug": "maldon"
+  },
+  {
+    "name": "Manchester Central",
+    "slug": "manchester-central"
+  },
+  {
+    "name": "Manchester, Gorton",
+    "slug": "manchester-gorton"
+  },
+  {
+    "name": "Manchester, Withington",
+    "slug": "manchester-withington"
+  },
+  {
+    "name": "Mansfield",
+    "slug": "mansfield"
+  },
+  {
+    "name": "Meon Valley",
+    "slug": "meon-valley"
+  },
+  {
+    "name": "Meriden",
+    "slug": "meriden"
+  },
+  {
+    "name": "Mid Bedfordshire",
+    "slug": "mid-bedfordshire"
+  },
+  {
+    "name": "Mid Derbyshire",
+    "slug": "mid-derbyshire"
+  },
+  {
+    "name": "Mid Dorset and North Poole",
+    "slug": "mid-dorset-and-north-poole"
+  },
+  {
+    "name": "Mid Norfolk",
+    "slug": "mid-norfolk"
+  },
+  {
+    "name": "Mid Sussex",
+    "slug": "mid-sussex"
+  },
+  {
+    "name": "Mid Worcestershire",
+    "slug": "mid-worcestershire"
+  },
+  {
+    "name": "Middlesbrough",
+    "slug": "middlesbrough"
+  },
+  {
+    "name": "Middlesbrough South and East Cleveland",
+    "slug": "middlesbrough-south-and-east-cleveland"
+  },
+  {
+    "name": "Milton Keynes North",
+    "slug": "milton-keynes-north"
+  },
+  {
+    "name": "Milton Keynes South",
+    "slug": "milton-keynes-south"
+  },
+  {
+    "name": "Mitcham and Morden",
+    "slug": "mitcham-and-morden"
+  },
+  {
+    "name": "Mole Valley",
+    "slug": "mole-valley"
+  },
+  {
+    "name": "Morecambe and Lunesdale",
+    "slug": "morecambe-and-lunesdale"
+  },
+  {
+    "name": "Morley and Outwood",
+    "slug": "morley-and-outwood"
+  },
+  {
+    "name": "New Forest East",
+    "slug": "new-forest-east"
+  },
+  {
+    "name": "New Forest West",
+    "slug": "new-forest-west"
+  },
+  {
+    "name": "Newark",
+    "slug": "newark"
+  },
+  {
+    "name": "Newbury",
+    "slug": "newbury"
+  },
+  {
+    "name": "Newcastle upon Tyne Central",
+    "slug": "newcastle-upon-tyne-central"
+  },
+  {
+    "name": "Newcastle upon Tyne East",
+    "slug": "newcastle-upon-tyne-east"
+  },
+  {
+    "name": "Newcastle upon Tyne North",
+    "slug": "newcastle-upon-tyne-north"
+  },
+  {
+    "name": "Newcastle-under-Lyme",
+    "slug": "newcastle-under-lyme"
+  },
+  {
+    "name": "Newton Abbot",
+    "slug": "newton-abbot"
+  },
+  {
+    "name": "Normanton, Pontefract and Castleford",
+    "slug": "normanton-pontefract-and-castleford"
+  },
+  {
+    "name": "North Cornwall",
+    "slug": "north-cornwall"
+  },
+  {
+    "name": "North Devon",
+    "slug": "north-devon"
+  },
+  {
+    "name": "North Dorset",
+    "slug": "north-dorset"
+  },
+  {
+    "name": "North Durham",
+    "slug": "north-durham"
+  },
+  {
+    "name": "North East Bedfordshire",
+    "slug": "north-east-bedfordshire"
+  },
+  {
+    "name": "North East Cambridgeshire",
+    "slug": "north-east-cambridgeshire"
+  },
+  {
+    "name": "North East Derbyshire",
+    "slug": "north-east-derbyshire"
+  },
+  {
+    "name": "North East Hampshire",
+    "slug": "north-east-hampshire"
+  },
+  {
+    "name": "North East Hertfordshire",
+    "slug": "north-east-hertfordshire"
+  },
+  {
+    "name": "North East Somerset",
+    "slug": "north-east-somerset"
+  },
+  {
+    "name": "North Herefordshire",
+    "slug": "north-herefordshire"
+  },
+  {
+    "name": "North Norfolk",
+    "slug": "north-norfolk"
+  },
+  {
+    "name": "North Shropshire",
+    "slug": "north-shropshire"
+  },
+  {
+    "name": "North Somerset",
+    "slug": "north-somerset"
+  },
+  {
+    "name": "North Swindon",
+    "slug": "north-swindon"
+  },
+  {
+    "name": "North Thanet",
+    "slug": "north-thanet"
+  },
+  {
+    "name": "North Tyneside",
+    "slug": "north-tyneside"
+  },
+  {
+    "name": "North Warwickshire",
+    "slug": "north-warwickshire"
+  },
+  {
+    "name": "North West Cambridgeshire",
+    "slug": "north-west-cambridgeshire"
+  },
+  {
+    "name": "North West Durham",
+    "slug": "north-west-durham"
+  },
+  {
+    "name": "North West Hampshire",
+    "slug": "north-west-hampshire"
+  },
+  {
+    "name": "North West Leicestershire",
+    "slug": "north-west-leicestershire"
+  },
+  {
+    "name": "North West Norfolk",
+    "slug": "north-west-norfolk"
+  },
+  {
+    "name": "North Wiltshire",
+    "slug": "north-wiltshire"
+  },
+  {
+    "name": "Northampton North",
+    "slug": "northampton-north"
+  },
+  {
+    "name": "Northampton South",
+    "slug": "northampton-south"
+  },
+  {
+    "name": "Norwich North",
+    "slug": "norwich-north"
+  },
+  {
+    "name": "Norwich South",
+    "slug": "norwich-south"
+  },
+  {
+    "name": "Nottingham East",
+    "slug": "nottingham-east"
+  },
+  {
+    "name": "Nottingham North",
+    "slug": "nottingham-north"
+  },
+  {
+    "name": "Nottingham South",
+    "slug": "nottingham-south"
+  },
+  {
+    "name": "Nuneaton",
+    "slug": "nuneaton"
+  },
+  {
+    "name": "Old Bexley and Sidcup",
+    "slug": "old-bexley-and-sidcup"
+  },
+  {
+    "name": "Oldham East and Saddleworth",
+    "slug": "oldham-east-and-saddleworth"
+  },
+  {
+    "name": "Oldham West and Royton",
+    "slug": "oldham-west-and-royton"
+  },
+  {
+    "name": "Orpington",
+    "slug": "orpington"
+  },
+  {
+    "name": "Oxford East",
+    "slug": "oxford-east"
+  },
+  {
+    "name": "Oxford West and Abingdon",
+    "slug": "oxford-west-and-abingdon"
+  },
+  {
+    "name": "Pendle",
+    "slug": "pendle"
+  },
+  {
+    "name": "Penistone and Stocksbridge",
+    "slug": "penistone-and-stocksbridge"
+  },
+  {
+    "name": "Penrith and The Border",
+    "slug": "penrith-and-the-border"
+  },
+  {
+    "name": "Peterborough",
+    "slug": "peterborough"
+  },
+  {
+    "name": "Plymouth, Moor View",
+    "slug": "plymouth-moor-view"
+  },
+  {
+    "name": "Plymouth, Sutton and Devonport",
+    "slug": "plymouth-sutton-and-devonport"
+  },
+  {
+    "name": "Poole",
+    "slug": "poole"
+  },
+  {
+    "name": "Poplar and Limehouse",
+    "slug": "poplar-and-limehouse"
+  },
+  {
+    "name": "Portsmouth North",
+    "slug": "portsmouth-north"
+  },
+  {
+    "name": "Portsmouth South",
+    "slug": "portsmouth-south"
+  },
+  {
+    "name": "Preston",
+    "slug": "preston"
+  },
+  {
+    "name": "Pudsey",
+    "slug": "pudsey"
+  },
+  {
+    "name": "Putney",
+    "slug": "putney"
+  },
+  {
+    "name": "Rayleigh and Wickford",
+    "slug": "rayleigh-and-wickford"
+  },
+  {
+    "name": "Reading East",
+    "slug": "reading-east"
+  },
+  {
+    "name": "Reading West",
+    "slug": "reading-west"
+  },
+  {
+    "name": "Redcar",
+    "slug": "redcar"
+  },
+  {
+    "name": "Redditch",
+    "slug": "redditch"
+  },
+  {
+    "name": "Reigate",
+    "slug": "reigate"
+  },
+  {
+    "name": "Ribble Valley",
+    "slug": "ribble-valley"
+  },
+  {
+    "name": "Richmond (Yorks)",
+    "slug": "richmond-yorks"
+  },
+  {
+    "name": "Richmond Park",
+    "slug": "richmond-park"
+  },
+  {
+    "name": "Rochdale",
+    "slug": "rochdale"
+  },
+  {
+    "name": "Rochester and Strood",
+    "slug": "rochester-and-strood"
+  },
+  {
+    "name": "Rochford and Southend East",
+    "slug": "rochford-and-southend-east"
+  },
+  {
+    "name": "Romford",
+    "slug": "romford"
+  },
+  {
+    "name": "Romsey and Southampton North",
+    "slug": "romsey-and-southampton-north"
+  },
+  {
+    "name": "Rossendale and Darwen",
+    "slug": "rossendale-and-darwen"
+  },
+  {
+    "name": "Rother Valley",
+    "slug": "rother-valley"
+  },
+  {
+    "name": "Rotherham",
+    "slug": "rotherham"
+  },
+  {
+    "name": "Rugby",
+    "slug": "rugby"
+  },
+  {
+    "name": "Ruislip, Northwood and Pinner",
+    "slug": "ruislip-northwood-and-pinner"
+  },
+  {
+    "name": "Runnymede and Weybridge",
+    "slug": "runnymede-and-weybridge"
+  },
+  {
+    "name": "Rushcliffe",
+    "slug": "rushcliffe"
+  },
+  {
+    "name": "Rutland and Melton",
+    "slug": "rutland-and-melton"
+  },
+  {
+    "name": "Saffron Walden",
+    "slug": "saffron-walden"
+  },
+  {
+    "name": "Salford and Eccles",
+    "slug": "salford-and-eccles"
+  },
+  {
+    "name": "Salisbury",
+    "slug": "salisbury"
+  },
+  {
+    "name": "Scarborough and Whitby",
+    "slug": "scarborough-and-whitby"
+  },
+  {
+    "name": "Scunthorpe",
+    "slug": "scunthorpe"
+  },
+  {
+    "name": "Sedgefield",
+    "slug": "sedgefield"
+  },
+  {
+    "name": "Sefton Central",
+    "slug": "sefton-central"
+  },
+  {
+    "name": "Selby and Ainsty",
+    "slug": "selby-and-ainsty"
+  },
+  {
+    "name": "Sevenoaks",
+    "slug": "sevenoaks"
+  },
+  {
+    "name": "Sheffield Central",
+    "slug": "sheffield-central"
+  },
+  {
+    "name": "Sheffield South East",
+    "slug": "sheffield-south-east"
+  },
+  {
+    "name": "Sheffield, Brightside and Hillsborough",
+    "slug": "sheffield-brightside-and-hillsborough"
+  },
+  {
+    "name": "Sheffield, Hallam",
+    "slug": "sheffield-hallam"
+  },
+  {
+    "name": "Sheffield, Heeley",
+    "slug": "sheffield-heeley"
+  },
+  {
+    "name": "Sherwood",
+    "slug": "sherwood"
+  },
+  {
+    "name": "Shipley",
+    "slug": "shipley"
+  },
+  {
+    "name": "Shrewsbury and Atcham",
+    "slug": "shrewsbury-and-atcham"
+  },
+  {
+    "name": "Sittingbourne and Sheppey",
+    "slug": "sittingbourne-and-sheppey"
+  },
+  {
+    "name": "Skipton and Ripon",
+    "slug": "skipton-and-ripon"
+  },
+  {
+    "name": "Sleaford and North Hykeham",
+    "slug": "sleaford-and-north-hykeham"
+  },
+  {
+    "name": "Slough",
+    "slug": "slough"
+  },
+  {
+    "name": "Solihull",
+    "slug": "solihull"
+  },
+  {
+    "name": "Somerton and Frome",
+    "slug": "somerton-and-frome"
+  },
+  {
+    "name": "South Basildon and East Thurrock",
+    "slug": "south-basildon-and-east-thurrock"
+  },
+  {
+    "name": "South Cambridgeshire",
+    "slug": "south-cambridgeshire"
+  },
+  {
+    "name": "South Derbyshire",
+    "slug": "south-derbyshire"
+  },
+  {
+    "name": "South Dorset",
+    "slug": "south-dorset"
+  },
+  {
+    "name": "South East Cambridgeshire",
+    "slug": "south-east-cambridgeshire"
+  },
+  {
+    "name": "South East Cornwall",
+    "slug": "south-east-cornwall"
+  },
+  {
+    "name": "South Holland and The Deepings",
+    "slug": "south-holland-and-the-deepings"
+  },
+  {
+    "name": "South Leicestershire",
+    "slug": "south-leicestershire"
+  },
+  {
+    "name": "South Norfolk",
+    "slug": "south-norfolk"
+  },
+  {
+    "name": "South Northamptonshire",
+    "slug": "south-northamptonshire"
+  },
+  {
+    "name": "South Ribble",
+    "slug": "south-ribble"
+  },
+  {
+    "name": "South Shields",
+    "slug": "south-shields"
+  },
+  {
+    "name": "South Staffordshire",
+    "slug": "south-staffordshire"
+  },
+  {
+    "name": "South Suffolk",
+    "slug": "south-suffolk"
+  },
+  {
+    "name": "South Swindon",
+    "slug": "south-swindon"
+  },
+  {
+    "name": "South Thanet",
+    "slug": "south-thanet"
+  },
+  {
+    "name": "South West Bedfordshire",
+    "slug": "south-west-bedfordshire"
+  },
+  {
+    "name": "South West Devon",
+    "slug": "south-west-devon"
+  },
+  {
+    "name": "South West Hertfordshire",
+    "slug": "south-west-hertfordshire"
+  },
+  {
+    "name": "South West Norfolk",
+    "slug": "south-west-norfolk"
+  },
+  {
+    "name": "South West Surrey",
+    "slug": "south-west-surrey"
+  },
+  {
+    "name": "South West Wiltshire",
+    "slug": "south-west-wiltshire"
+  },
+  {
+    "name": "Southampton, Itchen",
+    "slug": "southampton-itchen"
+  },
+  {
+    "name": "Southampton, Test",
+    "slug": "southampton-test"
+  },
+  {
+    "name": "Southend West",
+    "slug": "southend-west"
+  },
+  {
+    "name": "Southport",
+    "slug": "southport"
+  },
+  {
+    "name": "Spelthorne",
+    "slug": "spelthorne"
+  },
+  {
+    "name": "St Albans",
+    "slug": "st-albans"
+  },
+  {
+    "name": "St Austell and Newquay",
+    "slug": "st-austell-and-newquay"
+  },
+  {
+    "name": "St Helens North",
+    "slug": "st-helens-north"
+  },
+  {
+    "name": "St Helens South and Whiston",
+    "slug": "st-helens-south-and-whiston"
+  },
+  {
+    "name": "St Ives",
+    "slug": "st-ives"
+  },
+  {
+    "name": "Stafford",
+    "slug": "stafford"
+  },
+  {
+    "name": "Staffordshire Moorlands",
+    "slug": "staffordshire-moorlands"
+  },
+  {
+    "name": "Stalybridge and Hyde",
+    "slug": "stalybridge-and-hyde"
+  },
+  {
+    "name": "Stevenage",
+    "slug": "stevenage"
+  },
+  {
+    "name": "Stockport",
+    "slug": "stockport"
+  },
+  {
+    "name": "Stockton North",
+    "slug": "stockton-north"
+  },
+  {
+    "name": "Stockton South",
+    "slug": "stockton-south"
+  },
+  {
+    "name": "Stoke-on-Trent Central",
+    "slug": "stoke-on-trent-central"
+  },
+  {
+    "name": "Stoke-on-Trent North",
+    "slug": "stoke-on-trent-north"
+  },
+  {
+    "name": "Stoke-on-Trent South",
+    "slug": "stoke-on-trent-south"
+  },
+  {
+    "name": "Stone",
+    "slug": "stone"
+  },
+  {
+    "name": "Stourbridge",
+    "slug": "stourbridge"
+  },
+  {
+    "name": "Stratford-on-Avon",
+    "slug": "stratford-on-avon"
+  },
+  {
+    "name": "Streatham",
+    "slug": "streatham"
+  },
+  {
+    "name": "Stretford and Urmston",
+    "slug": "stretford-and-urmston"
+  },
+  {
+    "name": "Stroud",
+    "slug": "stroud"
+  },
+  {
+    "name": "Suffolk Coastal",
+    "slug": "suffolk-coastal"
+  },
+  {
+    "name": "Sunderland Central",
+    "slug": "sunderland-central"
+  },
+  {
+    "name": "Surrey Heath",
+    "slug": "surrey-heath"
+  },
+  {
+    "name": "Sutton and Cheam",
+    "slug": "sutton-and-cheam"
+  },
+  {
+    "name": "Sutton Coldfield",
+    "slug": "sutton-coldfield"
+  },
+  {
+    "name": "Tamworth",
+    "slug": "tamworth"
+  },
+  {
+    "name": "Tatton",
+    "slug": "tatton"
+  },
+  {
+    "name": "Taunton Deane",
+    "slug": "taunton-deane"
+  },
+  {
+    "name": "Telford",
+    "slug": "telford"
+  },
+  {
+    "name": "Tewkesbury",
+    "slug": "tewkesbury"
+  },
+  {
+    "name": "The Cotswolds",
+    "slug": "the-cotswolds"
+  },
+  {
+    "name": "The Wrekin",
+    "slug": "the-wrekin"
+  },
+  {
+    "name": "Thirsk and Malton",
+    "slug": "thirsk-and-malton"
+  },
+  {
+    "name": "Thornbury and Yate",
+    "slug": "thornbury-and-yate"
+  },
+  {
+    "name": "Thurrock",
+    "slug": "thurrock"
+  },
+  {
+    "name": "Tiverton and Honiton",
+    "slug": "tiverton-and-honiton"
+  },
+  {
+    "name": "Tonbridge and Malling",
+    "slug": "tonbridge-and-malling"
+  },
+  {
+    "name": "Tooting",
+    "slug": "tooting"
+  },
+  {
+    "name": "Torbay",
+    "slug": "torbay"
+  },
+  {
+    "name": "Torridge and West Devon",
+    "slug": "torridge-and-west-devon"
+  },
+  {
+    "name": "Totnes",
+    "slug": "totnes"
+  },
+  {
+    "name": "Tottenham",
+    "slug": "tottenham"
+  },
+  {
+    "name": "Truro and Falmouth",
+    "slug": "truro-and-falmouth"
+  },
+  {
+    "name": "Tunbridge Wells",
+    "slug": "tunbridge-wells"
+  },
+  {
+    "name": "Twickenham",
+    "slug": "twickenham"
+  },
+  {
+    "name": "Tynemouth",
+    "slug": "tynemouth"
+  },
+  {
+    "name": "Uxbridge and South Ruislip",
+    "slug": "uxbridge-and-south-ruislip"
+  },
+  {
+    "name": "Vauxhall",
+    "slug": "vauxhall"
+  },
+  {
+    "name": "Wakefield",
+    "slug": "wakefield"
+  },
+  {
+    "name": "Wallasey",
+    "slug": "wallasey"
+  },
+  {
+    "name": "Walsall North",
+    "slug": "walsall-north"
+  },
+  {
+    "name": "Walsall South",
+    "slug": "walsall-south"
+  },
+  {
+    "name": "Walthamstow",
+    "slug": "walthamstow"
+  },
+  {
+    "name": "Wansbeck",
+    "slug": "wansbeck"
+  },
+  {
+    "name": "Wantage",
+    "slug": "wantage"
+  },
+  {
+    "name": "Warley",
+    "slug": "warley"
+  },
+  {
+    "name": "Warrington North",
+    "slug": "warrington-north"
+  },
+  {
+    "name": "Warrington South",
+    "slug": "warrington-south"
+  },
+  {
+    "name": "Warwick and Leamington",
+    "slug": "warwick-and-leamington"
+  },
+  {
+    "name": "Washington and Sunderland West",
+    "slug": "washington-and-sunderland-west"
+  },
+  {
+    "name": "Watford",
+    "slug": "watford"
+  },
+  {
+    "name": "Waveney",
+    "slug": "waveney"
+  },
+  {
+    "name": "Wealden",
+    "slug": "wealden"
+  },
+  {
+    "name": "Weaver Vale",
+    "slug": "weaver-vale"
+  },
+  {
+    "name": "Wellingborough",
+    "slug": "wellingborough"
+  },
+  {
+    "name": "Wells",
+    "slug": "wells"
+  },
+  {
+    "name": "Welwyn Hatfield",
+    "slug": "welwyn-hatfield"
+  },
+  {
+    "name": "Wentworth and Dearne",
+    "slug": "wentworth-and-dearne"
+  },
+  {
+    "name": "West Bromwich East",
+    "slug": "west-bromwich-east"
+  },
+  {
+    "name": "West Bromwich West",
+    "slug": "west-bromwich-west"
+  },
+  {
+    "name": "West Dorset",
+    "slug": "west-dorset"
+  },
+  {
+    "name": "West Ham",
+    "slug": "west-ham"
+  },
+  {
+    "name": "West Lancashire",
+    "slug": "west-lancashire"
+  },
+  {
+    "name": "West Suffolk",
+    "slug": "west-suffolk"
+  },
+  {
+    "name": "West Worcestershire",
+    "slug": "west-worcestershire"
+  },
+  {
+    "name": "Westminster North",
+    "slug": "westminster-north"
+  },
+  {
+    "name": "Westmorland and Lonsdale",
+    "slug": "westmorland-and-lonsdale"
+  },
+  {
+    "name": "Weston-Super-Mare",
+    "slug": "weston-super-mare"
+  },
+  {
+    "name": "Wigan",
+    "slug": "wigan"
+  },
+  {
+    "name": "Wimbledon",
+    "slug": "wimbledon"
+  },
+  {
+    "name": "Winchester",
+    "slug": "winchester"
+  },
+  {
+    "name": "Windsor",
+    "slug": "windsor"
+  },
+  {
+    "name": "Wirral South",
+    "slug": "wirral-south"
+  },
+  {
+    "name": "Wirral West",
+    "slug": "wirral-west"
+  },
+  {
+    "name": "Witham",
+    "slug": "witham"
+  },
+  {
+    "name": "Witney",
+    "slug": "witney"
+  },
+  {
+    "name": "Woking",
+    "slug": "woking"
+  },
+  {
+    "name": "Wokingham",
+    "slug": "wokingham"
+  },
+  {
+    "name": "Wolverhampton North East",
+    "slug": "wolverhampton-north-east"
+  },
+  {
+    "name": "Wolverhampton South East",
+    "slug": "wolverhampton-south-east"
+  },
+  {
+    "name": "Wolverhampton South West",
+    "slug": "wolverhampton-south-west"
+  },
+  {
+    "name": "Worcester",
+    "slug": "worcester"
+  },
+  {
+    "name": "Workington",
+    "slug": "workington"
+  },
+  {
+    "name": "Worsley and Eccles South",
+    "slug": "worsley-and-eccles-south"
+  },
+  {
+    "name": "Worthing West",
+    "slug": "worthing-west"
+  },
+  {
+    "name": "Wycombe",
+    "slug": "wycombe"
+  },
+  {
+    "name": "Wyre and Preston North",
+    "slug": "wyre-and-preston-north"
+  },
+  {
+    "name": "Wyre Forest",
+    "slug": "wyre-forest"
+  },
+  {
+    "name": "Wythenshawe and Sale East",
+    "slug": "wythenshawe-and-sale-east"
+  },
+  {
+    "name": "Yeovil",
+    "slug": "yeovil"
+  },
+  {
+    "name": "York Central",
+    "slug": "york-central"
+  },
+  {
+    "name": "York Outer",
+    "slug": "york-outer"
+  },
+  {
+    "name": "Aberdeen North",
+    "slug": "aberdeen-north"
+  },
+  {
+    "name": "Aberdeen South",
+    "slug": "aberdeen-south"
+  },
+  {
+    "name": "Airdrie and Shotts",
+    "slug": "airdrie-and-shotts"
+  },
+  {
+    "name": "Angus",
+    "slug": "angus"
+  },
+  {
+    "name": "Argyll and Bute",
+    "slug": "argyll-and-bute"
+  },
+  {
+    "name": "Ayr, Carrick and Cumnock",
+    "slug": "ayr-carrick-and-cumnock"
+  },
+  {
+    "name": "Banff and Buchan",
+    "slug": "banff-and-buchan"
+  },
+  {
+    "name": "Berwickshire, Roxburgh and Selkirk",
+    "slug": "berwickshire-roxburgh-and-selkirk"
+  },
+  {
+    "name": "Caithness, Sutherland and Easter Ross",
+    "slug": "caithness-sutherland-and-easter-ross"
+  },
+  {
+    "name": "Central Ayrshire",
+    "slug": "central-ayrshire"
+  },
+  {
+    "name": "Coatbridge, Chryston and Bellshill",
+    "slug": "coatbridge-chryston-and-bellshill"
+  },
+  {
+    "name": "Cumbernauld, Kilsyth and Kirkintilloch East",
+    "slug": "cumbernauld-kilsyth-and-kirkintilloch-east"
+  },
+  {
+    "name": "Dumfries and Galloway",
+    "slug": "dumfries-and-galloway"
+  },
+  {
+    "name": "Dumfriesshire, Clydesdale and Tweeddale",
+    "slug": "dumfriesshire-clydesdale-and-tweeddale"
+  },
+  {
+    "name": "Dundee East",
+    "slug": "dundee-east"
+  },
+  {
+    "name": "Dundee West",
+    "slug": "dundee-west"
+  },
+  {
+    "name": "Dunfermline and West Fife",
+    "slug": "dunfermline-and-west-fife"
+  },
+  {
+    "name": "East Dunbartonshire",
+    "slug": "east-dunbartonshire"
+  },
+  {
+    "name": "East Kilbride, Strathaven and Lesmahagow",
+    "slug": "east-kilbride-strathaven-and-lesmahagow"
+  },
+  {
+    "name": "East Lothian",
+    "slug": "east-lothian"
+  },
+  {
+    "name": "East Renfrewshire",
+    "slug": "east-renfrewshire"
+  },
+  {
+    "name": "Edinburgh East",
+    "slug": "edinburgh-east"
+  },
+  {
+    "name": "Edinburgh North and Leith",
+    "slug": "edinburgh-north-and-leith"
+  },
+  {
+    "name": "Edinburgh South",
+    "slug": "edinburgh-south"
+  },
+  {
+    "name": "Edinburgh South West",
+    "slug": "edinburgh-south-west"
+  },
+  {
+    "name": "Edinburgh West",
+    "slug": "edinburgh-west"
+  },
+  {
+    "name": "Na h-Eileanan an Iar",
+    "slug": "na-h-eileanan-an-iar"
+  },
+  {
+    "name": "Falkirk",
+    "slug": "falkirk"
+  },
+  {
+    "name": "Glasgow Central",
+    "slug": "glasgow-central"
+  },
+  {
+    "name": "Glasgow East",
+    "slug": "glasgow-east"
+  },
+  {
+    "name": "Glasgow North",
+    "slug": "glasgow-north"
+  },
+  {
+    "name": "Glasgow North East",
+    "slug": "glasgow-north-east"
+  },
+  {
+    "name": "Glasgow North West",
+    "slug": "glasgow-north-west"
+  },
+  {
+    "name": "Glasgow South",
+    "slug": "glasgow-south"
+  },
+  {
+    "name": "Glasgow South West",
+    "slug": "glasgow-south-west"
+  },
+  {
+    "name": "Glenrothes",
+    "slug": "glenrothes"
+  },
+  {
+    "name": "Gordon",
+    "slug": "gordon"
+  },
+  {
+    "name": "Inverclyde",
+    "slug": "inverclyde"
+  },
+  {
+    "name": "Inverness, Nairn, Badenoch and Strathspey",
+    "slug": "inverness-nairn-badenoch-and-strathspey"
+  },
+  {
+    "name": "Kilmarnock and Loudoun",
+    "slug": "kilmarnock-and-loudoun"
+  },
+  {
+    "name": "Kirkcaldy and Cowdenbeath",
+    "slug": "kirkcaldy-and-cowdenbeath"
+  },
+  {
+    "name": "Lanark and Hamilton East",
+    "slug": "lanark-and-hamilton-east"
+  },
+  {
+    "name": "Linlithgow and East Falkirk",
+    "slug": "linlithgow-and-east-falkirk"
+  },
+  {
+    "name": "Livingston",
+    "slug": "livingston"
+  },
+  {
+    "name": "Midlothian",
+    "slug": "midlothian"
+  },
+  {
+    "name": "Moray",
+    "slug": "moray"
+  },
+  {
+    "name": "Motherwell and Wishaw",
+    "slug": "motherwell-and-wishaw"
+  },
+  {
+    "name": "North Ayrshire and Arran",
+    "slug": "north-ayrshire-and-arran"
+  },
+  {
+    "name": "North East Fife",
+    "slug": "north-east-fife"
+  },
+  {
+    "name": "Ochil and South Perthshire",
+    "slug": "ochil-and-south-perthshire"
+  },
+  {
+    "name": "Orkney and Shetland",
+    "slug": "orkney-and-shetland"
+  },
+  {
+    "name": "Paisley and Renfrewshire North",
+    "slug": "paisley-and-renfrewshire-north"
+  },
+  {
+    "name": "Paisley and Renfrewshire South",
+    "slug": "paisley-and-renfrewshire-south"
+  },
+  {
+    "name": "Perth and North Perthshire",
+    "slug": "perth-and-north-perthshire"
+  },
+  {
+    "name": "Ross, Skye and Lochaber",
+    "slug": "ross-skye-and-lochaber"
+  },
+  {
+    "name": "Rutherglen and Hamilton West",
+    "slug": "rutherglen-and-hamilton-west"
+  },
+  {
+    "name": "Stirling",
+    "slug": "stirling"
+  },
+  {
+    "name": "West Aberdeenshire and Kincardine",
+    "slug": "west-aberdeenshire-and-kincardine"
+  },
+  {
+    "name": "West Dunbartonshire",
+    "slug": "west-dunbartonshire"
+  },
+  {
+    "name": "Ynys Mon",
+    "slug": "ynys-mon"
+  },
+  {
+    "name": "Delyn",
+    "slug": "delyn"
+  },
+  {
+    "name": "Alyn and Deeside",
+    "slug": "alyn-and-deeside"
+  },
+  {
+    "name": "Wrexham",
+    "slug": "wrexham"
+  },
+  {
+    "name": "Llanelli",
+    "slug": "llanelli"
+  },
+  {
+    "name": "Gower",
+    "slug": "gower"
+  },
+  {
+    "name": "Swansea West",
+    "slug": "swansea-west"
+  },
+  {
+    "name": "Swansea East",
+    "slug": "swansea-east"
+  },
+  {
+    "name": "Aberavon",
+    "slug": "aberavon"
+  },
+  {
+    "name": "Cardiff Central",
+    "slug": "cardiff-central"
+  },
+  {
+    "name": "Cardiff North",
+    "slug": "cardiff-north"
+  },
+  {
+    "name": "Rhondda",
+    "slug": "rhondda"
+  },
+  {
+    "name": "Torfaen",
+    "slug": "torfaen"
+  },
+  {
+    "name": "Monmouth",
+    "slug": "monmouth"
+  },
+  {
+    "name": "Newport East",
+    "slug": "newport-east"
+  },
+  {
+    "name": "Newport West",
+    "slug": "newport-west"
+  },
+  {
+    "name": "Arfon",
+    "slug": "arfon"
+  },
+  {
+    "name": "Aberconwy",
+    "slug": "aberconwy"
+  },
+  {
+    "name": "Clwyd West",
+    "slug": "clwyd-west"
+  },
+  {
+    "name": "Vale of Clwyd",
+    "slug": "vale-of-clwyd"
+  },
+  {
+    "name": "Dwyfor Meirionnydd",
+    "slug": "dwyfor-meirionnydd"
+  },
+  {
+    "name": "Clwyd South",
+    "slug": "clwyd-south"
+  },
+  {
+    "name": "Montgomeryshire",
+    "slug": "montgomeryshire"
+  },
+  {
+    "name": "Ceredigion",
+    "slug": "ceredigion"
+  },
+  {
+    "name": "Preseli Pembrokeshire",
+    "slug": "preseli-pembrokeshire"
+  },
+  {
+    "name": "Carmarthen West and South Pembrokeshire",
+    "slug": "carmarthen-west-and-south-pembrokeshire"
+  },
+  {
+    "name": "Carmarthen East and Dinefwr",
+    "slug": "carmarthen-east-and-dinefwr"
+  },
+  {
+    "name": "Brecon and Radnorshire",
+    "slug": "brecon-and-radnorshire"
+  },
+  {
+    "name": "Neath",
+    "slug": "neath"
+  },
+  {
+    "name": "Cynon Valley",
+    "slug": "cynon-valley"
+  },
+  {
+    "name": "Merthyr Tydfil and Rhymney",
+    "slug": "merthyr-tydfil-and-rhymney"
+  },
+  {
+    "name": "Blaenau Gwent",
+    "slug": "blaenau-gwent"
+  },
+  {
+    "name": "Bridgend",
+    "slug": "bridgend"
+  },
+  {
+    "name": "Ogmore",
+    "slug": "ogmore"
+  },
+  {
+    "name": "Pontypridd",
+    "slug": "pontypridd"
+  },
+  {
+    "name": "Caerphilly",
+    "slug": "caerphilly"
+  },
+  {
+    "name": "Islwyn",
+    "slug": "islwyn"
+  },
+  {
+    "name": "Vale of Glamorgan",
+    "slug": "vale-of-glamorgan"
+  },
+  {
+    "name": "Cardiff West",
+    "slug": "cardiff-west"
+  },
+  {
+    "name": "Cardiff South and Penarth",
+    "slug": "cardiff-south-and-penarth"
+  }
 ]
