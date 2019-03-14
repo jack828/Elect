@@ -44,7 +44,7 @@ class Login extends Component {
 
     console.log('here')
     fetch(
-      '/api/site-login',
+      '/api/login',
       {
         method: 'POST',
         body: JSON.stringify({ identity, password }),

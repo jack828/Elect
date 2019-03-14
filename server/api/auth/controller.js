@@ -1,9 +1,8 @@
 import bodyParser from 'body-parser'
 
 module.exports = (serviceLocator) => {
-  // TODO: this route is NOT clear as to what it's allowing to auth with
-  // because serviceLocator.authenticationProvider is for admins!
-  serviceLocator.router.post('/api/site-login', bodyParser.json({ extended: false }), (req, res) => {
+  // Admin login only
+  serviceLocator.router.post('/api/login', bodyParser.json({ extended: false }), (req, res) => {
     serviceLocator.authenticationProvider.authenticate(req.body, (error, administrator) => {
       if (error) {
         switch (error.message) {
