@@ -20,6 +20,9 @@ const reducer = (state = initialState, action) => {
       })
     case DASHBOARD_LOAD_COMPLETE: {
       const { election } = action.data
+
+      if (!election) return state
+
       const { visibleFrom, visibleTo, voteOpenFrom, voteOpenTo } = election
       return state.merge({
         loading: false,
