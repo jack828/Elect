@@ -21,17 +21,24 @@ class Websocket extends EventEmitter {
   }
 
   send(key, data = '') {
-    // TODO: Wrap in setTimeout
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       const id = hat()
       const stringifiedData = JSON.stringify({
         id,
         [key]: data
       })
       debug('send', id, { id, key, data })
+
+      const timeout = setTimeout(() => {
+        debug('timeout', id)
+        reject(new Error('WebSocket Timeout'))
+      }, 5000)
+
       this.ws.send(stringifiedData)
+
       this.once(id, (value) => {
         debug('received', id, value)
+        clearTimeout(timeout)
         resolve(value)
       })
     })
@@ -42,7 +49,7 @@ class Websocket extends EventEmitter {
     const data = this.parse(raw)
     Object.keys(data).map((key) => {
       const value = data[key]
-      debug('emitting')
+      debug('emitting', key)
       this.emit(key, value)
     })
   }
