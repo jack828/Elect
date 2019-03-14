@@ -1,17 +1,23 @@
 import EventEmitter from 'events'
 import hat from 'hat'
+import createDebug from 'debug'
 
-// TODO: debug logger
+const WEBSOCKET_URL = process.env.NODE_ENV !== 'production'
+  ? 'ws://localhost:3003'
+  : `wss://${window.location.host}`
+
+const debug = createDebug('websocket')
+
 class Websocket extends EventEmitter {
-  constructor(url) {
+  constructor() {
     super()
-    this.url = url
-    this.ws = new WebSocket('ws://localhost:3003')
+    debug('url', WEBSOCKET_URL)
+    this.ws = new WebSocket(WEBSOCKET_URL)
 
     this.ws.onmessage = this.onMessage.bind(this)
     this.ws.onopen = this.onOpen.bind(this)
     this.ws.onclose = this.onClose.bind(this)
-    this.ws.onError = this.onError.bind(this)
+    this.ws.onerror = this.onError.bind(this)
   }
 
   send(key, data = '') {
@@ -22,30 +28,37 @@ class Websocket extends EventEmitter {
         id,
         [key]: data
       })
+      debug('send', id, { id, key, data })
       this.ws.send(stringifiedData)
       this.once(id, (value) => {
+        debug('received', id, value)
         resolve(value)
       })
     })
   }
 
   onMessage({ data: raw }) {
+    debug('onMessage', raw)
     const data = this.parse(raw)
     Object.keys(data).map((key) => {
       const value = data[key]
+      debug('emitting')
       this.emit(key, value)
     })
   }
 
   onOpen() {
+    debug('open')
     this.emit('open')
   }
 
   onClose() {
+    debug('close')
     this.emit('close')
   }
 
   onError() {
+    debug('error')
     this.emit('error')
   }
 
