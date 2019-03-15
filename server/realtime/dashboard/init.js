@@ -5,4 +5,4 @@ const init = (serviceLocator, done) => {
   done()
 }
 
-module.exports = () => ({ electionRealtime: [ 'electionService', init ] })
+module.exports = () => ({ electionRealtime: [ 'electionService', 'realtime', init ] })

@@ -5,4 +5,4 @@ const init = (serviceLocator, done) => {
   done()
 }
 
-module.exports = () => ({ siteAuthRealtime: [ 'userService', init ] })
+module.exports = () => ({ siteAuthRealtime: [ 'userService', 'realtime', init ] })

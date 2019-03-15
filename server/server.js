@@ -7,11 +7,12 @@ const app = express()
 const server = createServer(app)
 
 module.exports = (serviceLocator) => {
-  const inDevelopmentMode = serviceLocator.env === 'development'
+  const { env, logger } = serviceLocator
+  const inDevelopmentMode = env === 'development'
   const logLevel = inDevelopmentMode ? 'dev' : 'combined'
   const logOptions = {
     stream: {
-      write: data => serviceLocator.logger.info((`${data}`).trim())
+      write: data => logger.info((`${data}`).trim())
     }
   }
 

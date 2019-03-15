@@ -7,11 +7,16 @@ const baseProperties = {
   adminMaxLoginAttempts: 10,
   salt: 'Retribution trainload senate.',
   osApiKey: '7ipy7Fe0nRjsWjIfB9YQAfGcZ0uNFifv',
-  mapboxApiKey: 'pk.eyJ1IjoiamFjazgyOCIsImEiOiJjanM1enVzdWkwMGszNGFwaGMwN3JnMmVoIn0.r9CfYSdy4rdGFBHO-MJt7w'
+  mapboxApiKey: 'pk.eyJ1IjoiamFjazgyOCIsImEiOiJjanM1enVzdWkwMGszNGFwaGMwN3JnMmVoIn0.r9CfYSdy4rdGFBHO-MJt7w',
+  session: {
+    maxAge: 1000 * 60 * 60 * 24, // 1 day
+    secret: 'ZWxlY3Qgc2Vzc2lvbiBzZWNyZXQ'
+  }
 }
 
 const envProperties = {
   development: {
+    clientUrl: 'http://localhost:3000',
     url: 'localhost',
     port: 3003,
     databaseUrl: 'mongodb://localhost:27017/elect-development'
@@ -20,6 +25,7 @@ const envProperties = {
     databaseUrl: 'mongodb://localhost:27017/elect-staging'
   },
   production: {
+    clientUrl: 'https://elect-project.herokuapp.com',
     url: 'https://elect-project.herokuapp.com',
     databaseUrl: 'mongodb://elect-production:qg4w*660B9Mg96!R@ds129625.mlab.com:29625/elect-production'
   }
