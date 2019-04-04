@@ -9,17 +9,17 @@ class CustomMultiSelect extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      data: props.value,
       options: [],
       loading: true
     }
+    this.getTextField = this.getTextField.bind(this)
+    this.getValueField = this.getValueField.bind(this)
     this.handleSelectChange = this.handleSelectChange.bind(this)
-    this.renderTextField = this.renderTextField.bind(this)
   }
 
   componentDidMount() {
-    // load
-    fetch(this.props.apiUrl)
+    // Load options, and also fetch currently selected?
+    fetch(`${this.props.apiUrl}`)
       .then(res => res.json())
       .then((data) => {
         // TODO handle error
@@ -30,19 +30,7 @@ class CustomMultiSelect extends Component {
       })
   }
 
-  handleSelectChange(data) {
-    this.setState({ data })
-    // Compatability with regular change handlers
-    this.props.onChange({
-      target: {
-        name: this.props.name,
-        value: data,
-        getAttribute: () => {}
-      }
-    })
-  }
-
-  renderTextField(field) {
+  getTextField(field) {
     switch (typeof field) {
       case 'string':
         return field
@@ -55,16 +43,45 @@ class CustomMultiSelect extends Component {
     }
   }
 
+  getValueField(field) {
+    switch (typeof field) {
+      case 'string':
+        return field
+      case 'object':
+        return field._id
+      default:
+        return field
+    }
+  }
+
+  handleSelectChange(data) {
+    // this.setState({ data })
+    // Compatability with regular change handlers
+    console.log('handleSelectChange', data)
+    this.props.onChange({
+      target: {
+        name: this.props.name,
+        value: data.map(this.getValueField),
+        getAttribute: () => {}
+      }
+    })
+  }
+
   render() {
+    if (this.state.loading) {
+      // Cannot render multiselect until data loaded
+      return null
+    }
+
     return (
       <>
         <Multiselect
-          busy={this.state.loading}
           caseSensitive={false}
           minLength={3}
           filter="contains"
-          textField={this.renderTextField}
-          defaultValue={this.state.data}
+          textField={this.getTextField}
+          valueField={this.getValueField}
+          defaultValue={this.props.value}
           onChange={this.handleSelectChange}
           data={this.state.options}
           inputProps={{
