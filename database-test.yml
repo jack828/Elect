@@ -1,0 +1,23 @@
+config:
+  target: "ws://localhost:3003"
+  phases:
+    - name: "Warm up, connect users"
+      duration: 20
+      arrivalRate: 10
+    - name: "Low intensity ramp up"
+      duration: 20
+      arrivalRate: 10
+    - name: "Sustained max load"
+      duration: 20
+      arrivalRate: 10
+  ws:
+    rejectUnauthorized: false
+    subprotocols: json
+    headers:
+      Host: "http://localhost:3000"
+
+scenarios:
+  - engine: "ws"
+    flow:
+      - send:
+          "dashboard:load": ""
