@@ -80,7 +80,7 @@ class Form extends BaseFormView {
               customInput={<Input invalid={!!(errors && errors.visibleFrom)} />}
               name="visibleFrom"
               dateFormat="do MMMM YYYY HH:MM"
-              selected={data.visibleFrom ? data.visibleFrom : null}
+              selected={data.visibleFrom ? new Date(data.visibleFrom) : null}
               onChange={date => this.handleDateChange('visibleFrom', date)}
               showTimeSelect
             />
@@ -100,7 +100,7 @@ class Form extends BaseFormView {
               customInput={<Input invalid={!!(errors && errors.visibleTo)} />}
               name="visibleTo"
               dateFormat="do MMMM YYYY HH:MM"
-              selected={data.visibleTo ? data.visibleTo : null}
+              selected={data.visibleTo ? new Date(data.visibleTo) : null}
               onChange={date => this.handleDateChange('visibleTo', date)}
               showTimeSelect
             />
@@ -122,7 +122,7 @@ class Form extends BaseFormView {
               customInput={<Input invalid={!!(errors && errors.voteOpenFrom)} />}
               name="voteOpenFrom"
               dateFormat="do MMMM YYYY HH:MM"
-              selected={data.voteOpenFrom ? data.voteOpenFrom : null}
+              selected={data.voteOpenFrom ? new Date(data.voteOpenFrom) : null}
               onChange={date => this.handleDateChange('voteOpenFrom', date)}
               showTimeSelect
             />
@@ -142,7 +142,7 @@ class Form extends BaseFormView {
               customInput={<Input invalid={!!(errors && errors.voteOpenTo)} />}
               name="voteOpenTo"
               dateFormat="do MMMM YYYY HH:MM"
-              selected={data.voteOpenTo ? data.voteOpenTo : null}
+              selected={data.voteOpenTo ? new Date(data.voteOpenTo) : null}
               onChange={date => this.handleDateChange('voteOpenTo', date)}
               showTimeSelect
             />
