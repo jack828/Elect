@@ -37,7 +37,13 @@ class SiteDashboard extends Component {
                 </CardHeader>
                 <CardBody>
                   {Date.now() > election.voteOpenFrom && Date.now() < election.voteOpenTo
-                    ? <Link to="/election">VOTING OPEN</Link>
+                    ? (
+                      <>
+                        <Link to="/election">View results LIVE</Link>
+                        <br />
+                        <Link to="/vote">VOTE NOW</Link>
+                      </>
+                    )
                     : 'VOTING CLOSED'
                   }
                 </CardBody>

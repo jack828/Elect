@@ -3,6 +3,7 @@ import SiteLayout from './containers/SiteLayout'
 
 const SiteDashboard = React.lazy(() => import('./views/SiteDashboard'))
 const Elections = React.lazy(() => import('./views/Elections'))
+const Vote = React.lazy(() => import('./views/Vote'))
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
@@ -21,6 +22,11 @@ const routes = [
     path: '/election',
     name: 'Election',
     component: Elections
+  },
+  {
+    path: '/vote',
+    name: 'Vote',
+    component: Vote
   }
 ]
 

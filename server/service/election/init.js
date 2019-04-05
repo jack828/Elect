@@ -9,4 +9,6 @@ const init = (serviceLocator, done) => {
   done()
 }
 
-module.exports = () => ({ electionService: [ 'database', 'acl', init ] })
+module.exports = () => ({
+  electionService: [ 'partyService', 'database', 'acl', init ]
+})
