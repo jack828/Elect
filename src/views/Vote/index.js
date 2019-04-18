@@ -15,6 +15,11 @@ import {
 
 class Vote extends Component {
   componentDidMount() {
+    if (!this.props.election) {
+      window.location.hash = '/'
+      return
+    }
+
     this.props.handleLoad(this.props.websocket)
   }
 
