@@ -1,6 +1,7 @@
 const schemata = require('schemata')
 const required = require('validity-required')
 const isEmail = require('validity-email')
+const uniqueProperty = require('validity-unique-property')
 const crypto = require('crypto')
 const moment = require('moment')
 const config = require('../../config')(process.env.NODE_ENV || 'development')
@@ -13,39 +14,30 @@ module.exports = (save) => {
     return saltHash
   }
 
-  const duplicateEmailValidator = (key, errorProperty, object, callback) => {
-    save.findOne({ emailAddress: new RegExp([ '^', object.emailAddress, '$' ].join(''), 'i') },
-      (error, found) => {
-        if (error) return callback(error)
-        callback(null, found && found._id.toString() !== object._id
-          ? `${object.emailAddress} already in use` : undefined)
-      })
-  }
-
   return schemata({
     name: 'User',
     description: 'User schema',
     properties: {
       _id: {
-        type: String,
-        tag: [ 'update' ]
+        type: String
       },
       firstName: {
         type: String,
-        validators: { all: [ required ] },
-        tag: [ 'update' ]
+        validators: [ required ]
       },
       lastName: {
         type: String,
-        validators: { all: [ required ] },
-        tag: [ 'update' ]
+        validators: [ required ]
+      },
+      constituency: {
+        type: String,
+        validators: [ required ]
       },
       emailAddress: {
         type: String,
         validators: {
-          all: [ required, isEmail, save ? duplicateEmailValidator : null ].filter(Boolean)
-        },
-        tag: [ 'update' ]
+          all: [ required, isEmail, save ? uniqueProperty(save.findOne) : null ].filter(Boolean)
+        }
       },
       password: {
         type: String,
@@ -71,10 +63,6 @@ module.exports = (save) => {
       },
       keyExpiry: {
         type: Date
-      },
-      role: {
-        type: String,
-        tag: [ 'update' ]
       },
       enabled: {
         type: Boolean

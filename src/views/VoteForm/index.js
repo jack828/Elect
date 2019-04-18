@@ -35,15 +35,19 @@ class VoteForm extends Component {
     }))
   }
 
-  handleVote(_id) {
+  handleClick(_id) {
     this.setState({ selected: _id })
+  }
+
+  handleVote() {
+    this.props.onVote(this.state.selected)
   }
 
   renderOptionRow({ _id, name, selected, warning }) {
     return (
       <tr
         key={`VoteParty${_id}`}
-        onClick={() => this.handleVote(_id)}
+        onClick={() => this.handleClick(_id)}
         className="text-center"
         style={{ backgroundColor: warning && warningColour }}
       >
@@ -52,7 +56,7 @@ class VoteForm extends Component {
         </td>
         <td>
           <i
-            className={classNames('fa', {
+            className={classNames('fa fa-fw', {
               'fa-square-o': !selected,
               'fa-check-square-o': selected
             })}
@@ -128,7 +132,7 @@ class VoteForm extends Component {
                   <Button
                     color="success"
                     className="ml-5"
-                    onClick={() => { /* VOTE VOTE VOTE */ }}
+                    onClick={this.handleVote}
                   >
                     VOTE
                   </Button>
@@ -152,8 +156,8 @@ VoteForm.propTypes = {
       _id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired
     })).isRequired
-  }).isRequired
-  // onVote: PropTypes.func.isRequired
+  }).isRequired,
+  onVote: PropTypes.func.isRequired
 }
 
 export default VoteForm

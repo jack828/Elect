@@ -106,5 +106,7 @@ module.exports = (serviceLocator) => {
 
   service.search = createSearch(service)
 
+  service.findOne = save.findOne
+
   return service
 }

@@ -19,21 +19,39 @@ const onLoad = websocket => async (dispatch) => {
   }
 }
 
-const castVote = websocket => async (dispatch, vote) => {
+const onVote = (websocket, partyId) => async (dispatch, getState) => {
   dispatch({ type: VOTE_CAST })
 
+  const { dashboard, auth } = await getState()
+  const { election: { _id: electionId } } = dashboard.toJS()
+  const { user: { key } } = auth.toJS()
+
+  let response
   try {
-    const data = await websocket.send('vote:cast', vote)
-    dispatch({
-      type: VOTE_CAST_COMPLETE,
-      data
-    })
+    response = await websocket.send('vote:cast', { electionId, partyId, key })
   } catch (error) {
-    dispatch({ type: VOTE_CAST_FAIL })
+    return dispatch({
+      type: VOTE_CAST_FAIL,
+      error: 'There was an issue casting your vote'
+    })
   }
+
+  const { error, vote } = response
+
+  if (error) {
+    return dispatch({
+      type: VOTE_CAST_FAIL,
+      error
+    })
+  }
+
+  dispatch({
+    type: VOTE_CAST_COMPLETE,
+    vote
+  })
 }
 
 export {
   onLoad,
-  castVote
+  onVote
 }

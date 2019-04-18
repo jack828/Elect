@@ -11,7 +11,7 @@ const persistConfig = {
   version: 1,
   storage,
   transforms: [ immutableTransform() ],
-  blacklist: [ 'site' ]
+  blacklist: [ 'site', 'vote', 'dashboard' ]
 }
 
 const reducer = persistReducer(persistConfig, rootReducer)

@@ -8,17 +8,24 @@ module.exports = () => schemata({
     _id: {
       type: String
     },
+    election: {
+      type: String,
+      validators: [ required ]
+    },
     user: {
       type: String,
-      validators: { all: [ required ] }
+      validators: [ required ]
     },
     party: {
       type: String,
-      validators: { all: [ required ] }
+      validators: [ required ]
+    },
+    constituencySlug: {
+      type: String,
+      validators: [ required ]
     },
     createdDate: {
       type: Date,
-      validators: { all: [] },
       defaultValue: () => new Date()
     }
   }

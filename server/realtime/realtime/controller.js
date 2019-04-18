@@ -40,12 +40,14 @@ module.exports = (serviceLocator) => {
       logger.info('Received', id, data)
       Object.keys(data).map((key) => {
         logger.debug('Emitting', key, id, data[key])
+
         if (id) {
           wss.once(id, (value) => {
             ws.send(JSON.stringify({ [id]: value }))
           })
         }
-        wss.emit(key, id, data[key])
+
+        wss.emit(key, id, data[key], req)
       })
     })
   })
