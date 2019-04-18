@@ -135,6 +135,7 @@
     "validity-email": "^1.0.0",
     "validity-length": "^2.0.0",
     "validity-required": "^1.0.0",
+    "validity-unique-property": "^0.2.1",
     "webpack": "4.19.1",
     "webpack-dev-server": "3.1.14",
     "webpack-manifest-plugin": "2.0.4",

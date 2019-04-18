@@ -8,9 +8,32 @@ module.exports = (serviceLocator) => {
   const schema = createSchema()
   const service = crudService('Vote', save, schema, {})
 
+  const { partyService } = serviceLocator
+
   service.search = createSearch(service)
 
   service.findOne = save.findOne
+
+  service.findVote = ({ user, election }) => new Promise(async (resolve, reject) => {
+    let vote
+    try {
+      vote = await promisify(service.findOne)({
+        election,
+        user
+      })
+    } catch (error) {
+      return reject(error)
+    }
+
+    let party
+    try {
+      party = await promisify(partyService.read)(vote.party)
+    } catch (error) {
+      return reject(error)
+    }
+
+    resolve({ ...vote, party })
+  })
 
   service.cast = ({ user, electionId, partyId }) => new Promise(async (resolve, reject) => {
     try {

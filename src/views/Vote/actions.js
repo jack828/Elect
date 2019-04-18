@@ -6,23 +6,40 @@ export const VOTE_CAST = 'VOTE_CAST'
 export const VOTE_CAST_COMPLETE = 'VOTE_CAST_COMPLETE'
 export const VOTE_CAST_FAIL = 'VOTE_CAST_FAIL'
 
-const onLoad = websocket => async (dispatch) => {
+const onLoad = websocket => async (dispatch, getState) => {
   dispatch({ type: VOTE_LOAD })
+
+  const { dashboard, auth } = getState()
+  const { election: { _id: electionId } } = dashboard.toJS()
+  const { user: { key } } = auth.toJS()
+
+  let response
   try {
-    const data = await websocket.send('vote:load')
-    dispatch({
-      type: VOTE_LOAD_COMPLETE,
-      data
-    })
+    response = await websocket.send('vote:load', { electionId, key })
   } catch (error) {
-    dispatch({ type: VOTE_LOAD_FAIL })
+    return dispatch({
+      type: VOTE_LOAD_FAIL
+    })
   }
+
+  const { error, vote } = response
+
+  if (error) {
+    return dispatch({
+      type: VOTE_LOAD_FAIL
+    })
+  }
+
+  dispatch({
+    type: VOTE_LOAD_COMPLETE,
+    data: { vote }
+  })
 }
 
 const onVote = (websocket, partyId) => async (dispatch, getState) => {
   dispatch({ type: VOTE_CAST })
 
-  const { dashboard, auth } = await getState()
+  const { dashboard, auth } = getState()
   const { election: { _id: electionId } } = dashboard.toJS()
   const { user: { key } } = auth.toJS()
 

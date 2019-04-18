@@ -7,6 +7,7 @@ import {
 } from 'reactstrap'
 import { connect } from 'react-redux'
 import VoteForm from '../VoteForm'
+import VoteInfo from '../VoteInfo'
 import {
   onLoad,
   onVote
@@ -54,7 +55,7 @@ class Vote extends Component {
           {vote
             && (
             <Col className="text-center" xs="12">
-              You have already voted on this election.
+              <VoteInfo election={election} vote={vote} />
             </Col>
             )
           }
@@ -66,7 +67,9 @@ class Vote extends Component {
           )}
           {voting && (
             <Col className="text-center" xs="12">
-              Your vote is being submitted, please wait.
+              <Alert className="text-center" color="warning">
+                Your vote is being submitted, please wait.
+              </Alert>
             </Col>
           )}
         </Row>
