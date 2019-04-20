@@ -2,6 +2,7 @@ const express = require('express')
 const morgan = require('morgan')
 const { createServer } = require('http')
 const { join } = require('path')
+const generateVotes = require('../server/support/scripts/generate-votes')
 
 const app = express()
 const server = createServer(app)
@@ -19,6 +20,13 @@ module.exports = (serviceLocator) => {
   app.disable('x-powered-by')
     .use(morgan(logLevel, logOptions))
 
+  if (inDevelopmentMode) {
+    app.get('/generate-votes', async (req, res) => {
+      await generateVotes(serviceLocator)
+      res.sendStatus(418)
+    })
+  }
+
   if (!inDevelopmentMode) {
     app.use(express.static(join(__dirname, '../build')))
 
@@ -27,6 +35,7 @@ module.exports = (serviceLocator) => {
     })
   }
   serviceLocator.register('httpServer', server)
+
 
   return app
 }
