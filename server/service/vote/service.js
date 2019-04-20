@@ -14,6 +14,23 @@ module.exports = (serviceLocator) => {
 
   service.findOne = save.findOne
 
+  // TODO cache
+  // TODO might need to be database specific aggregation
+  service.getVotes = async (electionId) => {
+    const rawVotes = await promisify(service.find)({ election: electionId })
+
+    return rawVotes.reduce((votes, { party, constituencySlug }) => {
+      if (!votes[constituencySlug]) {
+        votes[constituencySlug] = {}
+      }
+      if (!votes[constituencySlug][party._id]) {
+        votes[constituencySlug][party._id] = 0
+      }
+      votes[constituencySlug][party._id]++
+      return votes
+    }, {})
+  }
+
   service.findVote = ({ user, election }) => new Promise(async (resolve, reject) => {
     let vote
     try {

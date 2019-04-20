@@ -7,8 +7,25 @@ module.exports = (serviceLocator) => {
   const save = serviceLocator.persistence('election')
   const schema = createSchema()
   const service = crudService('Election', save, schema, {})
-
   service.search = createSearch(service)
+
+  const embellish = async (election) => {
+    const [
+      parties,
+      votes
+    ] = await Promise.all([
+      promisify(serviceLocator.partyService.find)({
+        _id: { $in: election.parties }
+      }),
+      serviceLocator.voteService.getVotes(election._id)
+    ])
+
+    return ({
+      ...election,
+      parties,
+      votes
+    })
+  }
 
   service.findActive = () => new Promise(async (resolve, reject) => {
     const now = new Date()
@@ -22,11 +39,8 @@ module.exports = (serviceLocator) => {
       return reject(error)
     }
 
-    const parties = await promisify(serviceLocator.partyService.find)({
-      _id: { $in: election.parties },
-      enabled: true
-    })
-    resolve({ ...election, parties })
+    const embellishedElection = await embellish(election)
+    resolve(embellishedElection)
   })
 
   return service
