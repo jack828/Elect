@@ -42,6 +42,8 @@ module.exports = (serviceLocator) => {
       return reject(error)
     }
 
+    if (!vote) return resolve(null)
+
     let party
     try {
       party = await promisify(partyService.read)(vote.party)
