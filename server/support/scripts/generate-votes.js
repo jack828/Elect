@@ -26,5 +26,5 @@ module.exports = async (serviceLocator) => {
       createdDate: new Date()
     })
   }
-  await Promise.all(votes.map(vote => voteCollection.insertOne(vote)))
+  await voteCollection.insertMany(votes)
 }
