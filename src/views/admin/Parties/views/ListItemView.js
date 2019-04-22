@@ -21,6 +21,7 @@ class ListItemView extends BaseComponentView {
           </Button>
         </th>
         <td>{data.name}</td>
+        <td style={{ backgroundColor: data.colour }}>{data.colour}</td>
         <td>
           <Badge color={data.enabled ? 'success' : 'data'}>
             {data.enabled ? 'enabled' : 'disabled'}

@@ -43,7 +43,7 @@ class Form extends BaseFormView {
 
         <FormGroup row>
           <Col md="3">
-            <Label>Enabled?</Label>
+            <Label htmlFor="enabled">Enabled?</Label>
           </Col>
           <Col md="9">
             <FormGroup check className="checkbox">
@@ -56,6 +56,23 @@ class Form extends BaseFormView {
                 checked={data.enabled}
               />
             </FormGroup>
+          </Col>
+        </FormGroup>
+
+        <FormGroup row>
+          <Col md="3">
+            <Label htmlFor="enabled">Colour</Label>
+          </Col>
+          <Col xs="12" md="9">
+            <Input
+              type="text"
+              id="colour"
+              name="colour"
+              onChange={this.handleChange}
+              value={data.colour ? data.colour : ''}
+              invalid={!!(errors && errors.colour)}
+            />
+            {errors && errors.colour && <FormFeedback>{errors.colour}</FormFeedback>}
           </Col>
         </FormGroup>
       </>

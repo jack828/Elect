@@ -6,13 +6,15 @@ module.exports = () => schemata({
   description: 'Party schema',
   properties: {
     _id: {
-      type: String,
-      tag: [ 'update' ]
+      type: String
     },
     name: {
       type: String,
-      validators: { all: [ required ] },
-      tag: [ 'update' ]
+      validators: { all: [ required ] }
+    },
+    colour: {
+      type: String,
+      validators: { all: [ required ] }
     },
     enabled: {
       type: Boolean
