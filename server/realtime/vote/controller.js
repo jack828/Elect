@@ -1,5 +1,3 @@
-const { promisify } = require('util')
-
 module.exports = (serviceLocator) => {
   const { wss, voteService } = serviceLocator
 

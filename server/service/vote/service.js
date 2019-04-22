@@ -36,10 +36,13 @@ module.exports = (serviceLocator) => {
       if (!votes[constituencySlug]) {
         votes[constituencySlug] = {}
       }
-      if (!votes[constituencySlug][party._id]) {
-        votes[constituencySlug][party._id] = 0
+
+      const partyId = party ? party._id : null
+
+      if (!votes[constituencySlug][partyId]) {
+        votes[constituencySlug][partyId] = 0
       }
-      votes[constituencySlug][party._id]++
+      votes[constituencySlug][partyId]++
       return votes
     }, {})
   }

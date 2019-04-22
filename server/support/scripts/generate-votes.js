@@ -22,7 +22,7 @@ module.exports = async (serviceLocator) => {
       user: `${Math.random() * 1e6}`,
       constituencySlug: random(constituencies).slug,
       // TODO a curve or something
-      party: random(parties),
+      party: random([ null, ...parties ]),
       createdDate: new Date()
     })
   }
