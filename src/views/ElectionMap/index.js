@@ -9,15 +9,30 @@ class ElectionMap extends Component {
     if (!this.constituencyData) this.loadConstituencyData()
   }
 
-  getColour(val) {
-    if (val > 1000) return '#800026'
-    if (val > 500) return '#BD0026'
-    if (val > 200) return '#E31A1C'
-    if (val > 100) return '#FC4E2A'
-    if (val > 50) return '#FD8D3C'
-    if (val > 20) return '#FEB24C'
-    if (val > 10) return '#FED976'
-    return '#FFEDA0'
+  getTopPartyColour({ slug }) {
+    const { election: { parties, votes } } = this.props
+    const constituencyVotes = votes[slug]
+
+    // No votes cast for that constituency
+    if (!constituencyVotes) return 'white'
+
+    const [ topParty, ...otherParties ] = Object.keys(constituencyVotes)
+      .reduce((ordered, partyId) => [
+        ...ordered,
+        { partyId, votes: constituencyVotes[partyId] }
+      ], [])
+      .sort((a, b) => b.votes - a.votes)
+
+    // check for ties
+    if (topParty && otherParties[0] && topParty.votes === otherParties[0].votes) {
+      return 'white'
+    }
+
+    // Spoilt ballots
+    if (topParty.partyId === 'null') return 'black'
+
+    const party = parties.find(({ _id }) => topParty.partyId === _id)
+    return party.colour
   }
 
   async loadConstituencyData() {
@@ -67,8 +82,7 @@ class ElectionMap extends Component {
       color: 'white',
       dashArray: '3',
       fillOpacity: 0.7,
-      // feature.properties.density does not exist
-      fillColor: this.getColour(feature.properties.density)
+      fillColor: this.getTopPartyColour(feature.properties)
     })
 
     this.constituencyGeoJson = L.geoJson(this.constituencyData, {
