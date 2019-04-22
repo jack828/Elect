@@ -140,7 +140,7 @@ class ElectionMap extends Component {
     if (!data) {
       content = 'Hover over a constituency'
     } else {
-      const constituencyVotes = this.votes[data.slug]
+      const constituencyVotes = this.votes[data.slug] || {}
 
       const results = Object.keys(constituencyVotes).map((partyId) => {
         if (partyId === 'null') {
