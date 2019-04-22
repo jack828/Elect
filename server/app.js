@@ -1,5 +1,6 @@
 const serviceLocator = require('service-locator')()
 const bunyan = require('bunyan')
+const UberCache = require('uber-cache')
 
 const createConfig = require('./config')
 const bootstrap = require('./bootstrap')
@@ -11,6 +12,7 @@ const logLevel = process.env.LOG_LEVEL || (inDevelopmentMode ? 'debug' : 'info')
 
 serviceLocator
   .register('env', env)
+  .register('cache', new UberCache())
   .register('config', createConfig(env))
   .register('logger', bunyan.createLogger({
     name: 'site',

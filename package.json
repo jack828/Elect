@@ -131,6 +131,8 @@
     "simple-line-icons": "^2.4.1",
     "style-loader": "0.23.0",
     "terser-webpack-plugin": "1.1.0",
+    "uber-cache": "^2.1.5",
+    "uber-memoize": "^1.1.0",
     "url-loader": "1.1.1",
     "utf-8-validate": "^5.0.2",
     "validity": "^1.1.1",

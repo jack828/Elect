@@ -1,25 +1,50 @@
 const { promisify } = require('util')
 const crudService = require('crud-service')
 const createSearch = require('cf-text-search')
+const memoize = require('uber-memoize')
 const createSchema = require('./schema')
 
 module.exports = (serviceLocator) => {
-  const save = serviceLocator.persistence('vote')
+  const {
+    persistence,
+    cache,
+    electionService,
+    partyService
+  } = serviceLocator
+  const save = persistence('vote')
   const schema = createSchema()
   const service = crudService('Vote', save, schema, {})
 
-  const { partyService } = serviceLocator
+  const readElection = memoize(
+    'readElection',
+    cache
+  )(
+    electionService.read,
+    60 * 60 * 1000 // 1 hour
+  )
 
-  service.search = createSearch(service)
+  const findParty = memoize(
+    'findParty',
+    cache
+  )(
+    partyService.find,
+    60 * 60 * 1000 // 1 hour
+  )
 
-  service.findOne = save.findOne
+  const readParty = memoize(
+    'readParty',
+    cache
+  )(
+    partyService.read,
+    60 * 60 * 1000 // 1 hour
+  )
 
   const embellish = async (vote) => {
     let party
     if (!vote.party) {
       party = { name: 'Spoilt Ballot' }
     } else {
-      party = await promisify(partyService.read)(vote.party)
+      party = await promisify(readParty)(vote.party)
     }
     return ({
       ...vote,
@@ -27,14 +52,17 @@ module.exports = (serviceLocator) => {
     })
   }
 
-  // TODO cache
+  service.search = createSearch(service)
+
+  service.findOne = save.findOne
+
   // TODO might need to be database specific aggregation
   service.getVotes = async (electionId) => {
     const [ rawVotes, election ] = await Promise.all([
       await promisify(service.find)({ election: electionId }),
-      await promisify(serviceLocator.electionService.read)(electionId)
+      await promisify(readElection)(electionId)
     ])
-    const parties = await promisify(serviceLocator.partyService.find)({
+    const parties = await promisify(findParty)({
       _id: {
         $in: election.parties
       }
