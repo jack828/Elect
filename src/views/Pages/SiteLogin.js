@@ -28,8 +28,6 @@ const SiteLogin = ({
   history
 }) => {
   if (authenticated) {
-    // TODO: 404s
-    history.push('/')
     return null
   }
 

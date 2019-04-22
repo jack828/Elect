@@ -29,7 +29,6 @@ class SiteLayout extends Component {
   loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
 
   logout() {
-    // TODO logout properly
     this.props.onLogout()
     this.props.history.push('/login')
   }
@@ -52,9 +51,15 @@ class SiteLayout extends Component {
           ) : (null)
         }),
         <Redirect
-          key="Route-Redirect"
+          key="Route-Redirect-Dashboard"
           exact
           from="/"
+          to="/dashboard"
+        />,
+        <Redirect
+          key="Route-Redirect-Login"
+          exact
+          from="/login"
           to="/dashboard"
         />,
         <Route
