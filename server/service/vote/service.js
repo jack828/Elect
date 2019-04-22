@@ -14,6 +14,19 @@ module.exports = (serviceLocator) => {
 
   service.findOne = save.findOne
 
+  const embellish = async (vote) => {
+    let party
+    if (!vote.party) {
+      party = { name: 'Spoilt Ballot' }
+    } else {
+      party = await promisify(partyService.read)(vote.party)
+    }
+    return ({
+      ...vote,
+      party
+    })
+  }
+
   // TODO cache
   // TODO might need to be database specific aggregation
   service.getVotes = async (electionId) => {
@@ -41,17 +54,10 @@ module.exports = (serviceLocator) => {
     } catch (error) {
       return reject(error)
     }
-
+    console.log(vote)
     if (!vote) return resolve(null)
 
-    let party
-    try {
-      party = await promisify(partyService.read)(vote.party)
-    } catch (error) {
-      return reject(error)
-    }
-
-    resolve({ ...vote, party })
+    resolve(await embellish(vote))
   })
 
   service.cast = ({ user, electionId, partyId }) => new Promise(async (resolve, reject) => {
@@ -82,7 +88,7 @@ module.exports = (serviceLocator) => {
     // TODO: broadcast anonymised vote
     // service.emit('vote', vote)
 
-    return resolve(vote)
+    return resolve(await embellish(vote))
   })
 
   return service
