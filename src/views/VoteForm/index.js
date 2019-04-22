@@ -79,7 +79,7 @@ class VoteForm extends Component {
           </CardHeader>
           <CardBody>
             <Row>
-              <Table hover responsive className="table-outline mb-0 d-none d-sm-table">
+              <Table hover responsive className="table-outline mb-0 d-sm-table">
                 <thead className="thead-light">
                   <tr>
                     <th className="text-center">Party Name</th>
