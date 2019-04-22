@@ -67,6 +67,7 @@ class ElectionMap extends Component {
       color: 'white',
       dashArray: '3',
       fillOpacity: 0.7,
+      // feature.properties.density does not exist
       fillColor: this.getColour(feature.properties.density)
     })
 
@@ -79,16 +80,11 @@ class ElectionMap extends Component {
 
     legend.onAdd = () => {
       const div = L.DomUtil.create('div', 'info legend')
-      const grades = [ 0, 10, 20, 50, 100, 200, 500, 1000 ]
-      const labels = []
+      const { election: { parties } } = this.props
 
-      for (let i = 0; i < grades.length; i++) {
-        const from = grades[i]
-        const to = grades[i + 1]
+      const labels = parties.map(party => `<i style="background:${party.colour};"></i> ${party.name}`)
 
-        labels.push(`<i style="background:${this.getColour(from + 1)}"></i> ${from} ${(to ? `&ndash; ${to}` : '+')}`)
-      }
-
+      labels.push('<i style="background: black;"></i> Spoilt Ballot')
       div.innerHTML = labels.join('<br>')
       return div
     }
