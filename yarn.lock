@@ -11495,7 +11495,7 @@ validity-unique-property@^0.2.1:
   resolved "https://registry.yarnpkg.com/validity-unique-property/-/validity-unique-property-0.2.1.tgz#e6e15bffef745dcb575712bdac65cdf033a3882f"
   integrity sha1-5uFb/+90XctXVxK9rGXN8DOjiC8=
 
-validity@^1.0.0:
+validity@^1.0.0, validity@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/validity/-/validity-1.1.1.tgz#24be363f90f4604ed00f782b962de4e64ffb4753"
   integrity sha512-Nz2rNFL6qgU/AWbetft8xSn9juoOU4zIMSYmfeXAA2AGKm69pRCImayGVOCax0hZlglQwBNMUc/ihWmFN43A0w==

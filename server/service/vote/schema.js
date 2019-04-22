@@ -1,5 +1,6 @@
 const schemata = require('schemata')
 const required = require('validity-required')
+const { createValidator, booleanToCallback } = require('validity')
 
 module.exports = () => schemata({
   name: 'Vote',
@@ -18,7 +19,11 @@ module.exports = () => schemata({
     },
     party: {
       type: String,
-      validators: [ required ]
+      validators: [
+        createValidator(booleanToCallback(value => typeof value !== 'undefined'))(
+          '#{name} is required'
+        )
+      ]
     },
     constituencySlug: {
       type: String,
