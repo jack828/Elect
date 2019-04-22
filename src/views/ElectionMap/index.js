@@ -96,6 +96,35 @@ class ElectionMap extends Component {
     legend.addTo(this.map)
   }
 
+  renderInfoContent(data) {
+    const { election: { name, parties, votes } } = this.props
+    const base = `<h4>${name}</h4>`
+    let content
+    if (!data) {
+      content = 'Hover over a constituency'
+    } else {
+      const constituencyVotes = votes[data.slug]
+
+      const results = Object.keys(constituencyVotes).map((partyId) => {
+        if (partyId === 'null') {
+          return `<li>Spoilt ballot: ${constituencyVotes.null}</li>`
+        }
+        const party = parties.find(({ _id }) => partyId === _id)
+        return `<li>${party.name}: ${constituencyVotes[partyId]}</li>`
+      })
+
+      content = `
+        <b>${data.name}</b>
+        <br />
+        <ul>
+          ${results.join('')}
+        </ul>
+        <p></p>
+      `
+    }
+    return `${base}${content}`
+  }
+
   renderMap() {
     this.map = L.map('map').setView([ 54.5, -2 ], 6)
 
@@ -117,7 +146,7 @@ class ElectionMap extends Component {
     }
 
     this.info.update = (data) => {
-      this.info.div.innerHTML = `<h4>UK Constituency Map</h4>${(data ? `<b>${data.name}</b><br />` : 'Hover over a constituency')}`
+      this.info.div.innerHTML = this.renderInfoContent(data)
     }
 
     this.info.addTo(this.map)
@@ -129,7 +158,8 @@ class ElectionMap extends Component {
 }
 
 ElectionMap.propTypes = {
-  websocket: PropTypes.object.isRequired
+  websocket: PropTypes.object.isRequired,
+  election: PropTypes.object.isRequired
 }
 
 export default ElectionMap
