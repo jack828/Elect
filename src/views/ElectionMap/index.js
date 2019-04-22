@@ -51,6 +51,13 @@ class ElectionMap extends Component {
   }
 
   handleVote({ constituencySlug, party }) {
+    if (!this.votes[constituencySlug]) {
+      this.votes[constituencySlug] = {}
+    }
+    if (!this.votes[constituencySlug][party]) {
+      this.votes[constituencySlug][party] = 0
+    }
+
     this.votes[constituencySlug][party]++
 
     // update the layer's colour
