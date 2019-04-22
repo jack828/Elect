@@ -12,7 +12,7 @@ const reducer = combineReducers({
 })
 
 export default (state, action) => {
-  if (action.type === 'RESET_ALL') {
+  if (action.type === 'LOGOUT') {
     state = undefined
   }
   return reducer(state, action)

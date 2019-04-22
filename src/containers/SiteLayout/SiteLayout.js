@@ -89,7 +89,7 @@ class SiteLayout extends Component {
       <div className="app">
         <AppHeader fixed>
           <Suspense fallback={this.loading()}>
-            <SiteHeader onLogout={this.props.onLogout} />
+            <SiteHeader onLogout={() => this.logout()} />
           </Suspense>
         </AppHeader>
         <div className="app-body">
