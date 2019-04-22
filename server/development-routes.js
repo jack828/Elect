@@ -7,8 +7,8 @@ module.exports = (serviceLocator, app) => {
     res.sendStatus(418)
   })
 
-  app.get('/generate-votes-slow', async (req, res) => {
-    await generateVotesSlow(serviceLocator)
+  app.get('/generate-votes-slow(/:count?)', async (req, res) => {
+    await generateVotesSlow(serviceLocator, req.params.count)
     res.sendStatus(418)
   })
 }

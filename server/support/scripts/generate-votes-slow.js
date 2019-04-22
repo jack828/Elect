@@ -4,7 +4,7 @@ const constituencies = require('../../../src/lib/constituency-slugs.json')
 
 const limit = promiseLimit(50)
 
-module.exports = async (serviceLocator) => {
+module.exports = async (serviceLocator, count = 10000) => {
   const {
     electionService,
     partyService,
@@ -17,7 +17,7 @@ module.exports = async (serviceLocator) => {
   ])
   const votes = []
 
-  for (let i = 0; i < 10000; i++) {
+  for (let i = 0; i < count; i++) {
     const party = random([ null, ...parties ])
     votes.push({
       user: {
