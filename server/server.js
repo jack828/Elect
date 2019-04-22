@@ -2,7 +2,7 @@ const express = require('express')
 const morgan = require('morgan')
 const { createServer } = require('http')
 const { join } = require('path')
-const generateVotes = require('../server/support/scripts/generate-votes')
+const addDevelopmentRoutes = require('./development-routes')
 
 const app = express()
 const server = createServer(app)
@@ -21,10 +21,7 @@ module.exports = (serviceLocator) => {
     .use(morgan(logLevel, logOptions))
 
   if (inDevelopmentMode) {
-    app.get('/generate-votes', async (req, res) => {
-      await generateVotes(serviceLocator)
-      res.sendStatus(418)
-    })
+    addDevelopmentRoutes(serviceLocator, app)
   }
 
   if (!inDevelopmentMode) {
