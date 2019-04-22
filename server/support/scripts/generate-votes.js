@@ -17,12 +17,13 @@ module.exports = async (serviceLocator) => {
   const votes = []
 
   for (let i = 0; i < 100000; i++) {
+    const party = random([ null, ...parties ])
     votes.push({
       election: election._id,
       user: `${Math.random() * 1e6}`,
       constituencySlug: random(constituencies).slug,
       // TODO a curve or something
-      party: random([ null, ...parties ]),
+      party: party ? party._id : party,
       createdDate: new Date()
     })
   }
