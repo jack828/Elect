@@ -69,6 +69,10 @@ class Websocket extends EventEmitter {
     this.emit('error')
   }
 
+  off(event, func) {
+    this.removeListener(event, func)
+  }
+
   parse(raw) {
     let data = ''
     try {
