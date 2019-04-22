@@ -107,11 +107,16 @@ class ElectionMap extends Component {
 
       const results = Object.keys(constituencyVotes).map((partyId) => {
         if (partyId === 'null') {
-          return `<li>Spoilt ballot: ${constituencyVotes.null}</li>`
+          return { votes: constituencyVotes.null, text: `<li>Spoilt ballot: ${constituencyVotes.null}</li>` }
         }
         const party = parties.find(({ _id }) => partyId === _id)
-        return `<li>${party.name}: ${constituencyVotes[partyId]}</li>`
+        return {
+          votes: constituencyVotes[partyId],
+          text: `<li>${party.name}: ${constituencyVotes[partyId]}</li>`
+        }
       })
+        .sort((a, b) => b.votes - a.votes)
+        .map(({ text }) => text)
 
       content = `
         <b>${data.name}</b>

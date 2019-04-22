@@ -32,6 +32,7 @@ module.exports = (serviceLocator) => {
   service.getVotes = async (electionId) => {
     const rawVotes = await promisify(service.find)({ election: electionId })
 
+    // This is unsorted data
     return rawVotes.reduce((votes, { party, constituencySlug }) => {
       if (!votes[constituencySlug]) {
         votes[constituencySlug] = {}
