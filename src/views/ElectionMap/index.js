@@ -4,14 +4,29 @@ import L from 'leaflet'
 
 // TODO: improve loading by using https://docs.mapbox.com/studio-manual/reference/datasets/
 class ElectionMap extends Component {
+  constructor(props) {
+    super(props)
+    const { election } = this.props
+    const { parties, votes } = election
+    this.election = election
+    this.parties = parties
+    this.votes = votes
+
+    this.handleVote = this.handleVote.bind(this)
+  }
+
   componentDidMount() {
     if (!this.map) this.renderMap()
     if (!this.constituencyData) this.loadConstituencyData()
+    this.props.websocket.on('vote:cast', this.handleVote)
+  }
+
+  componentWillUnmount() {
+    this.props.websocket.off('vote:cast', this.handleVote)
   }
 
   getTopPartyColour({ slug }) {
-    const { election: { parties, votes } } = this.props
-    const constituencyVotes = votes[slug]
+    const constituencyVotes = this.votes[slug]
 
     // No votes cast for that constituency
     if (!constituencyVotes) return 'white'
@@ -31,8 +46,22 @@ class ElectionMap extends Component {
     // Spoilt ballots
     if (topParty.partyId === 'null') return 'black'
 
-    const party = parties.find(({ _id }) => topParty.partyId === _id)
+    const party = this.parties.find(({ _id }) => topParty.partyId === _id)
     return party.colour
+  }
+
+  handleVote({ constituencySlug, party }) {
+    this.votes[constituencySlug][party]++
+
+    // update the layer's colour
+    this.constituencyGeoJson.eachLayer((layer) => {
+      const { feature: { properties: { slug } } } = layer
+      if (constituencySlug === slug) {
+        layer.setStyle({
+          fillColor: this.getTopPartyColour({ slug })
+        })
+      }
+    })
   }
 
   async loadConstituencyData() {
@@ -94,9 +123,8 @@ class ElectionMap extends Component {
 
     legend.onAdd = () => {
       const div = L.DomUtil.create('div', 'info legend')
-      const { election: { parties } } = this.props
 
-      const labels = parties.map(party => `<i style="background:${party.colour};"></i> ${party.name}`)
+      const labels = this.parties.map(party => `<i style="background:${party.colour};"></i> ${party.name}`)
 
       labels.push('<i style="background: black;"></i> Spoilt Ballot')
       div.innerHTML = labels.join('<br>')
@@ -107,19 +135,18 @@ class ElectionMap extends Component {
   }
 
   renderInfoContent(data) {
-    const { election: { name, parties, votes } } = this.props
-    const base = `<h4>${name}</h4>`
+    const base = `<h4>${this.election.name}</h4>`
     let content
     if (!data) {
       content = 'Hover over a constituency'
     } else {
-      const constituencyVotes = votes[data.slug]
+      const constituencyVotes = this.votes[data.slug]
 
       const results = Object.keys(constituencyVotes).map((partyId) => {
         if (partyId === 'null') {
           return { votes: constituencyVotes.null, text: `<li>Spoilt ballot: ${constituencyVotes.null}</li>` }
         }
-        const party = parties.find(({ _id }) => partyId === _id)
+        const party = this.parties.find(({ _id }) => partyId === _id)
         return {
           votes: constituencyVotes[partyId],
           text: `<li>${party.name}: ${constituencyVotes[partyId]}</li>`
@@ -174,7 +201,11 @@ class ElectionMap extends Component {
 
 ElectionMap.propTypes = {
   websocket: PropTypes.object.isRequired,
-  election: PropTypes.object.isRequired
+  election: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    parties: PropTypes.array.isRequired,
+    votes: PropTypes.object.isRequired
+  }).isRequired
 }
 
 export default ElectionMap

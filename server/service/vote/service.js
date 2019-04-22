@@ -39,20 +39,21 @@ module.exports = (serviceLocator) => {
         $in: election.parties
       }
     })
+    const initialTotals = parties.reduce((totals, party) => ({
+      ...totals,
+      [party._id]: 0
+    }), { null: 0 })
 
     // This is unsorted data
     return rawVotes.reduce((votes, { party, constituencySlug }) => {
       if (!votes[constituencySlug]) {
-        votes[constituencySlug] = {}
+        votes[constituencySlug] = { ...initialTotals }
       }
 
       const foundParty = parties.find(({ _id }) => party === _id)
 
       const partyId = party !== null ? foundParty._id : null
 
-      if (!votes[constituencySlug][partyId]) {
-        votes[constituencySlug][partyId] = 0
-      }
       votes[constituencySlug][partyId]++
       return votes
     }, {})
@@ -68,7 +69,6 @@ module.exports = (serviceLocator) => {
     } catch (error) {
       return reject(error)
     }
-    console.log(vote)
     if (!vote) return resolve(null)
 
     resolve(await embellish(vote))
@@ -99,8 +99,7 @@ module.exports = (serviceLocator) => {
       return reject(error)
     }
 
-    // TODO: broadcast anonymised vote
-    // service.emit('vote', vote)
+    service.emit('vote', vote)
 
     return resolve(await embellish(vote))
   })

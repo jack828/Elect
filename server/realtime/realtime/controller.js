@@ -23,6 +23,13 @@ module.exports = (serviceLocator) => {
   // TODO:
   // - clean up to lib files
   // - clean event listeners on disconnect
+  //
+  wss.broadcast = (key, data) => {
+    wss.clients.forEach((client) => {
+      client.send(JSON.stringify({ [key]: data }))
+    })
+  }
+
   wss.on('connection', (ws, req) => {
     ws.id = hat()
     logger.info('New connection', ws.id)
