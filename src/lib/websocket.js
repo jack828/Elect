@@ -12,12 +12,20 @@ class Websocket extends EventEmitter {
   constructor() {
     super()
     debug('url', WEBSOCKET_URL)
+    this.connect()
+  }
+
+  connect() {
     this.ws = new WebSocket(WEBSOCKET_URL)
 
     this.ws.onmessage = this.onMessage.bind(this)
     this.ws.onopen = this.onOpen.bind(this)
     this.ws.onclose = this.onClose.bind(this)
     this.ws.onerror = this.onError.bind(this)
+  }
+
+  reconnect() {
+    this.connect()
   }
 
   send(key, data = '') {

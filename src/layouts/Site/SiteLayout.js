@@ -1,7 +1,11 @@
 import React, { Component, Suspense } from 'react'
 import PropTypes from 'prop-types'
 import { Redirect, Route, Switch } from 'react-router-dom'
-import { Alert, Container } from 'reactstrap'
+import {
+  Alert,
+  Button,
+  Container
+} from 'reactstrap'
 import { connect } from 'react-redux'
 import { AppBreadcrumb, AppHeader } from '@coreui/react'
 
@@ -105,7 +109,11 @@ class SiteLayout extends Component {
             <Container fluid>
               {this.props.websocketClose && (
                 <Alert className="text-center" color="danger">
-                  Connection to the server has been lost. Please reload the page!
+                  Connection to the server has been lost.
+                  {' '}
+                  <Button color="primary" onClick={() => this.props.websocket.reconnect()}>
+                    Click here to reconnect
+                  </Button>
                 </Alert>
               )}
               <Suspense fallback={this.loading()}>
