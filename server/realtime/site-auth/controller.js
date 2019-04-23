@@ -23,7 +23,9 @@ module.exports = (serviceLocator) => {
           return wss.emit(id, { errors: error.errors })
         }
         serviceLocator.logger.error('Login error', error)
-        return wss.emit(id, { errors: 'Something unexpected occured, please try again later' })
+        return wss.emit(id, {
+          errors: 'Incorrect email address or password combination. Please try again.'
+        })
       }
 
       const { password, passwordSalt, ...cleanUser } = user

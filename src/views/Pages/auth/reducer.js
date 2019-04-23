@@ -6,7 +6,6 @@ import {
   REGISTER_FORM_SUCCESS,
   REGISTER_FORM_FAILURE,
   LOGIN_FORM_SUBMIT,
-  LOGIN_FORM_CHANGE,
   LOGIN_FORM_SUCCESS,
   LOGIN_FORM_FAILURE
 } from './actions'
@@ -20,17 +19,12 @@ const initialState = Immutable.fromJS({
     passwordConfirm: '',
     constituency: ''
   },
-  // TODO: this should not be persisted
-  login: {
-    identity: '',
-    password: ''
-  },
   authenticated: false,
   registered: false,
   loading: false,
   user: null,
-  error: null,
-  errors: {}
+  error: null, // login error
+  errors: {} // register form errors
 })
 
 export default (state = initialState, action) => {
@@ -74,19 +68,10 @@ export default (state = initialState, action) => {
       return state.merge({
         errors: action.errors
       })
-    case LOGIN_FORM_CHANGE: {
-      const { login } = state.toJS()
-      return state.merge({
-        login: {
-          ...login,
-          ...action.data
-        }
-      })
-    }
     case LOGIN_FORM_SUBMIT:
       return state.merge({
         loading: true,
-        errors: {}
+        error: null
       })
     case LOGIN_FORM_SUCCESS:
       return state.merge({
@@ -95,7 +80,7 @@ export default (state = initialState, action) => {
       })
     case LOGIN_FORM_FAILURE:
       return state.merge({
-        errors: action.errors
+        error: action.error
       })
     default:
       return state

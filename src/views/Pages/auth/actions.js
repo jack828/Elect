@@ -3,7 +3,6 @@ export const REGISTER_FORM_CHANGE = 'REGISTER_FORM_CHANGE'
 export const REGISTER_FORM_SUCCESS = 'REGISTER_FORM_SUCCESS'
 export const REGISTER_FORM_FAILURE = 'REGISTER_FORM_FAILURE'
 export const LOGIN_FORM_SUBMIT = 'LOGIN_FORM_SUBMIT'
-export const LOGIN_FORM_CHANGE = 'LOGIN_FORM_CHANGE'
 export const LOGIN_FORM_SUCCESS = 'LOGIN_FORM_SUCCESS'
 export const LOGIN_FORM_FAILURE = 'LOGIN_FORM_FAILURE'
 
@@ -32,14 +31,9 @@ const register = websocket => async (dispatch, getState) => {
   if (user) return dispatch(registerSuccess(user))
 }
 
-const changeLogin = data => ({
-  type: LOGIN_FORM_CHANGE,
-  data
-})
-
-const loginFailure = errors => ({
+const loginFailure = error => ({
   type: LOGIN_FORM_FAILURE,
-  errors
+  error
 })
 
 const loginSuccess = user => ({
@@ -47,11 +41,11 @@ const loginSuccess = user => ({
   user
 })
 
-const login = websocket => async (dispatch, getState) => {
+const login = (websocket, data) => async (dispatch) => {
   dispatch({ type: LOGIN_FORM_SUBMIT })
-  const { login: data } = getState().auth.toJS()
 
   const { errors, user } = await websocket.send('login', data)
+  console.log(errors)
 
   if (errors) return dispatch(loginFailure(errors))
   if (user) return dispatch(loginSuccess(user))
@@ -60,6 +54,5 @@ const login = websocket => async (dispatch, getState) => {
 export {
   register,
   changeRegister,
-  login,
-  changeLogin
+  login
 }
