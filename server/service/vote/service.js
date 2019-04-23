@@ -80,7 +80,7 @@ module.exports = (serviceLocator) => {
 
       const foundParty = parties.find(({ _id }) => party === _id)
 
-      const partyId = party !== null ? foundParty._id : null
+      const partyId = foundParty ? foundParty._id : party
 
       votes[constituencySlug][partyId]++
       return votes
