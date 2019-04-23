@@ -1,21 +1,24 @@
-const { promisify } = require('util')
+const AUTHENTICATION_ERROR = 'AUTHENTICATION_ERROR'
 
 module.exports = (serviceLocator) => {
-  const { wss, electionService, userService } = serviceLocator
+  const { wss, electionService } = serviceLocator
 
   wss.on('dashboard:load', async (id, data, req) => {
     // TODO get current vote status of logged in user
     const election = await electionService.findActive()
     const { key } = data
 
-    // Almost acts as a "login"
-    const user = await promisify(userService.findOne)({ key })
-    req.session.user = user
+    const { user } = req.session
+    const notLoggedIn = !user
+    const incorrectKey = !notLoggedIn && user.key !== key
+    const keyExpired = !notLoggedIn && new Date() > user.keyExpiry
 
-    await req.session.save()
+    console.log({ user, key, notLoggedIn, incorrectKey, keyExpired })
 
-    if (id) {
-      wss.emit(id, { election })
+    if (notLoggedIn || incorrectKey || keyExpired) {
+      return wss.emit(id, { error: AUTHENTICATION_ERROR })
     }
+
+    wss.emit(id, { election })
   })
 }

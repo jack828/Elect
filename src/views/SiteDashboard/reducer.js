@@ -9,6 +9,7 @@ import {
 const initialState = Immutable.fromJS({
   loading: true,
   error: false,
+  authError: false,
   election: null
 })
 
@@ -38,7 +39,8 @@ const reducer = (state = initialState, action) => {
     case DASHBOARD_LOAD_FAIL:
       return state.merge({
         loading: false,
-        error: true
+        error: !action.authError && !!action.error,
+        authError: !!action.authError
       })
     default:
       return state

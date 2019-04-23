@@ -77,6 +77,7 @@ export default (state = initialState, action) => {
     case LOGIN_FORM_SUCCESS:
       return state.merge({
         authenticated: true,
+        loading: false,
         user: action.user
       })
     case LOGIN_FORM_FAILURE:

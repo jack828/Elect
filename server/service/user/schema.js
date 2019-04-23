@@ -47,6 +47,7 @@ module.exports = (save) => {
         type: String,
         defaultValue: generateSalt
       },
+      // TODO unnecessary
       passwordResetDate: {
         type: Date,
         defaultValue: () => {
@@ -62,7 +63,8 @@ module.exports = (save) => {
         type: String
       },
       keyExpiry: {
-        type: Date
+        type: Date,
+        defaultValue: () => moment().add(12, 'hours').toDate()
       },
       enabled: {
         type: Boolean

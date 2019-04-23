@@ -18,8 +18,31 @@ class SiteDashboard extends Component {
     }
   }
 
+  componentWillReceiveProps({ authError, ...other }) {
+    console.log({ authError, ...other })
+    if (authError) {
+      console.log('logging out')
+    }
+  }
+
   render() {
-    const { loading, election } = this.props
+    const {
+      loading,
+      election,
+      error,
+      authError
+    } = this.props
+    if (authError) {
+      return null
+    }
+    if (error) {
+      return (
+        <div className="animated fadeIn pt-1 text-center">
+          There was an issue performing that action.
+          Please try again later.
+        </div>
+      )
+    }
     if (loading) {
       return (
         <div className="animated fadeIn pt-1 text-center">Loading...</div>
@@ -66,7 +89,9 @@ SiteDashboard.propTypes = {
   websocket: PropTypes.object.isRequired,
 
   loading: PropTypes.bool.isRequired,
-  election: PropTypes.object
+  election: PropTypes.object,
+  error: PropTypes.bool.isRequired,
+  authError: PropTypes.bool.isRequired
 }
 
 const mapDispatchToProps = dispatch => ({

@@ -2,7 +2,6 @@ const crudService = require('crud-service')
 const createSearch = require('cf-text-search')
 
 const createSchema = require('./schema')
-const isPasswordResetRequired = require('../administrator/lib/is-password-reset-required')
 const createHasher = require('../administrator/lib/hasher')
 
 module.exports = (serviceLocator) => {
@@ -72,15 +71,16 @@ module.exports = (serviceLocator) => {
         // Rather a nasty hack to reuse salt generator.
         // Really schema should have the function tacked on.
         user.key = schema.getProperties().passwordSalt.defaultValue()
+        user.keyExpiry = schema.getProperties().keyExpiry.defaultValue()
 
         save.update({
           _id: user._id,
-          key: user.key
+          key: user.key,
+          keyExpiry: user.keyExpiry
         }, (updateErr) => {
           if (updateErr) {
             return callback(updateErr)
           }
-          user.requirePasswordReset = isPasswordResetRequired(user)
           return callback(null, user)
         })
       })
