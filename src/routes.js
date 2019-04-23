@@ -1,5 +1,5 @@
 import React from 'react'
-import AdminLayout from './containers/AdminLayout'
+import AdminLayout from './layouts/Admin'
 
 const AdministratorForm = React.lazy(() => import('./views/admin/Administrators/views/Form'))
 const AdministratorList = React.lazy(() => import('./views/admin/Administrators/views/List'))

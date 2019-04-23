@@ -9,12 +9,12 @@ const loading = () => <div className="animated fadeIn pt-3 text-center">Loading.
 
 // Containers
 const SiteLayout = Loadable({
-  loader: () => import('./containers/SiteLayout'),
+  loader: () => import('./layouts/Site'),
   loading
 })
 
 const AdminLayout = Loadable({
-  loader: () => import('./containers/AdminLayout'),
+  loader: () => import('./layouts/Admin'),
   loading
 })
 
