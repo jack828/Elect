@@ -1,11 +1,6 @@
-export const LOGOUT = 'LOGOUT'
 export const WEBSOCKET_OPEN = 'WEBSOCKET_OPEN'
 export const WEBSOCKET_CLOSE = 'WEBSOCKET_CLOSE'
 export const WEBSOCKET_ERROR = 'WEBSOCKET_ERROR'
-
-const onLogout = () => ({
-  type: LOGOUT
-})
 
 const onWebsocketOpen = () => ({
   type: WEBSOCKET_OPEN
@@ -20,7 +15,6 @@ const onWebsocketError = () => ({
 })
 
 export {
-  onLogout,
   onWebsocketOpen,
   onWebsocketClose,
   onWebsocketError

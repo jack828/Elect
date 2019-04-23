@@ -10,18 +10,19 @@ import {
 } from 'reactstrap'
 import { connect } from 'react-redux'
 import { onLoad } from './actions'
+import { logout } from '../Pages/auth/actions'
 
 class SiteDashboard extends Component {
   componentDidMount() {
     if (this.props.loading) {
-      this.props.onLoad(this.props.websocket)
+      return this.props.onLoad(this.props.websocket)
     }
   }
 
-  componentWillReceiveProps({ authError, ...other }) {
-    console.log({ authError, ...other })
+  componentWillReceiveProps({ authError }) {
     if (authError) {
-      console.log('logging out')
+      this.props.onLogout()
+      this.props.history.push('/')
     }
   }
 
@@ -86,7 +87,9 @@ SiteDashboard.defaultProps = {
 
 SiteDashboard.propTypes = {
   onLoad: PropTypes.func.isRequired,
+  onLogout: PropTypes.func.isRequired,
   websocket: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
 
   loading: PropTypes.bool.isRequired,
   election: PropTypes.object,
@@ -95,7 +98,8 @@ SiteDashboard.propTypes = {
 }
 
 const mapDispatchToProps = dispatch => ({
-  onLoad: websocket => dispatch(onLoad(websocket))
+  onLoad: websocket => dispatch(onLoad(websocket)),
+  onLogout: () => dispatch(logout())
 })
 
 export default connect(

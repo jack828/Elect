@@ -11,7 +11,7 @@ const init = (serviceLocator, done) => {
     session({
       key: 'sid',
       secret,
-      resave: false,
+      resave: true,
       saveUninitialized: false,
       cookie: { maxAge, secure: true },
       store: new MongoStore({

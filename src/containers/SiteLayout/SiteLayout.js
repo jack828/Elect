@@ -11,11 +11,13 @@ import Register from '../../views/Pages/Register'
 import siteRoutes from '../../site-routes'
 
 import {
-  onLogout,
   onWebsocketOpen,
   onWebsocketClose,
   onWebsocketError
 } from './actions'
+import {
+  logout
+} from '../../views/Pages/auth/actions'
 
 const SiteHeader = React.lazy(() => import('./SiteHeader'))
 
@@ -135,7 +137,7 @@ SiteLayout.propTypes = {
 }
 
 const mapDispatchToProps = dispatch => ({
-  onLogout: () => dispatch(onLogout()),
+  onLogout: () => dispatch(logout()),
   onWebsocketOpen: () => dispatch(onWebsocketOpen()),
   onWebsocketClose: () => dispatch(onWebsocketClose()),
   onWebsocketError: () => dispatch(onWebsocketError())

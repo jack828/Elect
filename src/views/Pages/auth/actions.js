@@ -5,6 +5,7 @@ export const REGISTER_FORM_FAILURE = 'REGISTER_FORM_FAILURE'
 export const LOGIN_FORM_SUBMIT = 'LOGIN_FORM_SUBMIT'
 export const LOGIN_FORM_SUCCESS = 'LOGIN_FORM_SUCCESS'
 export const LOGIN_FORM_FAILURE = 'LOGIN_FORM_FAILURE'
+export const LOGOUT = 'LOGOUT'
 
 const changeRegister = data => ({
   type: REGISTER_FORM_CHANGE,
@@ -51,8 +52,13 @@ const login = (websocket, data) => async (dispatch) => {
   if (user) return dispatch(loginSuccess(user))
 }
 
+const logout = () => ({
+  type: LOGOUT
+})
+
 export {
   register,
   changeRegister,
-  login
+  login,
+  logout
 }
