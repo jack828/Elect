@@ -20,10 +20,6 @@ module.exports = (serviceLocator) => {
   })
   serviceLocator.register('wss', wss)
 
-  // TODO:
-  // - clean up to lib files
-  // - clean event listeners on disconnect
-  //
   wss.broadcast = (key, data) => {
     wss.clients.forEach((client) => {
       client.send(JSON.stringify({ [key]: data }))
@@ -48,11 +44,9 @@ module.exports = (serviceLocator) => {
       Object.keys(data).map((key) => {
         logger.debug('Emitting', key, id, data[key])
 
-        if (id) {
-          wss.once(id, (value) => {
-            ws.send(JSON.stringify({ [id]: value }))
-          })
-        }
+        wss.once(id, (value) => {
+          ws.send(JSON.stringify({ [id]: value }))
+        })
 
         wss.emit(key, id, data[key], req)
       })
