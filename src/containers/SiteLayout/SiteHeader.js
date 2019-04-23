@@ -23,7 +23,7 @@ const SiteHeader = ({ onLogout }) => (
       </NavItem>
     </Nav>
     <Nav className="ml-auto" navbar>
-      <NavItem className="d-md-down-none">
+      <NavItem>
         <NavLink onClick={e => onLogout(e)} href="#">
           <i className="fa fa-power-off" />
         </NavLink>
