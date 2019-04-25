@@ -10,7 +10,7 @@ import {
 } from 'reactstrap'
 import { connect } from 'react-redux'
 import { onLoad } from './actions'
-import { logout } from '../Pages/auth/actions'
+import { logout } from '../auth/actions'
 
 class SiteDashboard extends Component {
   componentDidMount() {

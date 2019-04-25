@@ -16,7 +16,7 @@ import {
   Row
 } from 'reactstrap'
 import { connect } from 'react-redux'
-import { login } from './auth/actions'
+import { login } from '../auth/actions'
 
 class SiteLogin extends Component {
   constructor(props) {

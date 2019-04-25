@@ -16,7 +16,10 @@ import {
   Row
 } from 'reactstrap'
 import { connect } from 'react-redux'
-import { changeRegister, register } from './auth/actions'
+import {
+  changeRegister,
+  register
+} from '../auth/actions'
 import constituencySlugs from '../../lib/constituency-slugs.json'
 
 const Register = ({

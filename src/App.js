@@ -20,7 +20,7 @@ const AdminLayout = Loadable({
 
 // Pages
 const AdminLogin = Loadable({
-  loader: () => import('./views/Pages/Login'),
+  loader: () => import('./views/admin/Login'),
   loading
 })
 

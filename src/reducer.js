@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import site from './layouts/Site/reducer'
 import dashboard from './views/SiteDashboard/reducer'
-import auth from './views/Pages/auth/reducer'
+import auth from './views/auth/reducer'
 import vote from './views/Vote/reducer'
 
 const reducer = combineReducers({

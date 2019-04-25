@@ -18,7 +18,7 @@ import {
 import navigation from '../../_nav'
 // routes config
 import routes from '../../routes'
-import Page404 from '../../views/Pages/Page404'
+import Page404 from '../../views/404'
 
 const AdminFooter = React.lazy(() => import('./AdminFooter'))
 const AdminHeader = React.lazy(() => import('./AdminHeader'))
