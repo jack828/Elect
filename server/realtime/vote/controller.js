@@ -1,8 +1,13 @@
 module.exports = (serviceLocator) => {
-  const { wss, voteService } = serviceLocator
+  const {
+    wss,
+    logger,
+    voteService
+  } = serviceLocator
 
   voteService.on('vote', (vote) => {
     const { _id, user, ...anonymisedVote } = vote
+    logger.debug('Broadcasting vote')
     wss.broadcast('vote:cast', anonymisedVote)
   })
 
@@ -11,7 +16,6 @@ module.exports = (serviceLocator) => {
     const { user } = req.session
 
     if (!key || !user || user.key !== key) {
-      console.error('Authentication error', { key, user })
       return wss.emit(id, { error: 'Authentication error' })
     }
 
@@ -22,7 +26,7 @@ module.exports = (serviceLocator) => {
         user: user._id
       })
     } catch (error) {
-      console.error(error)
+      logger.error('Vote cast error', error)
       return wss.emit(id, { error: 'Vote load error' })
     }
 
@@ -34,7 +38,6 @@ module.exports = (serviceLocator) => {
     const { user } = req.session
 
     if (!key || !user || user.key !== key) {
-      console.error('Authentication error')
       return wss.emit(id, { error: 'Authentication error' })
     }
 
@@ -42,8 +45,8 @@ module.exports = (serviceLocator) => {
     try {
       vote = await voteService.cast({ electionId, partyId, user })
     } catch (error) {
-      console.error(error)
-      return wss.emit(id, { error: 'Vote error' })
+      logger.error('Vote cast error', error)
+      return wss.emit(id, { error: 'Vote cast error' })
     }
 
     wss.emit(id, { vote })
