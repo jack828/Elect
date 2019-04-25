@@ -1,5 +1,5 @@
 import EventEmitter from 'events'
-import hat from 'hat'
+import uuidv4 from 'uuid/v4'
 import createDebug from 'debug'
 
 const WEBSOCKET_URL = process.env.NODE_ENV !== 'production'
@@ -28,26 +28,25 @@ class Websocket extends EventEmitter {
     this.connect()
   }
 
-  send(key, data = '') {
+  send(eventKey, data = '') {
     return new Promise((resolve, reject) => {
-      const id = hat()
-      const stringifiedData = JSON.stringify({
-        id,
-        [key]: data
-      })
-      debug('send', id, { id, key, data })
+      const id = uuidv4()
+      debug('send', id, { id, eventKey, data })
 
       const timeout = setTimeout(() => {
         debug('timeout', id)
         reject(new Error('WebSocket Timeout'))
-      }, 5000)
+      }, 5000) // 5 seconds
 
-      this.ws.send(stringifiedData)
+      this.ws.send(JSON.stringify({
+        id,
+        [eventKey]: data
+      }))
 
-      this.once(id, (value) => {
-        debug('received', id, value)
+      this.once(id, (response) => {
+        debug('received', id, response)
         clearTimeout(timeout)
-        resolve(value)
+        resolve(response)
       })
     })
   }
