@@ -1,5 +1,5 @@
 const WebSocket = require('ws')
-const hat = require('hat')
+const uuidv4 = require('uuid/v4')
 
 module.exports = (serviceLocator) => {
   const { config, logger, sessionParser, httpServer } = serviceLocator
@@ -26,11 +26,11 @@ module.exports = (serviceLocator) => {
     })
   }
 
-  wss.on('connection', (ws, req) => {
-    ws.id = hat()
-    logger.info('New connection', ws.id)
+  wss.on('connection', (client, req) => {
+    client.id = uuidv4()
+    logger.info('Client connect', client.id)
 
-    ws.on('message', (raw) => {
+    const handleMessage = (raw) => {
       let parsed = null
       try {
         parsed = JSON.parse(raw)
@@ -46,11 +46,18 @@ module.exports = (serviceLocator) => {
 
         // Send response
         wss.once(id, (response) => {
-          ws.send(JSON.stringify({ [id]: response }))
+          client.send(JSON.stringify({ [id]: response }))
         })
 
+        // Trigger handler(s)
         wss.emit(key, id, data[key], req)
       })
+    }
+
+    client.on('message', handleMessage)
+    client.on('close', () => {
+      logger.info('Client disconnect', client.id)
+      client.off('message', handleMessage)
     })
   })
 }
