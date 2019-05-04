@@ -1,6 +1,5 @@
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
-const MongoStore = require('connect-mongo')(session)
 
 const init = (serviceLocator, done) => {
   const { config, server } = serviceLocator
@@ -14,10 +13,7 @@ const init = (serviceLocator, done) => {
       resave: true,
       saveUninitialized: false,
       cookie: { maxAge, secure: true },
-      store: new MongoStore({
-        db: serviceLocator.serviceDatabase,
-        clear_interval: 3600
-      })
+      store: serviceLocator.sessionStore
     })
   )
 
