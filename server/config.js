@@ -19,15 +19,24 @@ const envProperties = {
     clientUrl: 'http://localhost:3000',
     url: 'localhost',
     port: 3003,
-    databaseUrl: 'mongodb://localhost:27017/elect-development'
+    database: 'mongo',
+    databaseUrls: {
+      mongo: 'mongodb://localhost:27017/elect-development'
+    }
   },
   staging: {
-    databaseUrl: 'mongodb://localhost:27017/elect-staging'
+    database: 'mongo',
+    databaseUrls: {
+      mongo: 'mongodb://localhost:27017/elect-staging'
+    }
   },
   production: {
     clientUrl: 'https://elect-project.herokuapp.com',
     url: 'https://elect-project.herokuapp.com',
-    databaseUrl: 'mongodb://elect-production:qg4w*660B9Mg96!R@ds129625.mlab.com:29625/elect-production'
+    database: 'mongo',
+    databaseUrls: {
+      mongo: 'mongodb://localhost:27017/elect-production'
+    }
   }
 }
 

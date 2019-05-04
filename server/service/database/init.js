@@ -1,32 +1,33 @@
-const { MongoClient } = require('mongodb')
-const mongodbUri = require('mongodb-uri')
-const persistenceFactory = require('./persistence-factory')
+const createMongo = require('./drivers/mongo')
 
 const init = (serviceLocator, done) => {
-  const connectionUri = process.env.MONGO_URL || serviceLocator.config.databaseUrl
-  if (connectionUri === undefined) {
-    done(new Error('You must provide a database URL in config.databaseUrl or in the environment variable MONGO_URL'))
+  const drivers = {
+    mongo: createMongo(serviceLocator)
   }
-  const { database } = mongodbUri.parse(connectionUri)
-  MongoClient.connect(
-    connectionUri,
-    {
-      native_parser: true,
-      useNewUrlParser: true
-    },
-    (err, client) => {
-      if (err) {
-        serviceLocator.logger.error(err.message, err.stack)
-        return done(err)
-      }
-      const db = client.db(database)
-      serviceLocator.logger.info('Connected to', database)
-      serviceLocator.register('serviceDatabase', db)
-      serviceLocator.register('serviceDatabaseClient', client)
-      serviceLocator.register('persistence', persistenceFactory(serviceLocator))
-      done()
+
+  const { database, databaseUrls } = serviceLocator.config
+
+  if (database === undefined) {
+    done(new Error('You must provide a database selection in config.database'))
+  }
+  if (databaseUrls === undefined || databaseUrls[database] === undefined) {
+    done(new Error('You must provide a database url in config.databaseUrls for database:', database))
+  }
+  if (drivers[database] === undefined) {
+    done(new Error('Unsupported database:', database))
+  }
+
+  const driver = drivers[database]
+  const databaseUrl = databaseUrls[database]
+
+  driver(databaseUrl, (error) => {
+    if (error) {
+      serviceLocator.logger.error(error.message, error.stack)
+      return done(error)
     }
-  )
+    serviceLocator.logger.info(`Initialised database "${database}"`)
+    done()
+  })
 }
 
 module.exports = () => ({ database: init })
