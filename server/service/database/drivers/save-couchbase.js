@@ -102,11 +102,16 @@ module.exports = (bucket, collectionName, { idProperty = '_id' } = {}) => {
     console.log('read id', id)
     bucket.get(id, (error, result) => {
       console.log('read', error, result)
-      let entity = result.value
+      let entity
       if (error) {
+        // Non-existant document queries throw errors
         if (error.code === couchbase.errors.keyNotFound) {
           entity = null
+        } else {
+          return callback(error)
         }
+      } else {
+        entity = result.value
       }
       const data = entity === null ? undefined : objectIdToString(entity)
       self.emit('received', data)

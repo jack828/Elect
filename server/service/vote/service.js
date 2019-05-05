@@ -129,6 +129,7 @@ module.exports = (serviceLocator) => {
 
     service.emit('vote', vote)
 
+    // TODO avoid superfluous reads on every vote!
     return resolve(await embellish(vote))
   })
 
