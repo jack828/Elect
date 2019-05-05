@@ -26,5 +26,12 @@ module.exports = async (serviceLocator, count = 10000) => {
       partyId: randomParty()
     })
   }
+
+  const start = new Date()
+  serviceLocator.logger.info('Beginning vote insertMany')
+
   await Promise.all(votes.map(vote => limit(() => voteService.cast(vote))))
+
+  const time = new Date() - start
+  serviceLocator.logger.info('Finished vote insertMany', time)
 }

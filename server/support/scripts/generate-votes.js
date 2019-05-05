@@ -3,12 +3,20 @@ const createRandomParty = require('./random-party')
 
 module.exports = async (serviceLocator) => {
   const {
+    config: {
+      database
+    },
     serviceDatabase,
     electionService
   } = serviceLocator
   const voteCollection = serviceDatabase.collection('vote')
   const random = list => list[Math.floor(Math.random() * list.length)]
   const randomParty = await createRandomParty(serviceLocator)
+
+  if (database !== 'mongo') {
+    throw new Error(`Not supported on database ${database}`)
+  }
+
   const [ , election ] = await Promise.all([
     voteCollection.remove({}),
     electionService.findActive()
