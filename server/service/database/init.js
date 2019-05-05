@@ -1,8 +1,10 @@
 const createMongo = require('./drivers/mongo')
+const createCouchbase = require('./drivers/couchbase')
 
 const init = (serviceLocator, done) => {
   const drivers = {
-    mongo: createMongo(serviceLocator)
+    mongo: createMongo(serviceLocator),
+    couchbase: createCouchbase(serviceLocator)
   }
 
   const { database, databaseUrls } = serviceLocator.config

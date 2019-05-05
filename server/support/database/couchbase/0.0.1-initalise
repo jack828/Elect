@@ -1,0 +1,19 @@
+# Create buckets
+couchbase-cli bucket-create -c localhost:8091 -u Administrator -p 123456789 --bucket=administrator --bucket-ramsize=100 --bucket-type=couchbase
+couchbase-cli bucket-create -c localhost:8091 -u Administrator -p 123456789 --bucket=election --bucket-ramsize=100 --bucket-type=couchbase
+couchbase-cli bucket-create -c localhost:8091 -u Administrator -p 123456789 --bucket=party --bucket-ramsize=100 --bucket-type=couchbase
+couchbase-cli bucket-create -c localhost:8091 -u Administrator -p 123456789 --bucket=vote --bucket-ramsize=100 --bucket-type=couchbase
+couchbase-cli bucket-create -c localhost:8091 -u Administrator -p 123456789 --bucket=user --bucket-ramsize=100 --bucket-type=couchbase
+
+
+# Indexes
+
+/opt/couchbase/bin/cbq -u Administrator -p 123456789 --script="CREATE PRIMARY INDEX ON \`administrator\`"
+/opt/couchbase/bin/cbq -u Administrator -p 123456789 --script="CREATE PRIMARY INDEX ON \`election\`"
+/opt/couchbase/bin/cbq -u Administrator -p 123456789 --script="CREATE PRIMARY INDEX ON \`party\`"
+/opt/couchbase/bin/cbq -u Administrator -p 123456789 --script="CREATE PRIMARY INDEX ON \`vote\`"
+/opt/couchbase/bin/cbq -u Administrator -p 123456789 --script="CREATE PRIMARY INDEX ON \`user\`"
+
+/opt/couchbase/bin/cbq -u Administrator -p 123456789 --script="CREATE INDEX admin_emailAddress ON \`administrator\`(emailAddress)"
+/opt/couchbase/bin/cbq -u Administrator -p 123456789 --script="CREATE INDEX user_emailAddress ON \`user\`(emailAddress)"
+/opt/couchbase/bin/cbq -u Administrator -p 123456789 --script="CREATE INDEX vote_election_party ON \`vote\`(election, party)"

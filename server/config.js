@@ -19,9 +19,13 @@ const envProperties = {
     clientUrl: 'http://localhost:3000',
     url: 'localhost',
     port: 3003,
-    database: 'mongo',
+    database: 'couchbase',
     databaseUrls: {
-      mongo: 'mongodb://localhost:27017/elect-development'
+      mongo: 'mongodb://localhost:27017/elect-development',
+      couchbase: {
+        url: 'couchbase://localhost:11210',
+        database: 'elect-development'
+      }
     }
   },
   staging: {
