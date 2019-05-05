@@ -10,5 +10,5 @@ const init = (serviceLocator, done) => {
 }
 
 module.exports = () => ({
-  voteService: [ 'database', 'acl', 'partyService', init ]
+  voteService: [ 'database', 'acl', 'electionService', 'partyService', init ]
 })
