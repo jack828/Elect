@@ -18,19 +18,19 @@ module.exports = (bucket, collectionName, { idProperty = '_id' } = {}) => {
 
     Object.keys(query).map((key) => {
       if (query[key].$in) {
-        where.push(`(${key} IN $${key})`)
+        where.push(`(\`${key}\` IN $${key})`)
         data[key] = query[key].$in
       } else if (query[key].$lte || query[key].$gte) {
         if (query[key].$lte) {
-          where.push(`${key}<=$${key}`)
+          where.push(`\`${key}\`<=$${key}`)
           data[key] = query[key].$lte
         }
         if (query[key].$gte) {
-          where.push(`${key}>=$${key}`)
+          where.push(`\`${key}\`>=$${key}`)
           data[key] = query[key].$gte
         }
       } else {
-        where.push(`${key}=$${key}`)
+        where.push(`\`${key}\`=$${key}`)
         data[key] = query[key]
       }
     })
