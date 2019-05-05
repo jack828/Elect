@@ -16,6 +16,11 @@ module.exports = (serviceLocator, app) => {
     const start = new Date()
     await generateVotesSlow(serviceLocator, req.params.count)
     const time = new Date() - start
-    res.status(418).send(`${time / 1000} s`)
+    res.status(418).json({
+      votes: req.params.count,
+      time: `${(time / 1000).toFixed(4)} s`,
+      votesPerSec: `${(req.params.count / (time / 1000)).toFixed(4)} v/s`,
+      secPerVote: `${((time / 1000) / req.params.count).toFixed(4)} s`
+    })
   })
 }
