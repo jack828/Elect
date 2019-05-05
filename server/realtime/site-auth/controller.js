@@ -1,8 +1,8 @@
 module.exports = (serviceLocator) => {
   const { wss, userService } = serviceLocator
 
-  wss.on('register', (id, data) => {
-    userService.create(data, async (error, user, req) => {
+  wss.on('register', (id, data, req) => {
+    userService.create(data, async (error, user) => {
       if (error) {
         if (error.errors) {
           return wss.emit(id, { errors: error.errors })
