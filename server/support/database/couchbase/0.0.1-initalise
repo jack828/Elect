@@ -16,4 +16,6 @@ couchbase-cli bucket-create -c localhost:8091 -u Administrator -p 123456789 --bu
 
 /opt/couchbase/bin/cbq -u Administrator -p 123456789 --script="CREATE INDEX admin_emailAddress ON \`administrator\`(emailAddress)"
 /opt/couchbase/bin/cbq -u Administrator -p 123456789 --script="CREATE INDEX user_emailAddress ON \`user\`(emailAddress)"
-/opt/couchbase/bin/cbq -u Administrator -p 123456789 --script="CREATE INDEX vote_election_party ON \`vote\`(election, party)"
+/opt/couchbase/bin/cbq -u Administrator -p 123456789 --script="CREATE INDEX vote_election ON \`vote\`(election)"
+/opt/couchbase/bin/cbq -u Administrator -p 123456789 --script="CREATE INDEX vote_election_user ON \`vote\`(election, user)"
+/opt/couchbase/bin/cbq -u Administrator -p 123456789 --script="CREATE INDEX party_id ON \`party\`(_id)"
