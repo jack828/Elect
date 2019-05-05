@@ -39,19 +39,6 @@ module.exports = (serviceLocator) => {
     60 * 60 * 1000 // 1 hour
   )
 
-  const embellish = async (vote) => {
-    let party
-    if (!vote.party) {
-      party = { name: 'Spoilt Ballot' }
-    } else {
-      party = await promisify(readParty)(vote.party)
-    }
-    return ({
-      ...vote,
-      party
-    })
-  }
-
   service.search = createSearch(service)
 
   service.findOne = save.findOne
@@ -99,7 +86,7 @@ module.exports = (serviceLocator) => {
     }
     if (!vote) return resolve(null)
 
-    resolve(await embellish(vote))
+    resolve(vote)
   })
 
   service.cast = ({ user, electionId, partyId }) => new Promise(async (resolve, reject) => {
@@ -129,8 +116,7 @@ module.exports = (serviceLocator) => {
 
     service.emit('vote', vote)
 
-    // TODO avoid superfluous reads on every vote!
-    return resolve(await embellish(vote))
+    return resolve(vote)
   })
 
   return service
