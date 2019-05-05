@@ -20,7 +20,7 @@ import {
   changeRegister,
   register
 } from '../auth/actions'
-import constituencySlugs from '../../lib/constituency-slugs.json'
+import constituencySlugs from '../../../lib/constituency-slugs.json'
 
 const Register = ({
   errors,

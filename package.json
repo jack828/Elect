@@ -15,12 +15,15 @@
     "start": "node scripts/start.js",
     "start:server": "nodemon --exec babel-node server/app",
     "build": "node scripts/build.js",
+    "build:server": "for i in lib server; do babel $i --copy-files -s --out-dir dist/$i; done",
     "pretest": "eslint -f unix .",
     "test": "node scripts/test.js",
     "test:cov": "node scripts/test.js --coverage",
-    "test:debug": "react-scripts --inspect-brk test --runInBand"
+    "test:debug": "react-scripts --inspect-brk test --runInBand",
+    "tidy": "rm -rf dist build"
   },
   "dependencies": {
+    "@babel/cli": "^7.4.4",
     "@babel/core": "^7.2.2",
     "@babel/node": "^7.2.2",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",

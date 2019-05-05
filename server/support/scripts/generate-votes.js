@@ -1,4 +1,4 @@
-const constituencies = require('../../../src/lib/constituency-slugs.json')
+const constituencies = require('../../../lib/constituency-slugs.json')
 const createRandomParty = require('./random-party')
 
 module.exports = async (serviceLocator) => {
