@@ -55,9 +55,7 @@ class CustomMultiSelect extends Component {
   }
 
   handleSelectChange(data) {
-    // this.setState({ data })
     // Compatability with regular change handlers
-    console.log('handleSelectChange', data)
     this.props.onChange({
       target: {
         name: this.props.name,

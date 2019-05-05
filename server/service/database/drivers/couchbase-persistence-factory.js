@@ -13,7 +13,7 @@ module.exports = (serviceLocator) => {
   const register = (collectionName) => {
     const collection = serviceLocator.serviceDatabase.openBucket(collectionName)
 
-    collection.on('error', e => console.log('BUCKET ERR', { collectionName }, e))
+    collection.on('error', e => console.error('BUCKET ERROR', { collectionName }, e))
 
     if (instances[collectionName]) {
       throw new Error(`${collectionName} already registered`)

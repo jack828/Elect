@@ -46,7 +46,6 @@ const login = (websocket, data) => async (dispatch) => {
   dispatch({ type: LOGIN_FORM_SUBMIT })
 
   const { errors, user } = await websocket.send('login', data)
-  console.log(errors, user)
 
   if (errors) return dispatch(loginFailure(errors))
   if (user) return dispatch(loginSuccess(user))

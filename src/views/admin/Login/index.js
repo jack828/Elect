@@ -42,7 +42,6 @@ class Login extends Component {
     const { identity, password } = this.state.data
     const error = msg => this.setState({ error: msg || 'Wrong email or password combination.' })
 
-    console.log('here')
     fetch(
       '/api/login',
       {

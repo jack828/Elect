@@ -39,7 +39,6 @@ module.exports = (bucket, collectionName, { idProperty = '_id' } = {}) => {
       sql += ` WHERE ${where.join(' AND ')}`
     }
     const sqlQuery = couchbase.N1qlQuery.fromString(sql, data)
-    console.log({ query, data, sql, sqlQuery })
     return [ sqlQuery, data ]
   }
 
@@ -66,7 +65,6 @@ module.exports = (bucket, collectionName, { idProperty = '_id' } = {}) => {
       if (error) return callback(error)
       bucket.get(id, (err, result) => {
         if (err) return callback(err)
-        console.log('create get result', result)
         const entity = objectIdToString(result.value)
         self.emit('afterCreate', entity)
         self.emit('received', entity)
@@ -99,9 +97,7 @@ module.exports = (bucket, collectionName, { idProperty = '_id' } = {}) => {
 
     callback = callback || emptyFn
 
-    console.log('read id', id)
     bucket.get(id, (error, result) => {
-      console.log('read', error, result)
       let entity
       if (error) {
         // Non-existant document queries throw errors
@@ -135,11 +131,7 @@ module.exports = (bucket, collectionName, { idProperty = '_id' } = {}) => {
     }
 
     query[idProperty] = id
-    // delete updateObject[idProperty]
 
-    // const typedId = castIdProperty(query)
-
-    console.log('update', id, object)
     bucket.get(id, (getError, getResult) => {
       if (getError) {
         if (getError.code === couchbase.errors.keyNotFound) {
@@ -149,7 +141,6 @@ module.exports = (bucket, collectionName, { idProperty = '_id' } = {}) => {
       }
       bucket.upsert(id, { ...getResult.value, ...object }, (error, res) => {
         if (error) return callback(error)
-        console.log('update upsert res', res)
 
         const entity = objectIdToString(res.value)
         self.emit('afterUpdate', entity)
@@ -163,7 +154,7 @@ module.exports = (bucket, collectionName, { idProperty = '_id' } = {}) => {
     self.emit('updateMany', query, object)
     callback = callback || emptyFn
 
-    // TODO
+    // TODO unused
     bucket.update(
       query,
       { $set: object },
@@ -184,7 +175,6 @@ module.exports = (bucket, collectionName, { idProperty = '_id' } = {}) => {
     const [ q, data ] = objectToSql(query)
     bucket.query(q, data, (err, results) => {
       if (err) return callback(err)
-      console.log('find', results)
       const idsToDelete = results
         .map(({ _id }) => _id)
 
@@ -238,7 +228,6 @@ module.exports = (bucket, collectionName, { idProperty = '_id' } = {}) => {
     const [ q, data ] = objectToSql(query)
     bucket.query(q, data, (error, results) => {
       if (error) return callback(error)
-      console.log('find', results)
       const mappedData = results.map(objectIdToString)
       self.emit('received', mappedData)
       callback(null, mappedData)
@@ -254,7 +243,6 @@ module.exports = (bucket, collectionName, { idProperty = '_id' } = {}) => {
     const [ q, data ] = objectToSql(query)
     bucket.query(q, data, (error, results) => {
       if (error) return callback(error)
-      console.log('findone', results)
       if (!results.length) {
         self.emit('recieved', undefined)
         return callback(null, undefined)
@@ -269,10 +257,8 @@ module.exports = (bucket, collectionName, { idProperty = '_id' } = {}) => {
   function count(query, callback) {
     self.emit('count', query)
     const [ q, data ] = objectToSql(query, true)
-    console.log(q)
     bucket.query(q, data, (error, results) => {
       if (error) return callback(error)
-      console.log('count results', results)
       const d = []
       self.emit('received', d)
       callback(null, d)
