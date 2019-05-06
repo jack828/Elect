@@ -20,9 +20,7 @@ module.exports = (serviceLocator) => {
   app.disable('x-powered-by')
     .use(morgan(logLevel, logOptions))
 
-  if (inDevelopmentMode) {
-    addDevelopmentRoutes(serviceLocator, app)
-  }
+  addDevelopmentRoutes(serviceLocator, app)
 
   if (!inDevelopmentMode) {
     app.use(express.static(join(__dirname, '../build')))
