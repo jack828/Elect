@@ -20,7 +20,7 @@ const envProperties = {
     url: 'localhost',
     port: 3003,
     database: 'couchbase',
-    databaseUrls: {
+    databaseConfig: {
       mongo: 'mongodb://localhost:27017/elect-development',
       couchbase: {
         url: 'couchbase://localhost:11210',
@@ -30,7 +30,7 @@ const envProperties = {
   },
   staging: {
     database: 'mongo',
-    databaseUrls: {
+    databaseConfig: {
       mongo: 'mongodb://localhost:27017/elect-staging'
     }
   },
@@ -38,8 +38,12 @@ const envProperties = {
     clientUrl: 'https://elect-project.herokuapp.com',
     url: 'https://elect-project.herokuapp.com',
     database: 'mongo',
-    databaseUrls: {
-      mongo: 'mongodb://localhost:27017/elect-production'
+    databaseConfig: {
+      mongo: 'mongodb://localhost:27017/elect-development',
+      couchbase: {
+        url: 'couchbase://localhost:11210',
+        database: 'elect-development'
+      }
     }
   }
 }

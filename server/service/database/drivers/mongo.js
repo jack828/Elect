@@ -4,10 +4,10 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const persistenceFactory = require('./mongo-persistence-factory')
 
-module.exports = serviceLocator => (databaseUri, done) => {
-  const { database } = mongodbUri.parse(databaseUri)
+module.exports = serviceLocator => (config, done) => {
+  const { database } = mongodbUri.parse(config)
   MongoClient.connect(
-    databaseUri,
+    config,
     {
       native_parser: true,
       useNewUrlParser: true

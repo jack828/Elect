@@ -7,20 +7,21 @@ const init = (serviceLocator, done) => {
     couchbase: createCouchbase(serviceLocator)
   }
 
-  const { database, databaseUrls } = serviceLocator.config
+  const { databaseConfig } = serviceLocator.config
+  const database = process.env.DATABASE_OVERRIDE || serviceLocator.config.database
 
   if (database === undefined) {
-    done(new Error('You must provide a database selection in config.database'))
+    done(new Error('You must provide a database selection in config.database or process.env.DATABASE_OVERRIDE'))
   }
-  if (databaseUrls === undefined || databaseUrls[database] === undefined) {
-    done(new Error('You must provide a database url in config.databaseUrls for database:', database))
+  if (databaseConfig === undefined || databaseConfig[database] === undefined) {
+    done(new Error('You must provide database config in config.databaseConfig for database:', database))
   }
   if (drivers[database] === undefined) {
     done(new Error('Unsupported database:', database))
   }
 
   const driver = drivers[database]
-  const databaseUrl = databaseUrls[database]
+  const databaseUrl = databaseConfig[database]
 
   driver(databaseUrl, (error) => {
     if (error) {

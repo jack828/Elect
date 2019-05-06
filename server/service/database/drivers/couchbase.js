@@ -1,8 +1,8 @@
 const couchbase = require('couchbase')
 const persistenceFactory = require('./couchbase-persistence-factory')
 
-module.exports = serviceLocator => async (connectionOptions, done) => {
-  const { url, database } = connectionOptions
+module.exports = serviceLocator => async (config, done) => {
+  const { url, database } = config
 
   const cluster = new couchbase.Cluster(url)
 
