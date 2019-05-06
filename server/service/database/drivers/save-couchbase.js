@@ -17,7 +17,10 @@ module.exports = (bucket, collectionName, { idProperty = '_id' } = {}) => {
     const data = {}
 
     Object.keys(query).map((key) => {
-      if (query[key].$in) {
+      if (!query[key]) {
+        where.push(`\`${key}\`=$${key}`)
+        data[key] = query[key]
+      } else if (query[key].$in) {
         where.push(`(\`${key}\` IN $${key})`)
         data[key] = query[key].$in
       } else if (query[key].$lte || query[key].$gte) {
