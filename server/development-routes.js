@@ -14,7 +14,12 @@ module.exports = (serviceLocator, app) => {
 
   app.get('/generate-votes-slow(/:count?)', async (req, res) => {
     const start = new Date()
-    await generateVotesSlow(serviceLocator, req.params.count)
+    try {
+      await generateVotesSlow(serviceLocator, req.params.count)
+    } catch (error) {
+      console.error(error)
+      console.error(error.errorProperty)
+    }
     const time = new Date() - start
     res.status(418).json({
       votes: req.params.count,
