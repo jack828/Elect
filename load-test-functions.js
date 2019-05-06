@@ -16,20 +16,13 @@ const mockSl = {
 function initListeners(userContext, events, done) {
   userContext.vars.received = {}
   userContext.ws.on('message', (raw) => {
-    // console.log('message', raw)
     const data = JSON.parse(raw)
-    // Store the request raw
-    // userContext.received[id] = data
     Object.keys(data).map((id) => {
-      // key is request ID, data[key] is data
-      // console.log({ key, data: data[key] })
+      // key is request ID, data[key] is data from the request
       Object.keys(data[id]).map((key) => {
         userContext.vars.received[key] = data[id][key]
       })
     })
-    console.log('11111111111111111111111111')
-    console.dir(userContext.vars.received, { depth: 3, colors: true })
-    console.log('11111111111111111111111111')
   })
   done()
 }
@@ -41,7 +34,6 @@ async function selectParty(userContext, events, done) {
 }
 
 function generateId(userContext, events, done) {
-  // console.dir(userContext, { depth: 3, colors: true })
   userContext.vars.id = hat()
   return done()
 }
