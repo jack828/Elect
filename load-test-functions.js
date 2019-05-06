@@ -19,9 +19,12 @@ function initListeners(userContext, events, done) {
     const data = JSON.parse(raw)
     Object.keys(data).map((id) => {
       // key is request ID, data[key] is data from the request
-      Object.keys(data[id]).map((key) => {
-        userContext.vars.received[key] = data[id][key]
-      })
+      Object.keys(data[id])
+        // Only persist relevant information
+        .filter(key => [ 'election', 'user' ].includes(key))
+        .map((key) => {
+          userContext.vars.received[key] = data[id][key]
+        })
     })
   })
   done()
