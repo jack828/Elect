@@ -1,5 +1,8 @@
+const constituencies = require('../../../lib/constituency-slugs.json')
+
 module.exports = (serviceLocator) => {
   const { wss, userService } = serviceLocator
+  const random = list => list[Math.floor(Math.random() * list.length)]
 
   wss.on('register', (id, data, req) => {
     userService.create(data, async (error, user) => {
@@ -41,6 +44,27 @@ module.exports = (serviceLocator) => {
       await req.session.save()
 
       wss.emit(id, { user: cleanUser })
+    })
+  })
+
+  wss.on('mock-login', async (id, data, req) => {
+    userService.create({
+      firstName: 'Mock',
+      lastName: 'User',
+      emailAddress: `${Math.random()}@electtest.co.uk`,
+      constituency: random(constituencies).slug
+    }, async (error, user) => {
+      if (error) {
+        return wss.emit(id, {
+          errors: 'Error creating mock user. Please try again.'
+        })
+      }
+
+      req.session.user = user
+
+      await req.session.save()
+
+      wss.emit(id, { user })
     })
   })
 }

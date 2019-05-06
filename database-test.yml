@@ -2,13 +2,13 @@ config:
   target: "ws://localhost:3003"
   processor: "./load-test-functions.js"
   phases:
-    - name: "Warm up, connect users"
+    - name: "Warm up"
       duration: 1
       arrivalRate: 1
-    # - name: "Low intensity ramp up"
+    # - name: "Ramp up"
       # duration: 20
       # arrivalRate: 10
-    # - name: "Sustained max load"
+    # - name: "Maximum"
       # duration: 20
       # arrivalRate: 10
   ws:
@@ -25,7 +25,7 @@ scenarios:
       - function: "generateId"
       - send:
           id: "{{ id }}"
-          login:
+          mock-login:
             identity: "jackburgess124@gmail.com"
             password: "1234"
       - think: 1

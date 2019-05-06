@@ -60,7 +60,8 @@ module.exports = (save) => {
         defaultValue: () => []
       },
       key: {
-        type: String
+        type: String,
+        defaultValue: generateSalt
       },
       keyExpiry: {
         type: Date,
