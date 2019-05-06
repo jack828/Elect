@@ -6,11 +6,11 @@ config:
       duration: 60
       arrivalRate: 83.333
     # - name: "Ramp up"
-      # duration: 20
-      # arrivalRate: 10
+      # duration: 60 * 5
+      # arrivalRate: 316
     # - name: "Maximum"
       # duration: 20
-      # arrivalRate: 10
+      # arrivalRate: 33250
   ws:
     rejectUnauthorized: false
     subprotocols: json
