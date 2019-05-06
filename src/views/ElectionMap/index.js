@@ -50,7 +50,7 @@ class ElectionMap extends Component {
     return party.colour
   }
 
-  handleVote({ constituencySlug, party }) {
+  handleVote({ vote: { constituencySlug, party } }) {
     if (!this.votes[constituencySlug]) {
       this.votes[constituencySlug] = {}
     }
