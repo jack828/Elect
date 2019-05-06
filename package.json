@@ -34,6 +34,7 @@
     "@coreui/icons": "0.3.0",
     "@coreui/react": "^2.1.1",
     "@svgr/webpack": "2.4.1",
+    "artillery": "^1.6.0-28",
     "babel-eslint": "^10.0.1",
     "babel-jest": "23.6.0",
     "babel-loader": "^8.0.5",

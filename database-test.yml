@@ -1,23 +1,45 @@
 config:
   target: "ws://localhost:3003"
+  processor: "./load-test-functions.js"
   phases:
     - name: "Warm up, connect users"
-      duration: 20
-      arrivalRate: 10
-    - name: "Low intensity ramp up"
-      duration: 20
-      arrivalRate: 10
-    - name: "Sustained max load"
-      duration: 20
-      arrivalRate: 10
+      duration: 1
+      arrivalRate: 1
+    # - name: "Low intensity ramp up"
+      # duration: 20
+      # arrivalRate: 10
+    # - name: "Sustained max load"
+      # duration: 20
+      # arrivalRate: 10
   ws:
     rejectUnauthorized: false
     subprotocols: json
     headers:
-      Host: "http://localhost:3000"
+      Origin: "http://localhost:3000"
 
 scenarios:
   - engine: "ws"
     flow:
+      - function: "initListeners"
+
+      - function: "generateId"
       - send:
-          "dashboard:load": ""
+          id: "{{ id }}"
+          login:
+            identity: "jackburgess124@gmail.com"
+            password: "1234"
+      - think: 1
+      - function: "generateId"
+      - function: "selectParty"
+      - send:
+          id: "{{ id }}"
+          "dashboard:load":
+            key: "{{ received.user.key }}"
+      - think: 5
+      - send:
+          id: "{{ id }}"
+          "vote:cast":
+            electionId: "{{ received.election._id }}"
+            partyId: "{{ party }}"
+            key: "{{ received.user.key }}"
+      - think: 10
