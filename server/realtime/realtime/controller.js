@@ -6,6 +6,7 @@ module.exports = (serviceLocator) => {
   logger.info('Init realtime server')
 
   const wss = new WebSocket.Server({
+    perMessageDeflate: false,
     verifyClient: ({ origin, req }, done) => {
       logger.debug('Websocket verifyClient', origin)
 
