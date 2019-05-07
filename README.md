@@ -29,5 +29,29 @@ $ NODE_ENV=development yarn start:server
 
 ## Deployment
 
-// TODO
- - One command to run built site & API
+### Dockerfile
+
+To run server instance:
+
+```
+$ docker run \
+  --name elect \
+  -d \
+  -p 3003:3003 \
+  -e database=mongo \
+  -e MONGO_URI='mongodb://something:port/elect'
+```
+
+Set `database` to either `mongo` or `couchbase`. For couchbase, use `COUCHBASE_URI`.
+
+### Tests
+
+Clone the repo & install dependencies.
+
+Run the benchmark:
+```
+$ USE_MULTICORE=true ARTILLERY_WORKERS=2 artillery run load-test-config.yml -o loadtest && artillery report loadtest
+```
+
+
+Comment out phases in `load-test-config.yml` for a shorter test.
