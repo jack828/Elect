@@ -13,3 +13,9 @@ db
     election: 1,
     user: 1
   })
+
+db
+  .getCollection('user')
+  .ensureIndex({
+    emailAddress: 1
+  })
