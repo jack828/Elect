@@ -62,7 +62,6 @@ export default (state = initialState, action) => {
     case REGISTER_FORM_SUCCESS:
       return state.merge({
         registered: true,
-        register: null,
         user: action.user
       })
     case REGISTER_FORM_FAILURE:
