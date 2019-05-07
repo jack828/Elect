@@ -3,11 +3,11 @@ const AUTHENTICATION_ERROR = 'AUTHENTICATION_ERROR'
 module.exports = (serviceLocator) => {
   const { wss, electionService } = serviceLocator
 
-  wss.on('dashboard:load', async (id, data, req) => {
+  wss.on('dashboard:load', async (id, data, client) => {
     const election = await electionService.findActive()
     const { key } = data
 
-    const { user } = req.session
+    const { user } = client.session
     const notLoggedIn = !user
     const incorrectKey = !notLoggedIn && user.key !== key
     const keyExpired = !notLoggedIn && new Date() > user.keyExpiry

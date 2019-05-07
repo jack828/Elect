@@ -11,9 +11,9 @@ module.exports = (serviceLocator) => {
     wss.broadcast('vote:cast', { vote: anonymisedVote })
   })
 
-  wss.on('vote:load', async (id, data, req) => {
+  wss.on('vote:load', async (id, data, client) => {
     const { electionId, key } = data
-    const { user } = req.session
+    const { user } = client.session
 
     if (!key || !user || user.key !== key) {
       return wss.emit(id, { error: 'Authentication error' })
@@ -33,9 +33,9 @@ module.exports = (serviceLocator) => {
     wss.emit(id, { vote })
   })
 
-  wss.on('vote:cast', async (id, data, req) => {
+  wss.on('vote:cast', async (id, data, client) => {
     const { electionId, partyId, key } = data
-    const { user } = req.session
+    const { user } = client.session
 
     if (!key || !user || user.key !== key) {
       return wss.emit(id, { error: 'Authentication error' })

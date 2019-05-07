@@ -5,4 +5,4 @@ const init = (serviceLocator, done) => {
   done()
 }
 
-module.exports = () => ({ realtime: [ 'database', 'session', init ] })
+module.exports = () => ({ realtime: [ 'database', init ] })

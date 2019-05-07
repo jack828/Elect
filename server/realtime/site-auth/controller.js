@@ -4,7 +4,7 @@ module.exports = (serviceLocator) => {
   const { wss, userService } = serviceLocator
   const random = list => list[Math.floor(Math.random() * list.length)]
 
-  wss.on('register', (id, data, req) => {
+  wss.on('register', (id, data, client) => {
     userService.create(data, async (error, user) => {
       if (error) {
         if (error.errors) {
@@ -16,15 +16,13 @@ module.exports = (serviceLocator) => {
 
       const { password, passwordSalt, previousPasswords, ...cleanUser } = user
 
-      req.session.user = cleanUser
-
-      await req.session.save()
+      client.session.user = cleanUser
 
       wss.emit(id, { user: cleanUser })
     })
   })
 
-  wss.on('login', (id, data, req) => {
+  wss.on('login', (id, data, client) => {
     userService.authenticate(data, async (error, user) => {
       if (error) {
         // TODO fix this bit, messages aren't right - error.message
@@ -39,15 +37,13 @@ module.exports = (serviceLocator) => {
 
       const { password, passwordSalt, previousPasswords, ...cleanUser } = user
 
-      req.session.user = cleanUser
-
-      await req.session.save()
+      client.session.user = cleanUser
 
       wss.emit(id, { user: cleanUser })
     })
   })
 
-  wss.on('mock-login', async (id, data, req) => {
+  wss.on('mock-login', async (id, data, client) => {
     userService.create({
       firstName: 'Mock',
       lastName: 'User',
@@ -60,9 +56,7 @@ module.exports = (serviceLocator) => {
         })
       }
 
-      req.session.user = user
-
-      await req.session.save()
+      client.session.user = user
 
       wss.emit(id, { user })
     })

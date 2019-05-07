@@ -2,20 +2,16 @@ const WebSocket = require('ws')
 const uuidv4 = require('uuid/v4')
 
 module.exports = (serviceLocator) => {
-  const { config, logger, sessionParser, httpServer } = serviceLocator
+  const { config, logger, httpServer } = serviceLocator
   logger.info('Init realtime server')
 
   const wss = new WebSocket.Server({
     perMessageDeflate: false,
-    verifyClient: ({ origin, req }, done) => {
+    verifyClient: ({ origin }, done) => {
       logger.debug('Websocket verifyClient', origin)
 
       if (origin !== config.clientUrl) return done(false, 400, 'Bad client')
-
-      sessionParser(req, {}, (err) => {
-        if (err) return done(false, 500, 'Server error')
-        done(true)
-      })
+      done(true)
     },
     server: httpServer
   })
@@ -29,8 +25,13 @@ module.exports = (serviceLocator) => {
     })
   }
 
-  wss.on('connection', (client, req) => {
+
+  wss.on('connection', (client) => {
     client.id = uuidv4()
+    client.session = {
+      id: client.id
+    }
+
     logger.info('Client connect', client.id)
 
     const handleMessage = (raw) => {
@@ -53,7 +54,7 @@ module.exports = (serviceLocator) => {
         })
 
         // Trigger handler(s)
-        wss.emit(key, id, data[key], req)
+        wss.emit(key, id, data[key], client)
       })
     }
 
