@@ -35,8 +35,9 @@ const envProperties = {
     }
   },
   production: {
-    clientUrl: 'https://elect-project.herokuapp.com',
-    url: 'https://elect-project.herokuapp.com',
+    clientUrl: 'http://localhost:3000',
+    url: 'localhost',
+    port: 3003,
     database: 'mongo',
     databaseConfig: {
       mongo: 'mongodb://localhost:27017/elect-development',
