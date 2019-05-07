@@ -1,5 +1,6 @@
 const serviceLocator = require('service-locator')()
 const bunyan = require('bunyan')
+const noopLogger = require('mc-logger')
 const UberCache = require('uber-cache')
 
 const createConfig = require('./config')
@@ -10,17 +11,21 @@ const inDevelopmentMode = env === 'development'
 // Only have debug logging on development
 const logLevel = process.env.LOG_LEVEL || (inDevelopmentMode ? 'debug' : 'info')
 
-serviceLocator
-  .register('env', env)
-  .register('cache', new UberCache())
-  .register('config', createConfig(env))
-  .register('logger', bunyan.createLogger({
+const logger = process.env.DISABLE_LOGGING
+  ? noopLogger
+  : bunyan.createLogger({
     name: 'site',
     streams: [ {
       stream: process.stdout,
       level: logLevel
     } ]
-  }))
+  })
+
+serviceLocator
+  .register('env', env)
+  .register('cache', new UberCache())
+  .register('config', createConfig(env))
+  .register('logger', logger)
 
 const port = process.env.PORT || serviceLocator.config.port
 
