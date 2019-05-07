@@ -4,7 +4,7 @@ import createDebug from 'debug'
 
 const WEBSOCKET_URL = process.env.NODE_ENV !== 'production'
   ? 'ws://localhost:3003'
-  : `wss://${window.location.host}`
+  : `ws://${window.location.host}`
 
 const debug = createDebug('websocket')
 

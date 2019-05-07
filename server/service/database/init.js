@@ -7,8 +7,7 @@ const init = (serviceLocator, done) => {
     couchbase: createCouchbase(serviceLocator)
   }
 
-  const { databaseConfig } = serviceLocator.config
-  const database = process.env.DATABASE_OVERRIDE || serviceLocator.config.database
+  const { database, databaseConfig } = serviceLocator.config
 
   if (database === undefined) {
     done(new Error('You must provide a database selection in config.database or process.env.DATABASE_OVERRIDE'))

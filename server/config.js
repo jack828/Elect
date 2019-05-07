@@ -1,3 +1,13 @@
+// For docker
+const {
+  CLIENT_URL,
+  URL,
+  PORT,
+  DATABASE,
+  MONGO_URI,
+  COUCHBASE_URI
+} = process.env
+
 const baseProperties = {
   passwordResetPolicy: {
     numDaysBetweenResets: 90
@@ -35,16 +45,13 @@ const envProperties = {
     }
   },
   production: {
-    clientUrl: 'http://localhost:3000',
-    url: 'localhost',
-    port: 3003,
-    database: 'mongo',
+    clientUrl: CLIENT_URL || 'http://localhost:3003',
+    url: URL || 'localhost',
+    port: PORT || 3003,
+    database: DATABASE || 'mongo',
     databaseConfig: {
-      mongo: 'mongodb://localhost:27017/elect-development',
-      couchbase: {
-        url: 'couchbase://localhost:11210',
-        database: 'elect-development'
-      }
+      mongo: MONGO_URI || 'mongodb://192.168.0.42:27017/elect-development',
+      couchbase: COUCHBASE_URI || 'couchbase://localhost:11210'
     }
   }
 }
