@@ -51,7 +51,9 @@ module.exports = (serviceLocator) => {
 
         // Send response
         wss.once(id, (response) => {
-          client.send(JSON.stringify({ [id]: response }))
+          if (client.readyState === client.OPEN) {
+            client.send(JSON.stringify({ [id]: response }))
+          }
         })
 
         // Trigger handler(s)
