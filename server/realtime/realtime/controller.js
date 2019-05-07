@@ -23,7 +23,9 @@ module.exports = (serviceLocator) => {
 
   wss.broadcast = (key, data) => {
     wss.clients.forEach((client) => {
-      client.send(JSON.stringify({ [key]: data }))
+      if (client.readyState === client.OPEN) {
+        client.send(JSON.stringify({ [key]: data }))
+      }
     })
   }
 
