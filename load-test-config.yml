@@ -8,9 +8,9 @@ config:
     - name: "Warm up"
       duration: 60
       arrivalCount: 5000
-    # - name: "Ramp up"
-      # duration: 60 * 5
-      # arrivalRate: 316
+    - name: "Ramp up"
+      duration: 300 # 5 minutes
+      arrivalCount: 95000
     # - name: "Maximum"
       # duration: 20
       # arrivalRate: 33250
