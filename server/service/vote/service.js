@@ -36,7 +36,7 @@ module.exports = (serviceLocator) => {
   service.findOne = save.findOne
 
   // TODO might need to be database specific aggregation
-  service.getVotes = async (electionId) => {
+  const getVotes = async (electionId, cb) => {
     const [ rawVotes, election ] = await Promise.all([
       await promisify(service.find)({ election: electionId }),
       await promisify(readElection)(electionId)
@@ -52,7 +52,7 @@ module.exports = (serviceLocator) => {
     }), { null: 0 })
 
     // This is unsorted data
-    return rawVotes.reduce((votes, { party, constituencySlug }) => {
+    const totalVotes = rawVotes.reduce((votes, { party, constituencySlug }) => {
       if (!votes[constituencySlug]) {
         votes[constituencySlug] = { ...initialTotals }
       }
@@ -64,7 +64,19 @@ module.exports = (serviceLocator) => {
       votes[constituencySlug][partyId]++
       return votes
     }, {})
+
+    cb(null, totalVotes)
   }
+
+  const getVotesCached = memoize(
+    'getVotes',
+    cache
+  )(
+    getVotes,
+    5 * 1000 // 5s
+  )
+
+  service.getVotes = promisify(getVotesCached)
 
   service.findVote = ({ user, election }) => new Promise(async (resolve, reject) => {
     let vote
