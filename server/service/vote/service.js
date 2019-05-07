@@ -31,14 +31,6 @@ module.exports = (serviceLocator) => {
     60 * 60 * 1000 // 1 hour
   )
 
-  const readParty = memoize(
-    'readParty',
-    cache
-  )(
-    partyService.read,
-    60 * 60 * 1000 // 1 hour
-  )
-
   service.search = createSearch(service)
 
   service.findOne = save.findOne
