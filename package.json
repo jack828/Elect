@@ -20,7 +20,7 @@
     "test": "node scripts/test.js",
     "test:cov": "node scripts/test.js --coverage",
     "test:debug": "react-scripts --inspect-brk test --runInBand",
-    "load-test": "rm -f testoutput.html testoutput && artillery run database-test.yml -o testoutput -q && artillery report testoutput",
+    "load-test": "rm -f loadtest.html loadtest && USE_MULTICORE=true ARTILLERY_WORKERS=2 artillery run load-test-config.yml -o loadtest && artillery report loadtest",
     "tidy": "rm -rf dist build"
   },
   "dependencies": {
