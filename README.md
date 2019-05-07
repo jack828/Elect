@@ -11,8 +11,6 @@ This project requires Node v10 & Yarn v1.
 $ yarn install
 ```
 
-A MongoDB database running on port 27017 is also required.
-
 ## Development
 
 Run the admin panel:
@@ -26,6 +24,8 @@ Run the API:
 ```bash
 $ NODE_ENV=development yarn start:server
 ```
+
+By default, it will look for a MongoDB database on 27017.
 
 ## Deployment
 
