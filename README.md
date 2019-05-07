@@ -38,13 +38,33 @@ $ docker run \
   --name elect \
   -d \
   -p 3003:3003 \
-  -e database=mongo \
+  -e DATABASE=mongo \
   -e MONGO_URI='mongodb://something:port/elect'
 ```
 
 Set `database` to either `mongo` or `couchbase`. For couchbase, use `COUCHBASE_URI`.
 
 For full list of env variables, see [config.js](server/config.js) and defaults also in [Dockerfile](./Dockerfile).
+
+### Database
+
+#### MongoDB
+
+Use `DATABASE=mongo` and set `MONGO_URI`.
+
+To initialise database, run the script:
+
+```
+$ mongo elect server/support/database/mongo/initialise.js
+```
+
+This sets up required indexes, and adds an admin user `admin@elect.dev:123456789`, and sets up the election model.
+
+### Generate a couple votes
+
+Endpoints are available at:
+
+`/generate-votes-slow/:count` - to generate a fixed `count` of random votes
 
 ### Tests
 

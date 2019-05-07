@@ -7,7 +7,7 @@ ENV NODE_ENV=production
 ENV DATABASE=mongo
 ENV URL=localhost
 ENV PORT=3003
-ENV MONGO_URI=mongodb://192.168.0.42:27017/elect-development
+ENV MONGO_URI=mongodb://192.168.0.42:27017/elect
 ENV COUCHBASE_URI=couchbase://localhost:11210
 
 COPY package.json yarn.lock ./
