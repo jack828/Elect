@@ -44,6 +44,8 @@ $ docker run \
 
 Set `database` to either `mongo` or `couchbase`. For couchbase, use `COUCHBASE_URI`.
 
+For full list of env variables, see [config.js](server/config.js) and defaults also in [Dockerfile](./Dockerfile).
+
 ### Tests
 
 Clone the repo & install dependencies.
@@ -54,4 +56,4 @@ $ USE_MULTICORE=true ARTILLERY_WORKERS=2 artillery run load-test-config.yml -o l
 ```
 
 
-Comment out phases in `load-test-config.yml` for a shorter test.
+Comment out phases in [load-test-config.yml](./load-test-config.yml) for a shorter test.
