@@ -21,6 +21,10 @@ function initListeners(userContext, events, done) {
       // key is request ID, data[key] is data from the request
       Object.keys(data[id])
         // Only persist relevant information
+      // TODO this context is for ALL workers, not just the current one, so
+      // nest the user key within an object or something that can be referenced by
+      // each individual worker
+      // TODO only persist _id
         .filter(key => [ 'election', 'user' ].includes(key))
         .map((key) => {
           userContext.vars.received[key] = data[id][key]
