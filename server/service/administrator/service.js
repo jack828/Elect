@@ -41,25 +41,6 @@ module.exports = (serviceLocator) => {
     }
   }
 
-  const lookupKey = (id, cb) => {
-    save.find({ _id: id },
-      {},
-      (err, administrators) => {
-        if (err) {
-          return cb(err)
-        }
-
-        if (administrators.length > 1) {
-          return cb(new Error('Multiple key match. This is a potential security risk.'))
-        }
-
-        if ((administrators[0]) && (administrators[0].key)) {
-          return cb(null, administrators[0].key)
-        }
-        return cb(null, undefined)
-      })
-  }
-
   const authenticate = (credentials, callback) => {
     if (credentials.identity) credentials.identity = credentials.identity.toLowerCase()
     save.findOne({ emailAddress: credentials.identity }, (err, administrator) => {
@@ -113,7 +94,6 @@ module.exports = (serviceLocator) => {
   service.pre('partialUpdate', emailLowerCaser)
   service.pre('partialUpdate', passwordHasher)
 
-  service.lookupKey = lookupKey
   service.authenticate = authenticate
   service.createHash = createHash
 
