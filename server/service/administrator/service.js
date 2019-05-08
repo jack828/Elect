@@ -2,7 +2,6 @@ const crudService = require('crud-service')
 const createSearch = require('cf-text-search')
 
 const createSchema = require('./schema')
-const isPasswordResetRequired = require('./lib/is-password-reset-required')
 const createHasher = require('./lib/hasher')
 const createBruteForcePreventer = require('./lib/brute-force-preventer')
 
@@ -34,13 +33,6 @@ module.exports = (serviceLocator) => {
           if (err) return callback(err)
 
           administrator.password = hash
-          if (!administrator.previousPasswords) {
-            administrator.previousPasswords = []
-          }
-          if (administrator.previousPasswords.length === 3) {
-            administrator.previousPasswords.pop()
-          }
-          administrator.previousPasswords.unshift(hash)
           callback(null, administrator)
         })
       } else {
@@ -50,7 +42,6 @@ module.exports = (serviceLocator) => {
   }
 
   const lookupKey = (id, cb) => {
-    // TODO: Some caching could go here to save a DB lookup
     save.find({ _id: id },
       {},
       (err, administrators) => {
@@ -123,17 +114,7 @@ module.exports = (serviceLocator) => {
             // Rather a nasty hack to reuse salt generator.
             // Really schema should have the function tacked on.
             administrator.key = schema.getProperties().passwordSalt.defaultValue()
-
-            save.update({
-              _id: administrator._id,
-              key: administrator.key
-            }, (updateErr) => {
-              if (updateErr) {
-                return callback(updateErr)
-              }
-              administrator.requirePasswordReset = isPasswordResetRequired(administrator)
-              return callback(null, administrator)
-            })
+            save.update(administrator, callback)
           })
         })
       })

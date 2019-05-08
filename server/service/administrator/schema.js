@@ -2,8 +2,6 @@ const schemata = require('schemata')
 const required = require('validity-required')
 const isEmail = require('validity-email')
 const crypto = require('crypto')
-const moment = require('moment')
-const config = require('../../config')(process.env.NODE_ENV || 'development')
 
 module.exports = (save) => {
   const generateSalt = () => {
@@ -54,17 +52,6 @@ module.exports = (save) => {
       passwordSalt: {
         type: String,
         defaultValue: generateSalt
-      },
-      passwordResetDate: {
-        type: Date,
-        defaultValue: () => {
-          const numDaysBetweenPasswordResets = config.passwordResetPolicy.numDaysBetweenReset
-          return moment().add(numDaysBetweenPasswordResets, 'days').toDate()
-        }
-      },
-      previousPasswords: {
-        type: Array,
-        defaultValue: () => []
       },
       key: {
         type: String

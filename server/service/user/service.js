@@ -3,6 +3,7 @@ const createSearch = require('cf-text-search')
 
 const createSchema = require('./schema')
 const createHasher = require('../administrator/lib/hasher')
+const generateSalt = require('../administrator/lib/generate-salt')
 
 module.exports = (serviceLocator) => {
   const save = serviceLocator.persistence('user')
@@ -31,13 +32,6 @@ module.exports = (serviceLocator) => {
           if (err) return callback(err)
 
           user.password = hash
-          if (!user.previousPasswords) {
-            user.previousPasswords = []
-          }
-          if (user.previousPasswords.length === 3) {
-            user.previousPasswords.pop()
-          }
-          user.previousPasswords.unshift(hash)
           callback(null, user)
         })
       } else {
@@ -67,11 +61,8 @@ module.exports = (serviceLocator) => {
           return callback(new Error('Wrong Email and password combination.'), credentials)
         }
 
-        // Every time a user authenticate create a session key.
-        // Rather a nasty hack to reuse salt generator.
-        // Really schema should have the function tacked on.
-        user.key = schema.getProperties().passwordSalt.defaultValue()
-        user.keyExpiry = schema.getProperties().keyExpiry.defaultValue()
+        user.key = generateSalt()
+        user.keyExpiry = generateSalt()
 
         save.update({
           _id: user._id,

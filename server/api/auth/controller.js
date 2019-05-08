@@ -17,9 +17,6 @@ module.exports = (serviceLocator) => {
       const {
         password,
         passwordSalt,
-        previousPasswords,
-        twoFaKey,
-        twoFaChallengeDates,
         ...cleanAdmin
       } = administrator
       res.status(200).json(cleanAdmin)

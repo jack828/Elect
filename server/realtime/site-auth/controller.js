@@ -14,7 +14,7 @@ module.exports = (serviceLocator) => {
         return wss.emit(id, { errors: 'Something unexpected occured, please try again later' })
       }
 
-      const { password, passwordSalt, previousPasswords, ...cleanUser } = user
+      const { password, passwordSalt, ...cleanUser } = user
 
       client.session.user = cleanUser
 
@@ -35,7 +35,7 @@ module.exports = (serviceLocator) => {
         })
       }
 
-      const { password, passwordSalt, previousPasswords, ...cleanUser } = user
+      const { password, passwordSalt, ...cleanUser } = user
 
       client.session.user = cleanUser
 

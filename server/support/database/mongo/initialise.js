@@ -1,4 +1,7 @@
 /* global db, ObjectId, ISODate */
+
+db.dropDatabase()
+
 db.getCollection('administrator').ensureIndex({
   firstName: 'text',
   lastName: 'text',
@@ -21,18 +24,9 @@ db.getCollection('administrator').insertOne({
   emailAddress: 'admin@elect.dev',
   password: '$2a$10$HszGIf5q2.k1k1cZOb.rZOrdk.xli4MbUmSCsCZYY0D5QJTDiu6bu',
   passwordSalt: 'afbb96ae65e809c68abe138d0e2b7333d1684856',
-  passwordResetDate: ISODate('2019-02-10T13:15:10.474Z'),
-  previousPasswords: [
-    '$2a$10$EqVvjkbruFuwdlVBXtQfX.88VFtHR/CleyjrEzwv.CY8enDwnStb6'
-  ],
   key: 'b0bf99d9f04017a1ec2a07bad6cb2b29181b52ee',
   keyExpiry: null,
-  twoFaEnabled: false,
-  twoFaKey: 'J4XVUOCMKFVU26CC',
-  twoFaChallengeDates: {},
-  role: 'root',
   enabled: true,
-  account: '5b72d729b65c9040e6d0f62b',
   failedLoginAttempts: 0,
   nextAllowedLoginAttemptDate: null,
   createdDate: ISODate('2018-08-14T13:15:10.476Z')

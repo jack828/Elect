@@ -9,9 +9,6 @@ const {
 } = process.env
 
 const baseProperties = {
-  passwordResetPolicy: {
-    numDaysBetweenResets: 90
-  },
   // TODO change when password resets are done
   adminHashType: 'bcrypt',
   adminMaxLoginAttempts: 10,
