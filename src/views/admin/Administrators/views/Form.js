@@ -81,26 +81,6 @@ class Form extends BaseFormView {
 
         <FormGroup row>
           <Col md="3">
-            <Label htmlFor="role">Role</Label>
-          </Col>
-          <Col xs="12" md="9">
-            <Input
-              type="select"
-              name="role"
-              id="role"
-              onChange={this.handleChange}
-              value={data.role}
-            >
-              <option> -- Please select --</option>
-              <option value="root">Root</option>
-              <option value="staff">Staff</option>
-              <option value="auditor">Auditor</option>
-            </Input>
-          </Col>
-        </FormGroup>
-
-        <FormGroup row>
-          <Col md="3">
             <Label>Enabled?</Label>
           </Col>
           <Col md="9">

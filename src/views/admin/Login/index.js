@@ -58,7 +58,6 @@ class Login extends Component {
         if (data.key) {
           window.localStorage.setItem('apiKey', data.key)
           window.localStorage.setItem('apiId', data._id)
-          window.localStorage.setItem('aclRoles', data.roles)
           window.localStorage.setItem('firstName', data.firstName)
           this.props.history.push('/admin')
           return

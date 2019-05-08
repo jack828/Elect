@@ -59,10 +59,6 @@ module.exports = (save) => {
       keyExpiry: {
         type: Date
       },
-      role: {
-        type: String,
-        tag: [ 'update' ]
-      },
       enabled: {
         type: Boolean
       },

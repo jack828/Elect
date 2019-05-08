@@ -60,28 +60,6 @@ module.exports = (serviceLocator) => {
       })
   }
 
-  const createFirst = (administrator, callback) => {
-    save.count({}, (error, count) => {
-      if (error) {
-        return callback(error)
-      }
-
-      // This is only allowed if there is no administrators in the system
-      if (count > 0) {
-        return callback(new Error('Only available when no administrators exist'))
-      }
-
-      serviceLocator.roleService.createRootRole((roleError) => {
-        if (roleError) return callback(roleError)
-
-        // This give access to everything
-        administrator.roles = [ 'root' ]
-
-        service.create(administrator, callback)
-      })
-    })
-  }
-
   const authenticate = (credentials, callback) => {
     if (credentials.identity) credentials.identity = credentials.identity.toLowerCase()
     save.findOne({ emailAddress: credentials.identity }, (err, administrator) => {
@@ -138,7 +116,6 @@ module.exports = (serviceLocator) => {
   service.lookupKey = lookupKey
   service.authenticate = authenticate
   service.createHash = createHash
-  service.createFirst = createFirst
 
   service.search = createSearch(service)
 

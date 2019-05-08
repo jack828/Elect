@@ -71,22 +71,6 @@ export default {
           icon: 'icon-list'
         }
       ]
-    },
-    {
-      name: 'Roles',
-      icon: 'fa fa-ban',
-      children: [
-        {
-          name: 'New Role',
-          url: '/admin/roles/new',
-          icon: 'icon-note'
-        },
-        {
-          name: 'View Roles',
-          url: '/admin/roles/list',
-          icon: 'icon-list'
-        }
-      ]
     }
   ]
 }

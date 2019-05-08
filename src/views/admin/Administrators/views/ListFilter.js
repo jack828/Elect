@@ -30,26 +30,6 @@ class FilterView extends BaseFilterView {
 
         <FormGroup row>
           <Col xs="12">
-            <Label htmlFor="role">Role</Label>
-          </Col>
-          <Col xs="12">
-            <Input
-              type="select"
-              name="role"
-              id="role"
-              onChange={this.handleChange}
-              defaultValue={filter.role}
-            >
-              <option value={null}> -- Please select --</option>
-              <option value="root">Root</option>
-              <option value="staff">Staff</option>
-              <option value="auditor">Auditor</option>
-            </Input>
-          </Col>
-        </FormGroup>
-
-        <FormGroup row>
-          <Col xs="12">
             <Label>Enabled?</Label>
           </Col>
           <Col xs="12">

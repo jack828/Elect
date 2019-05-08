@@ -23,7 +23,6 @@ class ListItemView extends BaseComponentView {
         <td>{data.firstName}</td>
         <td>{data.lastName}</td>
         <td>{data.emailAddress}</td>
-        <td>{data.role}</td>
         <td>
           <Badge color={data.enabled ? 'success' : 'data'}>
             {data.enabled ? 'enabled' : 'disabled'}
