@@ -37,6 +37,7 @@ To run server instance:
 $ docker run \
   --name elect \
   -d \
+  --ulimit nofile=1048576:1048576 \
   -p 3003:3003 \
   -e DATABASE=mongo \
   -e MONGO_URI='mongodb://something:port/elect'
