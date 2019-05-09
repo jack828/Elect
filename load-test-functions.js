@@ -13,17 +13,16 @@ const mockSl = {
   }
 }
 
-async function selectParty(userContext, events, done) {
+async function selectParty(context, events, done) {
   const randomParty = await createRandomParty(mockSl)
-  userContext.vars.party = randomParty()
+  context.vars.party = randomParty()
   return done()
 }
 
-function generateId(userContext, events, done) {
-  userContext.vars.id = hat()
+function generateId(context, events, done) {
+  context.vars.id = hat()
   return done()
 }
-
 
 module.exports = {
   selectParty,
