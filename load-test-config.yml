@@ -23,27 +23,24 @@ config:
 scenarios:
   - engine: "ws"
     flow:
-      - function: "initListeners"
-
       - function: "generateId"
       - send:
           id: "{{ id }}"
           mock-login:
             identity: "jack@jackburgess.dev"
             password: "elect"
-      # - think: 2
-      # - send:
-          # id: "{{ id }}"
-          # "dashboard:load":
-            # key: "{{ received.user.key }}"
+      - think: 2
+      - send:
+          id: "{{ id }}"
+          "dashboard:load":
+            key: "load-test-mock-key"
       - think: 5
       - function: "selectParty"
       - send:
           id: "{{ id }}"
           "vote:cast":
             electionId: "5c5df895fde2504c5eaa2301"
-            # electionId: "{{ received.election._id }}"
             partyId: "{{ party }}"
-            key: "{{ received.user.key }}"
-      - think: 60
+            key: "load-test-mock-key"
+      - think: 5
 

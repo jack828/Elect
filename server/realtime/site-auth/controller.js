@@ -25,7 +25,6 @@ module.exports = (serviceLocator) => {
   wss.on('login', (id, data, client) => {
     userService.authenticate(data, async (error, user) => {
       if (error) {
-        // TODO fix this bit, messages aren't right - error.message
         if (error.errors) {
           return wss.emit(id, { errors: error.errors })
         }
@@ -48,7 +47,9 @@ module.exports = (serviceLocator) => {
       firstName: 'Mock',
       lastName: 'User',
       emailAddress: `${Math.random()}@electtest.co.uk`,
-      constituency: random(constituencies).slug
+      password: `${Math.random()}`,
+      constituency: random(constituencies).slug,
+      key: 'load-test-mock-key'
     }, async (error, user) => {
       if (error) {
         return wss.emit(id, {

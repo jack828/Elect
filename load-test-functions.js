@@ -13,27 +13,6 @@ const mockSl = {
   }
 }
 
-function initListeners(userContext, events, done) {
-  userContext.vars.received = {}
-  userContext.ws.on('message', (raw) => {
-    const data = JSON.parse(raw)
-    Object.keys(data).map((id) => {
-      // key is request ID, data[key] is data from the request
-      Object.keys(data[id])
-        // Only persist relevant information
-      // TODO this context is for ALL workers, not just the current one, so
-      // nest the user key within an object or something that can be referenced by
-      // each individual worker
-      // TODO only persist _id
-        .filter(key => [ 'election', 'user' ].includes(key))
-        .map((key) => {
-          userContext.vars.received[key] = data[id][key]
-        })
-    })
-  })
-  done()
-}
-
 async function selectParty(userContext, events, done) {
   const randomParty = await createRandomParty(mockSl)
   userContext.vars.party = randomParty()
@@ -47,7 +26,6 @@ function generateId(userContext, events, done) {
 
 
 module.exports = {
-  initListeners,
   selectParty,
   generateId
 }
