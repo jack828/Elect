@@ -22,8 +22,8 @@ db.getCollection('administrator').insertOne({
   firstName: 'Jack',
   lastName: 'Burgess',
   emailAddress: 'admin@elect.dev',
-  password: '$2a$10$HszGIf5q2.k1k1cZOb.rZOrdk.xli4MbUmSCsCZYY0D5QJTDiu6bu',
-  passwordSalt: 'afbb96ae65e809c68abe138d0e2b7333d1684856',
+  password: '0d63e358804bc21138504dfa5eb73e02409987c7', // 1234
+  passwordSalt: '6eab157b60e4bfe5d259a7fc2bebec0de7297a55',
   key: 'b0bf99d9f04017a1ec2a07bad6cb2b29181b52ee',
   keyExpiry: null,
   enabled: true,

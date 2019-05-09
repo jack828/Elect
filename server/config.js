@@ -9,8 +9,7 @@ const {
 } = process.env
 
 const baseProperties = {
-  // TODO change when password resets are done
-  adminHashType: 'bcrypt',
+  adminHashType: 'sha1',
   adminMaxLoginAttempts: 10,
   salt: 'Retribution trainload senate.',
   osApiKey: '7ipy7Fe0nRjsWjIfB9YQAfGcZ0uNFifv',
