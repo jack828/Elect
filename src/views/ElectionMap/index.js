@@ -73,8 +73,12 @@ class ElectionMap extends Component {
 
   async loadConstituencyData() {
     // Not in redux due to size
-    this.constituencyData = await this.props.websocket.send('constituencies:load')
-    this.addConstituencyData()
+    try {
+      this.constituencyData = await this.props.websocket.send('constituencies:load')
+      this.addConstituencyData()
+    } catch (error) {
+      console.error('Error loading constituency data', error)
+    }
   }
 
   addConstituencyData() {
