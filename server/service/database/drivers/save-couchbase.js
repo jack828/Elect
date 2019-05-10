@@ -57,13 +57,11 @@ module.exports = (bucket, collectionName, { idProperty = '_id' } = {}) => {
 
   function create(object, callback) {
     callback = callback || emptyFn
-    // if id is any falsy consider it empty
     if (!object[idProperty]) {
       object[idProperty] = hat()
     }
     const id = object[idProperty]
     self.emit('create', object)
-    // TODO
     bucket.insert(id, { ...object }, (error) => {
       if (error) return callback(error)
       bucket.get(id, (err, result) => {

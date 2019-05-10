@@ -1,16 +1,16 @@
-const createMongo = require('./drivers/mongo')
-const createCouchbase = require('./drivers/couchbase')
+const createMongoDriver = require('./drivers/mongo')
+const createCouchbaseDriver = require('./drivers/couchbase')
 
 const init = (serviceLocator, done) => {
   const drivers = {
-    mongo: createMongo(serviceLocator),
-    couchbase: createCouchbase(serviceLocator)
+    mongo: createMongoDriver(serviceLocator),
+    couchbase: createCouchbaseDriver(serviceLocator)
   }
 
   const { database, databaseConfig } = serviceLocator.config
 
   if (database === undefined) {
-    done(new Error('You must provide a database selection in config.database or process.env.DATABASE_OVERRIDE'))
+    done(new Error('You must provide a database selection in config.database'))
   }
   if (databaseConfig === undefined || databaseConfig[database] === undefined) {
     done(new Error('You must provide database config in config.databaseConfig for database:', database))
@@ -19,12 +19,12 @@ const init = (serviceLocator, done) => {
     done(new Error('Unsupported database:', database))
   }
 
-  const driver = drivers[database]
+  const initialiseDriver = drivers[database]
   const databaseUrl = databaseConfig[database]
 
-  driver(databaseUrl, (error) => {
+  initialiseDriver(databaseUrl, (error) => {
     if (error) {
-      serviceLocator.logger.error(error.message, error.stack)
+      serviceLocator.logger.error(error, error.message, error.stack)
       return done(error)
     }
     serviceLocator.logger.info(`Initialised database "${database}"`)
