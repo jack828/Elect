@@ -38,7 +38,7 @@ bootstrap(serviceLocator, (error) => {
     serviceLocator.logger.error('Request Error', err.stack, req.url)
   })
 
-  serviceLocator.httpServer.listen(port, () => {
+  serviceLocator.httpServer.listen(port, serviceLocator.config.backlogLimit, () => {
     serviceLocator.server.emit('listening')
     serviceLocator.logger.info(`Listening on http://${serviceLocator.config.url}:${port}`)
   })

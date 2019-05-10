@@ -9,6 +9,7 @@ const {
 } = process.env
 
 const baseProperties = {
+  backlogLimit: 1048576,
   adminHashType: 'sha1',
   adminMaxLoginAttempts: 10,
   salt: 'Retribution trainload senate.',
