@@ -10,18 +10,17 @@ module.exports = () => schemata({
     },
     name: {
       type: String,
-      validators: { all: [ required ] }
+      validators: [ required ]
     },
     colour: {
       type: String,
-      validators: { all: [ required ] }
+      validators: [ required ]
     },
     enabled: {
       type: Boolean
     },
     createdDate: {
       type: Date,
-      validators: { all: [] },
       defaultValue: () => new Date()
     }
   }

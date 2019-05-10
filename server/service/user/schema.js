@@ -26,9 +26,9 @@ module.exports = save => schemata({
     },
     emailAddress: {
       type: String,
-      validators: {
-        all: [ required, isEmail, save ? uniqueProperty(save.findOne) : null ].filter(Boolean)
-      }
+      validators: [
+        required, isEmail, save ? uniqueProperty(save.findOne) : null
+      ].filter(Boolean)
     },
     password: {
       type: String,
