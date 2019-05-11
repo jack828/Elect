@@ -9,6 +9,7 @@ ENV URL=localhost
 ENV PORT=3003
 ENV MONGO_URI=mongodb://192.168.0.42:27017/elect
 ENV COUCHBASE_URI=couchbase://localhost:11210
+ENV WEBSOCKET_PROTOCOL=ws
 
 COPY package.json yarn.lock ./
 

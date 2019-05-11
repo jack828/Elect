@@ -2,9 +2,11 @@ import EventEmitter from 'events'
 import uuidv4 from 'uuid/v4'
 import createDebug from 'debug'
 
-const WEBSOCKET_URL = process.env.NODE_ENV !== 'production'
-  ? 'ws://localhost:3003'
-  : `ws://${window.location.host}`
+const { NODE_ENV, WEBSOCKET_PROTOCOL } = process.env
+
+const WEBSOCKET_URL = NODE_ENV !== 'production'
+  ? `${WEBSOCKET_PROTOCOL}://localhost:3003`
+  : `${WEBSOCKET_PROTOCOL}://${window.location.host}`
 
 const debug = createDebug('websocket')
 
