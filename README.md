@@ -38,6 +38,12 @@ $ docker run \
   --name elect \
   -d \
   --ulimit nofile=1048576:1048576 \
+  --sysctl fs.file-max=1048576 \
+  --sysctl net.core.somaxconn=1048576 \
+  --sysctl net.ipv4.tcp_max_syn_backlog=1048576 \
+  --sysctl net.core.netdev_max_backlog=1048576 \
+  --sysctl net.nf_conntrack_max=1048576 \
+  --sysctl net.core.netdev_budget=1048576 \
   -p 3003:3003 \
   -e DATABASE=mongo \
   -e MONGO_URI='mongodb://something:port/elect'
