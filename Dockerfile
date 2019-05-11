@@ -3,6 +3,7 @@ FROM node:10.15.0-alpine
 WORKDIR /usr/src/app
 RUN apk --no-cache add --virtual native-deps g++ gcc libgcc libstdc++ linux-headers make python
 
+ENV DATADOG_API_KEY=YOUR_API_KEY
 ENV NODE_ENV=production
 ENV DATABASE=mongo
 ENV URL=localhost

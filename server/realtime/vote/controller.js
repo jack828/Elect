@@ -2,12 +2,14 @@ module.exports = (serviceLocator) => {
   const {
     wss,
     logger,
+    metrics,
     voteService
   } = serviceLocator
 
   voteService.on('vote', (vote) => {
     const { _id, user, ...anonymisedVote } = vote
     logger.debug('Broadcasting vote')
+    metrics.increment('vote.broadcast')
     wss.broadcast('vote:cast', { vote: anonymisedVote })
   })
 
@@ -41,9 +43,12 @@ module.exports = (serviceLocator) => {
       return wss.emit(id, { error: 'Authentication error' })
     }
 
+    metrics.increment('vote.cast')
     let vote
     try {
+      const start = new Date()
       vote = await voteService.cast({ electionId, partyId, user })
+      metrics.guage('vote.cast.time', new Date() - start)
     } catch (error) {
       logger.error('Vote cast error', error)
       return wss.emit(id, { error: 'Vote cast error' })

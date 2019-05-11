@@ -46,6 +46,7 @@ $ docker run \
   --sysctl net.core.netdev_budget=1048576 \
   -p 3003:3003 \
   -e DATABASE=mongo \
+  -e DATADOG_API_KEY=YOUR_API_KEY
   -e MONGO_URI='mongodb://something:port/elect'
 ```
 

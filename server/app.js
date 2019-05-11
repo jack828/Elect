@@ -1,5 +1,6 @@
 const serviceLocator = require('service-locator')()
 const bunyan = require('bunyan')
+const datadog = require('datadog-metrics')
 const noopLogger = require('mc-logger')
 const UberCache = require('uber-cache')
 
@@ -10,6 +11,11 @@ const env = process.env.NODE_ENV || 'development'
 const inDevelopmentMode = env === 'development'
 // Only have debug logging on development
 const logLevel = process.env.LOG_LEVEL || (inDevelopmentMode ? 'debug' : 'info')
+const noopMetrics = {
+  increment() {},
+  guage() {},
+  histogram() {}
+}
 
 const logger = process.env.DISABLE_LOGGING
   ? noopLogger
@@ -20,12 +26,18 @@ const logger = process.env.DISABLE_LOGGING
       level: logLevel
     } ]
   })
+const metrics = !inDevelopmentMode
+  ? datadog
+  : noopMetrics
+
+metrics.init({ prefix: 'elect.' })
 
 serviceLocator
   .register('env', env)
   .register('cache', new UberCache())
   .register('config', createConfig(env))
   .register('logger', logger)
+  .register('metrics', metrics)
 
 const port = process.env.PORT || serviceLocator.config.port
 

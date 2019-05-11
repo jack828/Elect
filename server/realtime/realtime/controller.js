@@ -2,17 +2,11 @@ const WebSocket = require('ws')
 const uuidv4 = require('uuid/v4')
 
 module.exports = (serviceLocator) => {
-  const { config, logger, httpServer } = serviceLocator
+  const { metrics, logger, httpServer } = serviceLocator
   logger.info('Init realtime server')
 
   const wss = new WebSocket.Server({
     perMessageDeflate: false,
-    verifyClient: ({ origin }, done) => {
-      logger.debug('Websocket verifyClient', origin)
-
-      if (origin !== config.clientUrl) return done(false, 400, 'Bad client')
-      done(true)
-    },
     server: httpServer
   })
   serviceLocator.register('wss', wss)
@@ -33,9 +27,11 @@ module.exports = (serviceLocator) => {
       id: client.id
     }
 
+    metrics.increment('client.connect')
     logger.info('Client connect', client.id)
 
     const handleMessage = (raw) => {
+      metrics.increment('client.message')
       let parsed = null
       try {
         parsed = JSON.parse(raw)
@@ -45,7 +41,7 @@ module.exports = (serviceLocator) => {
       }
       const { id, ...data } = parsed
 
-      logger.info('Received', id, data)
+      logger.debug('Received', id, data)
       Object.keys(data).map((key) => {
         logger.debug('Emitting', key, id, data[key])
 
@@ -64,9 +60,12 @@ module.exports = (serviceLocator) => {
     client.on('message', handleMessage)
     client.on('error', (error) => {
       logger.info('Client error', client.id, error)
+      metrics.increment('client.disconnect')
+      metrics.increment('client.error')
       client.close()
     })
     client.on('close', () => {
+      metrics.increment('client.disconnect')
       logger.info('Client disconnect', client.id)
       client.off('message', handleMessage)
     })
