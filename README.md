@@ -65,7 +65,7 @@ To initialise database, run the script:
 $ mongo elect server/support/database/mongo/initialise.js
 ```
 
-This sets up required indexes, and adds an admin user `admin@elect.dev:123456789`, and sets up the election model.
+This sets up required indexes, and adds an admin user `admin@elect.dev:1234`, and sets up the election model.
 
 ### Generate a couple votes
 

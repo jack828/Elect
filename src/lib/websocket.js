@@ -2,11 +2,14 @@ import EventEmitter from 'events'
 import uuidv4 from 'uuid/v4'
 import createDebug from 'debug'
 
-const { NODE_ENV, WEBSOCKET_PROTOCOL } = process.env
+const { NODE_ENV } = process.env
+
+const isSecure = window.location.protocol === 'https:'
+const wsProtocol = isSecure ? 'wss' : 'ws'
 
 const WEBSOCKET_URL = NODE_ENV !== 'production'
-  ? `${WEBSOCKET_PROTOCOL}://localhost:3003`
-  : `${WEBSOCKET_PROTOCOL}://${window.location.host}`
+  ? `${wsProtocol}://localhost:3003`
+  : `${wsProtocol}://${window.location.host}`
 
 const debug = createDebug('websocket')
 
