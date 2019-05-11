@@ -73,7 +73,7 @@ module.exports = (serviceLocator) => {
     cache
   )(
     getVotes,
-    5 * 1000 // 5s
+    15 * 1000 // 15s
   )
 
   service.getVotes = promisify(getVotesCached)
