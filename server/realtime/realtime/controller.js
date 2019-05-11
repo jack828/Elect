@@ -62,6 +62,10 @@ module.exports = (serviceLocator) => {
     }
 
     client.on('message', handleMessage)
+    client.on('error', (error) => {
+      logger.info('Client error', client.id, error)
+      client.close()
+    })
     client.on('close', () => {
       logger.info('Client disconnect', client.id)
       client.off('message', handleMessage)
