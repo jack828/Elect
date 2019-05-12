@@ -7,7 +7,7 @@ module.exports = (serviceLocator) => {
   } = serviceLocator
 
   voteService.on('vote', (vote) => {
-    const { _id, user, ...anonymisedVote } = vote
+    const { _id, user, createdDate, ...anonymisedVote } = vote
     logger.debug('Broadcasting vote')
     metrics.increment('vote.broadcast')
     wss.broadcast('vote:cast', { vote: anonymisedVote })
