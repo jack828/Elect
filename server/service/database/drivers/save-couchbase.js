@@ -140,10 +140,11 @@ module.exports = (bucket, collectionName, { idProperty = '_id' } = {}) => {
         }
         return callback(getError)
       }
-      bucket.upsert(id, { ...getResult.value, ...object }, (error, res) => {
+      const updatedObject = { ...getResult.value, ...object }
+      bucket.upsert(id, updatedObject, (error) => {
         if (error) return callback(error)
 
-        const entity = objectIdToString(res.value)
+        const entity = objectIdToString(updatedObject)
         self.emit('afterUpdate', entity)
         self.emit('received', entity)
         callback(error, entity)
