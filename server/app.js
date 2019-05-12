@@ -31,7 +31,7 @@ const metrics = !inDevelopmentMode
   ? datadog
   : noopMetrics
 
-metrics.init({ prefix: 'elect.' })
+metrics.init({ host: `node-${process.pid}`, prefix: 'elect.' })
 
 serviceLocator
   .register('env', env)
