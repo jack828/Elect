@@ -3,6 +3,7 @@ const bunyan = require('bunyan')
 const datadog = require('datadog-metrics')
 const noopLogger = require('mc-logger')
 const UberCache = require('uber-cache')
+const os = require('os')
 
 const createConfig = require('./config')
 const bootstrap = require('./bootstrap')
@@ -31,7 +32,7 @@ const metrics = !inDevelopmentMode
   ? datadog
   : noopMetrics
 
-metrics.init({ host: `node-${process.pid}`, prefix: 'elect.' })
+metrics.init({ host: os.hostname(), prefix: 'elect.' })
 
 serviceLocator
   .register('env', env)
