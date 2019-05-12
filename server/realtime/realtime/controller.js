@@ -20,6 +20,10 @@ module.exports = (serviceLocator) => {
     })
   }
 
+  // Keep track of connected clients
+  setInterval(() => {
+    metrics.guage('clients.connected', wss.clients.size)
+  }, 5000)
 
   wss.on('connection', (client) => {
     client.id = uuidv4()
