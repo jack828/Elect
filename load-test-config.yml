@@ -2,18 +2,19 @@ config:
   target: "ws://elect.salvo.sh"
   processor: "./load-test-functions.js"
   phases:
-    - name: "Leak test"
-      duration: 1
-      arrivalCount: 1
-    # - name: "Warm up"
-      # duration: 60
-      # arrivalCount: 5000
-    # - name: "Ramp up"
-      # duration: 300 # 5 minutes
-      # arrivalCount: 95000
-    # - name: "Maximum"
-      # duration: 20
-      # arrivalRate: 33250
+    - name: "Warm up"
+      duration: 60
+      arrivalRate: 74
+    - name: "Ramp up"
+      duration: 60
+      arrivalRate: 74
+      rampTo: 745
+    - name: "Sustained Average"
+      duration: 60
+      arrivalRate: 745
+    - name: "Peak Load"
+      duration: 60
+      arrivalRate: 1000
   ws:
     rejectUnauthorized: false
     subprotocols: json
@@ -46,4 +47,3 @@ scenarios:
             partyId: "{{ party }}"
             key: "load-test-mock-key"
       - think: 60
-
