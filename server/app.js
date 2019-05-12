@@ -12,8 +12,9 @@ const inDevelopmentMode = env === 'development'
 // Only have debug logging on development
 const logLevel = process.env.LOG_LEVEL || (inDevelopmentMode ? 'debug' : 'info')
 const noopMetrics = {
+  init() {},
   increment() {},
-  guage() {},
+  gauge() {},
   histogram() {}
 }
 

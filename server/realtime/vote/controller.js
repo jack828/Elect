@@ -48,7 +48,7 @@ module.exports = (serviceLocator) => {
     try {
       const start = new Date()
       vote = await voteService.cast({ electionId, partyId, user })
-      metrics.guage('vote.cast.time', new Date() - start)
+      metrics.gauge('vote.cast.time', new Date() - start)
     } catch (error) {
       logger.error('Vote cast error', error)
       return wss.emit(id, { error: 'Vote cast error' })

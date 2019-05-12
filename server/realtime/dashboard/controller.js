@@ -22,7 +22,7 @@ module.exports = (serviceLocator) => {
 
     const start = new Date()
     const election = await electionService.findActive()
-    metrics.guage('election.load', new Date() - start)
+    metrics.gauge('election.load', new Date() - start)
 
     wss.emit(id, { election })
   })
