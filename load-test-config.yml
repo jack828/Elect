@@ -1,5 +1,5 @@
 config:
-  target: "ws://localhost:3003"
+  target: "wss://api-server-elect.jack828.northflank.app/"
   processor: "./load-test-functions.js"
   phases:
     - name: "Warm up"
@@ -22,9 +22,6 @@ config:
   ws:
     rejectUnauthorized: false
     subprotocols: json
-  plugins:
-    datadog:
-      prefix: 'artillery.'
 
 scenarios:
   - engine: "ws"
@@ -33,8 +30,8 @@ scenarios:
       - send:
           id: "{{ id }}"
           mock-login:
-            identity: "jack@jackburgess.dev"
-            password: "elect"
+            identity: "jack.burgess@clock.co.uk"
+            password: "test"
       - think: 5
       - send:
           id: "{{ id }}"
