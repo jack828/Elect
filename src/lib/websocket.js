@@ -41,7 +41,7 @@ class Websocket extends EventEmitter {
       const timeout = setTimeout(() => {
         debug('timeout', id)
         reject(new Error('WebSocket Timeout'))
-      }, 5000) // 5 seconds
+      }, 20000) // 20 seconds
 
       this.ws.send(JSON.stringify({
         id,
