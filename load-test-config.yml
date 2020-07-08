@@ -1,5 +1,5 @@
 config:
-  target: "wss://api-server-elect.jack828.northflank.app/"
+  target: "ws://server:3003"
   processor: "./load-test-functions.js"
   phases:
     - name: "Warm up"
