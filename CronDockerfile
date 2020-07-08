@@ -1,0 +1,12 @@
+FROM node:10.15.0-alpine
+
+WORKDIR /usr/src/app
+RUN apk --no-cache add --virtual native-deps g++ gcc libgcc libstdc++ linux-headers make python
+
+COPY package.json .
+
+RUN yarn install --production
+
+COPY . .
+
+CMD [ "node", "--optimize-for-size", "--max-old-space-size=4096", "--gc_interval=100", "server/support/database/mongo/initialise.js" ]
