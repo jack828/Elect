@@ -1,0 +1,12 @@
+FROM node:10.15.0-alpine
+
+WORKDIR /usr/src/app
+RUN apk --no-cache add --virtual native-deps g++ gcc libgcc libstdc++ linux-headers make python
+
+COPY package.json .
+
+RUN yarn add artillery
+
+COPY . .
+
+CMD [ "yarn", "run", "load-test" ]
